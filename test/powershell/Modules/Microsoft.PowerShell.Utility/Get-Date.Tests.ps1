@@ -3,9 +3,9 @@
 
 Describe "Get-Date DRT Unit Tests" -Tags "CI" {
     It "Get-Date with all parameters returns proper results" {
-        $date = [datetime]::Now + ([timespan]::new(0,0,30))
+        $date = [System.DateTime]::UtcNow.AddMinutes(30)
         $result = Get-Date -Date $date -Year 1973 -Month 2 -Day 22 -Hour 15 -Minute 40 -Second 10 -Millisecond 200
-        $result | Should -BeOfType Datetime
+        $result | Should -BeOfType System.DateTime
         $result.Year | Should -Be 1973
         $result.Month | Should -Be 2
         $result.Day | Should -Be 22
@@ -184,7 +184,8 @@ Describe "Get-Date" -Tags "CI" {
     }
 
     It "Should check that Get-Date can return the correct datetime from the system time" {
-        $timeDifference = $(Get-Date).Subtract([System.DateTime]::Now)
+        # Using UtcNow to be timezone safe.
+        $timeDifference = $(Get-Date).Subtract([datetime]::UtcNow)
 
         $timeDifference.Days         | Should -Be 0
         $timeDifference.Hours        | Should -Be 0
