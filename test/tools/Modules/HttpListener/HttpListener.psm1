@@ -341,9 +341,10 @@ Function Start-HTTPListener {
             $AsyncResponse = $ps.BeginInvoke()
             # check that it's up and running
             $out = $null
-            $startTime = Get-Date
+            $startTime = [datetime]::UtcNow
+            $timeout = [timespan]::FromSeconds(10)
             $succeeded = $false
-            while (!$succeeded -and (((Get-Date) - $startTime)).Seconds -lt 10)
+            while (!$succeeded -and [datetime]::UtcNow.Subtract($startTime) -lt $timeout)
             {
                 try
                 {

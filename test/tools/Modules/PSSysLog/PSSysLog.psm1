@@ -918,8 +918,9 @@ function Wait-UntilSuccess
         [int]$TimeoutInMilliseconds = 10000,
         [int]$IntervalInMilliseconds = 10000
         )
-    # Get the current time
-    $startTime = [System.DateTimeOffset]::Now
+
+    $timeout = [timespan]::FromMilliseconds($TimeoutInMilliseconds)
+    $startTime = [datetime]::UtcNow
 
     # Loop until the script block returns
     while ($true) {
@@ -928,8 +929,7 @@ function Wait-UntilSuccess
         }
         catch{
             # If the timeout period has passed, return false
-            $msPassed = ([System.DateTimeOffset]::Now - $startTime).TotalMilliseconds
-            if ($msPassed -gt $timeoutInMilliseconds) {
+            if ([datetime]::UtcNow.Subtract($startTime) -gt $timeout) {
                 if($LogErrorSb)
                 {
                     try { & $LogErrorSb } catch {Write-Verbose "Logging of Error details failed with: $_" -Verbose}
@@ -1058,7 +1058,7 @@ function Wait-PSWinEvent
         $propertyValue,
 
         [Parameter()]
-        $timeout = 30,
+        [timespan]$timeout = [timespan]::FromSeconds(30),
 
         [Parameter()]
         $pause = 1,

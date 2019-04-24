@@ -63,7 +63,7 @@ Describe "Cdxml cmdlets are supported" -Tag CI,RequireAdminOnWindows {
         # this date is simply the same one used in the test mof
         # the minutes must be padded to 3 digits proceeded by a '+' or '-'
         # when east of UTC 0 we must add a '+'
-        $offsetMinutes = ($currentTimeZone.GetUtcOffset([datetime]::new(2008, 01, 01, 0, 0, 0))).TotalMinutes
+        $offsetMinutes = ($currentTimeZone.GetUtcOffset([datetime]::new(2008, 1, 1, 0, 0, 0))).TotalMinutes
         $UTCOffset = "{0:+000;-000}" -f $offsetMinutes
         $testMof = $testMof.Replace("<UTCOffSet>", $UTCOffset)
         Set-Content -Path $testDrive\testmof.mof -Value $testMof
@@ -132,7 +132,7 @@ Describe "Cdxml cmdlets are supported" -Tag CI,RequireAdminOnWindows {
         }
 
         It "The Get-CimTest cmdlet should retrieve an object by datetime" @ItSkipOrPending {
-            $result = Get-CimTest -DateTime ([datetime]::new(2008,01,01,0,0,0))
+            $result = Get-CimTest -DateTime ([datetime]::new(2008, 1, 1, 0, 0, 0))
             @($result).Count | Should -Be 1
             $result.field1 | Should -Be "instance 1"
         }

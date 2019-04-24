@@ -4,17 +4,18 @@ function Wait-UntilTrue
 {
     [CmdletBinding()]
     param (
-        [ScriptBlock]$sb,
-        [int]$TimeoutInMilliseconds = 10000,
-        [int]$IntervalInMilliseconds = 1000
-        )
+        [scriptblock]$sb,
+        [timespan]$Timeout = [timespan]::FromSeconds(10),
+        [timespan]$Interval = [timespan]::FromSeconds(1)
+    )
+
     # Using UtcNow to be timezone safe.
     $startTime = [datetime]::UtcNow
 
     # Loop until the script block evaluates to true
     while (-not ($sb.Invoke())) {
         # If the timeout period has passed, return false
-        if ([datetime]::UtcNow.Subtract($startTime).TotalMilliseconds -gt $timeoutInMilliseconds) {
+        if ([datetime]::UtcNow.Subtract($startTime) -gt $Timeout) {
             return $false
         }
         # Wait
@@ -28,8 +29,8 @@ function Wait-FileToBePresent
     [CmdletBinding()]
     param (
         [string]$File,
-        [int]$TimeoutInSeconds = 10,
-        [int]$IntervalInMilliseconds = 100
+        [timespan]$Timeout = [timespan]::FromSeconds(10),
+        [timespan]$Interval = [timespan]::FromMilliseconds(100)
     )
 
     return Wait-UntilTrue -sb { Test-Path $File } -TimeoutInMilliseconds ($TimeoutInSeconds*1000) -IntervalInMilliseconds $IntervalInMilliseconds

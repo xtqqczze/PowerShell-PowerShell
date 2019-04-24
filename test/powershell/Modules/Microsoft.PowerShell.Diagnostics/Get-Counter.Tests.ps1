@@ -169,11 +169,11 @@ Describe "Feature tests for Get-Counter cmdlet" -Tags "Feature" {
             $counterPath = TranslateCounterPath "\PhysicalDisk(*)\Current Disk Queue Length"
             $counterCount = 5
             $sampleInterval = 2
-            $startTime = Get-Date
+            $startTime = [datetime]::UtcNow
             $counterData = Get-Counter -Counter $counterPath -SampleInterval $sampleInterval -MaxSamples $counterCount
-            $endTime = Get-Date
+            $endTime = [datetime]::UtcNow
             $counterData.Length | Should -Be $counterCount
-            ($endTime - $startTime).TotalSeconds | Should -Not -BeLessThan ($counterCount * $sampleInterval)
+            $endTime.Subtract($startTime).TotalSeconds | Should -Not -BeLessThan ($counterCount * $sampleInterval)
         }
 
         It "Can process array of counter names" -Skip:$(SkipCounterTests) {

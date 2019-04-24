@@ -45,7 +45,7 @@ Describe "UntrustedDataMode tests for variable assignments" -Tags 'CI' {
 
                 [Parameter()]
                 [ValidateTrustedData()]
-                [DateTime] $Date,
+                [datetime] $Date,
 
                 [Parameter()]
                 [ValidateTrustedData()]

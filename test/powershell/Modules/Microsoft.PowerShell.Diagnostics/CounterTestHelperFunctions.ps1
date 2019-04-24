@@ -237,15 +237,15 @@ function DateTimesAreEqualish
     param (
         [Parameter(Mandatory=$true)]
         [ValidateNotNull()]
-        [DateTime]
+        [datetime]
         $dtA,
         [Parameter(Mandatory)]
         [ValidateNotNull()]
-        [DateTime]
+        [datetime]
         $dtB
     )
 
-    $span = $dtA - $dtB
+    $span = $dtA.Subtract($dtB)
     return ([math]::Floor([math]::Abs($span.TotalMilliseconds)) -eq 0)
 }
 

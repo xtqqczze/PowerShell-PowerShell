@@ -27,7 +27,9 @@ Describe 'native commands with pipeline' -tags 'Feature' {
 
         # waiting 30 seconds, because powershell startup time could be long on the slow machines,
         # such as CI
-        Wait-UntilTrue { $rs.RunspaceAvailability -eq 'Available' } -timeout 30000 -interval 100 | Should -BeTrue
+        $timeout = [timespan]::FromSeconds(30)
+        $interval = [timespan]::FromMilliseconds(100)
+        Wait-UntilTrue { $rs.RunspaceAvailability -eq 'Available' } -Timeout $timeout -Interval $interval | Should -BeTrue
 
         $ps.Stop()
         $rs.ResetRunspaceState()
@@ -72,10 +74,11 @@ Describe "Native Command Processor" -tags "Feature" {
             }
         }
 
-        $startTime = Get-Date
+        $startTime = [datetime]::UtcNow
+        $timeout = [timespan]::FromSeconds(5)
         $beginsync = $ps.BeginStop($null, $async)
-        # wait no more than 5 secs for the processes to be terminated, otherwise test has failed
-        while (((Get-Date) - $startTime).TotalSeconds -lt 5)
+        # wait up to timeout for the processes to be terminated, otherwise test has failed
+        while ([datetime]::UtcNow.Subtract($startTime) -lt $timeout)
         {
             if (($childprocesses.hasexited -eq $true).count -eq $numToCreate+1)
             {
@@ -203,9 +206,10 @@ Categories=Application;
             open -F -a TextEdit
             $beforeCount = [int]('tell application "TextEdit" to count of windows' | osascript)
             & $TestFile
-            $startTime = Get-Date
+            $startTime = [datetime]::UtcNow
+            $timeout = [timespan]::FromSeconds(30)
             $title = [String]::Empty
-            while (((Get-Date) - $startTime).TotalSeconds -lt 30 -and ($title -ne $expectedTitle)) {
+            while ([datetime]::UtcNow.Subtract($startTime) -lt $timeout -and ($title -ne $expectedTitle)) {
                 Start-Sleep -Milliseconds 100
                 $title = 'tell application "TextEdit" to get name of front window' | osascript
             }

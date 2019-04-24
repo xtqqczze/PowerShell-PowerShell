@@ -715,11 +715,12 @@ function Invoke-OpenCover
             # timeout of 12 hours
             # Runs currently take about 8-9 hours, we picked 12 hours to be substantially larger.
             # Using UtcNow to be timezone safe.
-            $deadline = ([datetime]::UtcNow).AddHours(12)
+            $startTime = [datetime]::UtcNow
+            $timeout = [timespan]::FromHours(12)
 
             $openCoverExited = $false
 
-            while([datetime]::UtcNow.CompareTo($deadline) -le 0)
+            while ([datetime]::UtcNow.Subtract($startTime) -lt $timeout)
             {
                 Start-Sleep -Seconds 60
                 $openCoverProcess = Get-Process "OpenCover.Console" -ErrorAction SilentlyContinue

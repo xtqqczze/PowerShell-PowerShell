@@ -111,9 +111,10 @@ Describe "Invoke-Item basic tests" -Tags "Feature" {
             open -F -a TextEdit
             $beforeCount = Get-WindowCountMacOS -Name TextEdit
             Invoke-Item -Path $TestFile
-            $startTime = Get-Date
+            $startTime = [datetime]::UtcNow
+            $timeout = [timespan]::FromSeconds(30)
             $title = [String]::Empty
-            while (((Get-Date) - $startTime).TotalSeconds -lt 30 -and ($title -ne $expectedTitle))
+            while (([datetime]::UtcNow.Subtract($startTime) -lt $timeout -and ($title -ne $expectedTitle))
             {
                 Start-Sleep -Milliseconds 100
                 $title = Get-WindowsTitleMacOS -Name TextEdit
@@ -243,10 +244,11 @@ Categories=Application;
                 # validate on MacOS by using AppleScript
                 $beforeCount = Get-WindowCountMacOS -Name Finder
                 Invoke-Item -Path $PSHOME
-                $startTime = Get-Date
+                $startTime = [datetime]::UtcNow
+                $timeout = [timespan]::FromSeconds(10)
                 $expectedTitle = Split-Path $PSHOME -Leaf
                 $title = [String]::Empty
-                while (((Get-Date) - $startTime).TotalSeconds -lt 10 -and ($title -ne $expectedTitle))
+                while ([datetime]::UtcNow.Subtract($startTime) -lt $timeout -and ($title -ne $expectedTitle))
                 {
                     Start-Sleep -Milliseconds 100
                     $title = 'tell application "Finder" to get name of front window' | osascript
@@ -301,7 +303,7 @@ Describe "Invoke-Item tests on Windows" -Tags "CI","RequireAdminOnWindows" {
             while (-not (Test-Path $renamedtestfilepath))
             {
                 Start-Sleep -Milliseconds 100
-                if (([datetime]::UtcNow.Subtract($startTime) -ge [timespan]::FromSeconds(5)) { throw "Timeout exception" }
+                if ([datetime]::UtcNow.Subtract($startTime) -ge $timeout) { throw "Timeout exception" }
             }
         } | Should -Not -Throw
     }

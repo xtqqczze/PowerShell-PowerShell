@@ -3,7 +3,7 @@
 $imageName = "remotetestimage"
 Describe "Basic remoting test with docker" -tags @("Scenario","Slow"){
     BeforeAll {
-        $Timeout = 600 # 10 minutes to run these tests
+        $timeoutInSeconds = 600
         $dockerimage = docker images --format "{{ .Repository }}" $imageName
         if ( $dockerimage -ne $imageName ) {
             $pending = $true

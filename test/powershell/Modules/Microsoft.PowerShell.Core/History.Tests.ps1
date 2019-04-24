@@ -112,8 +112,8 @@ Describe "History cmdlet test cases" -Tags "CI" {
     }
 
     It "HistoryInfo calculates Duration" {
-        $start = [datetime]::new(2001, 01, 01, 10, 01, 01)
-        $duration = [timespan] "1:2:21"
+        $start = [datetime]::new(2001, 1, 1, 10, 1, 1)
+        $duration = [timespan]::new(1, 2, 21)
         $end = $start + $duration
         $history = [PSCustomObject] @{
             CommandLine        = "command"

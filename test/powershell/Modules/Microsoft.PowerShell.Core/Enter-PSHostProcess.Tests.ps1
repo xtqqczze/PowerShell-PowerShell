@@ -18,7 +18,7 @@ function Wait-JobPid {
         Start-Sleep -Seconds 1
         $pwshId = Receive-Job $Job
 
-        if (([DateTime]::Now - $startTime).TotalMilliseconds -gt $timeoutInMilliseconds) {
+        if ([datetime]::UtcNow.Subtract($startTime) -gt $timeout) {
             throw "Unable to receive PowerShell process id."
         }
     } while (!$pwshId)

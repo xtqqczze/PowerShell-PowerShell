@@ -48,20 +48,20 @@ try
             try
             {
                 Enable-Testhook -testhookname TestWaitStopComputer
-                $timeout = 3
+                $timeoutInSeconds = 3
                 try
                 {
                     $pPref = $ProgressPreference
                     $ProgressPreference="SilentlyContinue"
                     $duration = Measure-Command {
-                        Restart-Computer -computer localhost -Wait -Timeout $timeout -ErrorAction Stop | Should -BeNullOrEmpty
+                        Restart-Computer -computer localhost -Wait -Timeout $timeoutInSeconds -ErrorAction Stop | Should -BeNullOrEmpty
                     }
                 }
                 finally
                 {
                     $ProgressPreference=$pPref
                 }
-                $duration.TotalSeconds | Should -BeGreaterThan $timeout
+                $duration.TotalSeconds | Should -BeGreaterThan $timeoutInSeconds
             }
             finally
             {
