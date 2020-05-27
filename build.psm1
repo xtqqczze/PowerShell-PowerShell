@@ -696,7 +696,7 @@ function Restore-PSPester
         [ValidateNotNullOrEmpty()]
         [string] $Destination = ([IO.Path]::Combine((Split-Path (Get-PSOptions -DefaultToNew).Output), "Modules"))
     )
-    Save-Module -Name Pester -Path $Destination -Repository PSGallery -MaximumVersion 4.99
+    Save-Module -Name Pester -Path $Destination -Repository PSGallery -MinimumVersion 5.0.0
 }
 
 function Compress-TestContent {
@@ -1041,7 +1041,7 @@ function Start-PSPester {
         [switch]$SkipTestToolBuild
     )
 
-    if (-not (Get-Module -ListAvailable -Name $Pester -ErrorAction SilentlyContinue | Where-Object { $_.Version -ge "4.2" } ))
+    if (-not (Get-Module -ListAvailable -Name $Pester -ErrorAction SilentlyContinue | Where-Object { $_.Version -ge "5.0" } ))
     {
         Restore-PSPester
     }
