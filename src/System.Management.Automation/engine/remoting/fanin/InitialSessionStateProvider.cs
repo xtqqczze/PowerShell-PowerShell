@@ -1140,7 +1140,7 @@ namespace System.Management.Automation.Remoting
         /// <returns></returns>
         private static bool AliasDefinitionsTypeValidationCallback(string key, object obj, PSCmdlet cmdlet, string path)
         {
-            Hashtable[] hashtables = DISCPowerShellConfiguration.GetHashtableArrayOrNull(obj);
+            Hashtable[] hashtables = obj.GetArrayOrNull();
 
             if (hashtables == null)
             {
@@ -1187,7 +1187,7 @@ namespace System.Management.Automation.Remoting
         /// <returns></returns>
         private static bool FunctionDefinitionsTypeValidationCallback(string key, object obj, PSCmdlet cmdlet, string path)
         {
-            Hashtable[] hashtables = DISCPowerShellConfiguration.GetHashtableArrayOrNull(obj);
+            Hashtable[] hashtables = obj.GetArrayOrNull();
 
             if (hashtables == null)
             {
@@ -1239,7 +1239,7 @@ namespace System.Management.Automation.Remoting
         /// <returns></returns>
         private static bool VariableDefinitionsTypeValidationCallback(string key, object obj, PSCmdlet cmdlet, string path)
         {
-            Hashtable[] hashtables = DISCPowerShellConfiguration.GetHashtableArrayOrNull(obj);
+            Hashtable[] hashtables = obj.GetArrayOrNull();
 
             if (hashtables == null)
             {
@@ -2121,7 +2121,7 @@ namespace System.Management.Automation.Remoting
 
             if (_configHash.ContainsKey(ConfigFileConstants.AliasDefinitions))
             {
-                Hashtable[] aliases = GetHashtableArrayOrNull(_configHash[ConfigFileConstants.AliasDefinitions]);
+                Hashtable[] aliases = _configHash[ConfigFileConstants.AliasDefinitions].GetArrayOrNull();
 
                 if (aliases != null)
                 {
@@ -2178,7 +2178,7 @@ namespace System.Management.Automation.Remoting
 
             if (_configHash.ContainsKey(ConfigFileConstants.FunctionDefinitions))
             {
-                Hashtable[] functions = GetHashtableArrayOrNull(_configHash[ConfigFileConstants.FunctionDefinitions]);
+                Hashtable[] functions = _configHash[ConfigFileConstants.FunctionDefinitions].GetArrayOrNull();
 
                 if (functions != null)
                 {
@@ -2214,7 +2214,7 @@ namespace System.Management.Automation.Remoting
 
             if (_configHash.ContainsKey(ConfigFileConstants.VariableDefinitions))
             {
-                Hashtable[] variables = GetHashtableArrayOrNull(_configHash[ConfigFileConstants.VariableDefinitions]);
+                Hashtable[] variables = _configHash[ConfigFileConstants.VariableDefinitions].GetArrayOrNull();
 
                 if (variables != null)
                 {
@@ -2239,7 +2239,7 @@ namespace System.Management.Automation.Remoting
 
             if (_configHash.ContainsKey(ConfigFileConstants.EnvironmentVariables))
             {
-                Hashtable[] variablesList = GetHashtableArrayOrNull(_configHash[ConfigFileConstants.EnvironmentVariables]);
+                Hashtable[] variablesList = _configHash[ConfigFileConstants.EnvironmentVariables].GetArrayOrNull();
 
                 if (variablesList != null)
                 {
@@ -2499,7 +2499,7 @@ namespace System.Management.Automation.Remoting
 
             if (commandModification.Contains("Parameters"))
             {
-                parameters = GetHashtableArrayOrNull(commandModification["Parameters"]);
+                parameters = commandModification["Parameters"].GetArrayOrNull();
 
                 if (parameters != null)
                 {
@@ -2757,48 +2757,6 @@ namespace System.Management.Automation.Remoting
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Attempts to get a hashtable array from an object.
-        /// </summary>
-        /// <param name="hashObj"></param>
-        /// <returns></returns>
-        internal static Hashtable[] GetHashtableArrayOrNull(object hashObj)
-        {
-            // Scalar case
-            Hashtable hashtable = hashObj as Hashtable;
-
-            if (hashtable != null)
-            {
-                return new[] { hashtable };
-            }
-
-            // 1. Direct conversion
-            Hashtable[] hashArray = hashObj as Hashtable[];
-
-            if (hashArray == null)
-            {
-                // 2. Convert from object array
-                object[] objArray = hashObj as object[];
-
-                if (objArray != null)
-                {
-                    hashArray = new Hashtable[objArray.Length];
-
-                    for (int i = 0; i < hashArray.Length; i++)
-                    {
-                        if (!(objArray[i] is Hashtable hash))
-                        {
-                            return null;
-                        }
-
-                        hashArray[i] = hash;
-                    }
-                }
-            }
-
-            return hashArray;
         }
 
         /// <summary>

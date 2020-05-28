@@ -152,5 +152,49 @@ namespace System.Management.Automation
             value = obj.ToString();
             return true;
         }
+
+        /// <summary>
+        /// Attempts to get a hashtable array from an object.
+        /// </summary>
+        /// <param name="hashObj"></param>
+        /// <returns></returns>
+        internal static Hashtable[] GetArrayOrNull(this object hashObj)
+        {
+            // Scalar case
+            Hashtable hashtable = hashObj as Hashtable;
+
+            if (hashtable != null)
+            {
+                return new[] { hashtable };
+            }
+
+            // 1. Direct conversion
+            Hashtable[] hashArray = hashObj as Hashtable[];
+
+            if (hashArray == null)
+            {
+                // 2. Convert from object array
+                object[] objArray = hashObj as object[];
+
+                if (objArray != null)
+                {
+                    hashArray = new Hashtable[objArray.Length];
+
+                    for (int i = 0; i < hashArray.Length; i++)
+                    {
+                        Hashtable hash = objArray[i] as Hashtable;
+
+                        if (hash == null)
+                        {
+                            return null;
+                        }
+
+                        hashArray[i] = hash;
+                    }
+                }
+            }
+
+            return hashArray;
+        }
     }
 }
