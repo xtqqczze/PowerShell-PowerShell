@@ -960,7 +960,7 @@ namespace System.Management.Automation
             // SystemWide scope means 'LocalMachine' root key when query from registry
             RegistryKey rootKey = (scope == ConfigScope.AllUsers) ? Registry.LocalMachine : Registry.CurrentUser;
 
-            GroupPolicyKeys.TryGetValue(tType.Name, out string gpoKeyPath);
+            string gpoKeyPath = GroupPolicyKeys.GetValueOrDefault(tType.Name);
             Diagnostics.Assert(gpoKeyPath != null, StringUtil.Format("The GPO registry key path should be pre-defined for {0}", tType.Name));
 
             using (RegistryKey gpoKey = rootKey.OpenSubKey(gpoKeyPath))
@@ -981,7 +981,7 @@ namespace System.Management.Automation
                 else
                 {
                     // when PolicySettingFallbackKey flag is set (REG_DWORD "1") use Windows PS policy reg key
-                    WindowsPowershellGroupPolicyKeys.TryGetValue(tType.Name, out string winPowershellGpoKeyPath);
+                    string winPowershellGpoKeyPath = WindowsPowershellGroupPolicyKeys.GetValueOrDefault(tType.Name);
                     Diagnostics.Assert(winPowershellGpoKeyPath != null, StringUtil.Format("The Windows PS GPO registry key path should be pre-defined for {0}", tType.Name));
                     using (RegistryKey winPowershellGpoKey = rootKey.OpenSubKey(winPowershellGpoKeyPath))
                     {

@@ -4105,9 +4105,7 @@ namespace System.Management.Automation.Runspaces
                 return null;
             }
 
-            object result;
-            _typeConverters.TryGetValue(typeName, out result);
-            return result;
+            return _typeConverters.GetValueOrDefault(typeName);
         }
 
         /// <summary>
@@ -4133,9 +4131,7 @@ namespace System.Management.Automation.Runspaces
              *         the M3 milestone.
              */
 #if true
-            PSObject.AdapterSet result;
-            _typeAdapters.TryGetValue(type.FullName, out result);
-            return result;
+            return _typeAdapters.GetValueOrDefault(type.FullName);
 #else
             foreach (PSObject.AdapterSet adapterSet in this.typeAdapters.Values)
             {

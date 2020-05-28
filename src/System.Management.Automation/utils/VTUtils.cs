@@ -59,9 +59,7 @@ namespace System.Management.Automation
         /// </returns>
         public static string GetEscapeSequence(ConsoleColor color)
         {
-            string value = string.Empty;
-            ForegroundColorMap.TryGetValue(color, out value);
-            return value;
+            return ForegroundColorMap.GetValueOrDefault(color, string.Empty);
         }
 
         /// <summary>
@@ -75,9 +73,7 @@ namespace System.Management.Automation
         /// </returns>
         public static string GetEscapeSequence(VT vt)
         {
-            string value = string.Empty;
-            VTCodes.TryGetValue(vt, out value);
-            return value;
+            return VTCodes.GetValueOrDefault(vt, string.Empty);
         }
     }
 }

@@ -1501,10 +1501,7 @@ namespace Microsoft.PowerShell.Commands
             // this is because of the way the synchronization happens
             // with the pipeline thread and event handler thread using
             // _writeExistingData
-            bool eventWritten;
-            _eventArgsWritten.TryGetValue(job.InstanceId, out eventWritten);
-
-            if (eventWritten)
+            if (_eventArgsWritten.GetValueOrDefault(job.InstanceId))
             {
                 _tracer.WriteMessage(ClassNameTrace, "WriteJobStateInformation", Guid.Empty, job,
                                      "State information already written, skipping another write", null);

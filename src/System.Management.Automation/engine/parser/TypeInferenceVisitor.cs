@@ -994,7 +994,7 @@ namespace System.Management.Automation
             if (!pseudoBinding.BoundArguments.TryGetValue(pathParameterName, out var pathArgument))
             {
                 pathParameterName = "LiteralPath";
-                pseudoBinding.BoundArguments.TryGetValue(pathParameterName, out pathArgument);
+                pathArgument = pseudoBinding.BoundArguments.GetValueOrDefault(pathParameterName);
             }
 
             // The OutputType on cmdlets like Get-ChildItem may depend on the path.
@@ -1157,13 +1157,13 @@ namespace System.Management.Automation
 
         private void InferTypesFromGroupCommand(PseudoBindingInfo pseudoBinding, CommandAst commandAst, List<PSTypeName> inferredTypes)
         {
-            if (pseudoBinding.BoundArguments.TryGetValue("AsHashTable", out AstParameterArgumentPair _))
+            if (pseudoBinding.BoundArguments.ContainsKey("AsHashTable"))
             {
                 inferredTypes.Add(new PSTypeName(typeof(Hashtable)));
                 return;
             }
 
-            var noElement = pseudoBinding.BoundArguments.TryGetValue("NoElement", out AstParameterArgumentPair _);
+            var noElement = pseudoBinding.BoundArguments.ContainsKey("NoElement");
 
             string[] properties = null;
             bool scriptBlockProperty = false;

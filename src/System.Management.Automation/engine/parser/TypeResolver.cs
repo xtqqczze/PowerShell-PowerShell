@@ -691,9 +691,7 @@ namespace System.Management.Automation.Language
 
         internal static Type Lookup(ITypeName typeName, TypeResolutionState typeResolutionState)
         {
-            Type result;
-            s_cache.TryGetValue(Tuple.Create(typeName, typeResolutionState), out result);
-            return result;
+            return s_cache.GetValueOrDefault(Tuple.Create(typeName, typeResolutionState));
         }
 
         internal static void Add(ITypeName typeName, TypeResolutionState typeResolutionState, Type type)
@@ -901,8 +899,7 @@ namespace System.Management.Automation
             }
             else
             {
-                Type resultType = null;
-                builtinTypeAccelerators.TryGetValue(expectedKey, out resultType);
+                Type resultType = builtinTypeAccelerators.GetValueOrDefault(expectedKey);
                 if (resultType != null && resultType == type)
                 {
                     return expectedKey;

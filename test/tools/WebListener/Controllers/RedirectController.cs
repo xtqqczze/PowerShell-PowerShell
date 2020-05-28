@@ -31,7 +31,7 @@ namespace mvc.Controllers
                 url = $"{url}/Redirect/{nextHop}";
             }
 
-            var typeIsPresent = Request.Query.TryGetValue("type", out StringValues type);
+            bool typeIsPresent = Request.Query.TryGetValue("type", out StringValues type);
 
             if (typeIsPresent && Enum.TryParse(type.FirstOrDefault(), out HttpStatusCode status))
             {

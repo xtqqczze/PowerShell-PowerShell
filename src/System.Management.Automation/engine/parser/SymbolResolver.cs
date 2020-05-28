@@ -148,16 +148,12 @@ namespace System.Management.Automation.Language
                 return null;
             }
 
-            TypeLookupResult typeLookupResult;
-            _typeTable.TryGetValue(typeName.Name, out typeLookupResult);
-            return typeLookupResult;
+            return _typeTable.GetValueOrDefault(typeName.Name);
         }
 
         public Ast LookupVariable(VariablePath variablePath)
         {
-            Ast variabledefinition;
-            _variableTable.TryGetValue(variablePath.UserPath, out variabledefinition);
-            return variabledefinition;
+            return _variableTable.GetValueOrDefault(variablePath.UserPath);
         }
     }
 

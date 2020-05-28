@@ -396,9 +396,8 @@ namespace Microsoft.PowerShell.Commands
 
             // if the sourcehash matches the hashcode in the cache,the proxy hasnt changed and so
             // return the instance of th eproxy in the cache
-            if (s_srccodeCache.ContainsKey(_sourceHash))
+            if (s_srccodeCache.TryGetValue(_sourceHash, out object obj))
             {
-                object obj = s_srccodeCache.GetValueOrDefault(_sourceHash);
                 WriteObject(obj, true);
                 return null;
             }

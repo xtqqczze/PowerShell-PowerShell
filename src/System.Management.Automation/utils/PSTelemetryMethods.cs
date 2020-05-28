@@ -407,8 +407,7 @@ namespace Microsoft.PowerShell.Telemetry.Internal
             var commandName = commandAst.GetCommandName();
             if (commandName != null)
             {
-                int commandCount;
-                CommandsCalled.TryGetValue(commandName, out commandCount);
+                int commandCount = CommandsCalled.GetValueOrDefault(commandName);
                 CommandsCalled[commandName] = commandCount + 1;
             }
 

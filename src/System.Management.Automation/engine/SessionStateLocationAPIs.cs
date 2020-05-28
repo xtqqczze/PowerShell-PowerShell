@@ -79,17 +79,9 @@ namespace System.Management.Automation
             }
 
             // If namespace ID is empty, we will use the current working drive
-            PSDriveInfo drive = null;
-
-            if (namespaceID.Length == 0)
-            {
-                ProvidersCurrentWorkingDrive.TryGetValue(CurrentDrive.Provider, out drive);
-            }
-            else
-            {
-                // First check to see if the provider exists
-                ProvidersCurrentWorkingDrive.TryGetValue(GetSingleProvider(namespaceID), out drive);
-            }
+            PSDriveInfo drive = (namespaceID.Length == 0)
+                ? ProvidersCurrentWorkingDrive.GetValueOrDefault(CurrentDrive.Provider)
+                : ProvidersCurrentWorkingDrive.GetValueOrDefault(GetSingleProvider(namespaceID));
 
             if (drive == null)
             {

@@ -4400,11 +4400,7 @@ namespace System.Management.Automation
         /// <returns>PowerShell instance.</returns>
         internal override PowerShell GetPowerShell(Guid instanceId)
         {
-            PowerShell powershell = null;
-
-            _powershells.TryGetValue(instanceId, out powershell);
-
-            return powershell;
+            return _powershells.GetValueOrDefault(instanceId);
         }
 
         #endregion Protected Methods

@@ -64,7 +64,7 @@ namespace System.Management.Automation
                 if (s_resourceManagerCache.TryGetValue(assemblyManifestFileLocation, out baseNameCache) && baseNameCache != null)
                 {
                     // Now do the lookup based on the resource base name
-                    baseNameCache.TryGetValue(baseName, out manager);
+                    manager = baseNameCache.GetValueOrDefault(baseName);
                 }
             }
 

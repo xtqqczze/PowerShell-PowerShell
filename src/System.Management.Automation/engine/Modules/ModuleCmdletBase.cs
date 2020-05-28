@@ -6131,7 +6131,7 @@ namespace Microsoft.PowerShell.Commands
 
             lock (s_lockObject)
             {
-                s_binaryAnalysisCache.TryGetValue(path, out tuple);
+                tuple = s_binaryAnalysisCache.GetValueOrDefault(path);
             }
 
             if (tuple != null)
@@ -6167,7 +6167,7 @@ namespace Microsoft.PowerShell.Commands
 
             lock (s_lockObject)
             {
-                s_binaryAnalysisCache.TryGetValue(path, out tuple);
+                tuple = s_binaryAnalysisCache.GetValueOrDefault(path);
             }
 
             if (tuple != null)
@@ -6318,7 +6318,7 @@ namespace Microsoft.PowerShell.Commands
 
             lock (s_lockObject)
             {
-                s_scriptAnalysisCache.TryGetValue(filename, out module);
+                module = s_scriptAnalysisCache.GetValueOrDefault(filename);
             }
 
             if (module != null)

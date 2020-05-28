@@ -232,7 +232,7 @@ namespace System.Management.Automation
             {
                 // The caller needs to determine what to do with
                 // manually removed drives.
-                GetAutomountedDrives().TryGetValue(name, out result);
+                result = GetAutomountedDrives().GetValueOrDefault(name);
             }
 
             return result;
@@ -714,10 +714,7 @@ namespace System.Management.Automation
                 name != null,
                 "The caller should verify the name");
 
-            AliasInfo result;
-            GetAliases().TryGetValue(name, out result);
-
-            return result;
+            return GetAliases().GetValueOrDefault(name);
         }
 
         /// <summary>
@@ -1055,10 +1052,7 @@ namespace System.Management.Automation
                 name != null,
                 "The caller should verify the name");
 
-            FunctionInfo result;
-            GetFunctions().TryGetValue(name, out result);
-
-            return result;
+            return GetFunctions().GetValueOrDefault(name);
         }
 
         /// <summary>

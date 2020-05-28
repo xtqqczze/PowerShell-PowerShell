@@ -1124,7 +1124,7 @@ namespace Microsoft.PowerShell.Commands
                 // It is namespace-fully-qualified name
                 var symbolFullName = symbol.ToString();
 
-                if (s_sourceTypesCache.TryGetValue(symbolFullName, out _))
+                if (s_sourceTypesCache.Contains(symbolFullName))
                 {
                     DuplicateSymbols.Add(symbolFullName);
                 }

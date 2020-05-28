@@ -129,9 +129,7 @@ namespace System.Management.Automation.Language
         /// <returns></returns>
         public static DynamicKeyword GetKeyword(string name)
         {
-            DynamicKeyword keywordToReturn;
-            DynamicKeyword.DynamicKeywords.TryGetValue(name, out keywordToReturn);
-            return keywordToReturn;
+            return DynamicKeyword.DynamicKeywords.GetValueOrDefault(name);
         }
 
         /// <summary>

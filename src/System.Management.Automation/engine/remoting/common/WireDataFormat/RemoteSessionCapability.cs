@@ -222,9 +222,7 @@ namespace System.Management.Automation.Remoting
         /// </summary>
         internal object GetValue(HostDefaultDataId id)
         {
-            object result;
-            data.TryGetValue(id, out result);
-            return result;
+            return data.GetValueOrDefault(id);
         }
 
         /// <summary>

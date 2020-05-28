@@ -294,9 +294,8 @@ namespace System.Management.Automation.Interpreter
 #if STATS
             lock (_executedInstructions) {
                 _instructions.ForEach((instr) => {
-                    int value = 0;
                     var name = instr.GetType().Name;
-                    _executedInstructions.TryGetValue(name, out value);
+                    int value = _executedInstructions.GetValueOrDefault(name);
                     _executedInstructions[name] = value + 1;
 
                     Dictionary<object, bool> dict;

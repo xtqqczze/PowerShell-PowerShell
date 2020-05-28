@@ -1439,7 +1439,7 @@ namespace System.Management.Automation
                     // have set a bp on $PSItem, so look for that if appropriate.
                     if (SpecialVariables.IsUnderbar(variableName))
                     {
-                        _variableBreakpoints.TryGetValue(SpecialVariables.PSItem, out breakpoints);
+                        breakpoints = _variableBreakpoints.GetValueOrDefault(SpecialVariables.PSItem);
                     }
                 }
 
@@ -2701,8 +2701,7 @@ namespace System.Management.Automation
                 return GetRunspaceDebugger(runspaceId.Value).GetBreakpoint(id);
             }
 
-            _idToBreakpoint.TryGetValue(id, out Breakpoint breakpoint);
-            return breakpoint;
+            return _idToBreakpoint.GetValueOrDefault(id);
         }
 
         /// <summary>
@@ -2832,7 +2831,7 @@ namespace System.Management.Automation
 
             Diagnostics.Assert(breakpoint != null, "Caller to verify the breakpoint is not null.");
 
-            if (_idToBreakpoint.TryGetValue(breakpoint.Id, out _))
+            if (_idToBreakpoint.ContainsKey(breakpoint.Id))
             {
                 breakpoint.SetEnabled(true);
                 OnBreakpointUpdated(new BreakpointUpdatedEventArgs(breakpoint, BreakpointUpdateType.Enabled, _idToBreakpoint.Count));
@@ -2857,7 +2856,7 @@ namespace System.Management.Automation
 
             Diagnostics.Assert(breakpoint != null, "Caller to verify the breakpoint is not null.");
 
-            if (_idToBreakpoint.TryGetValue(breakpoint.Id, out _))
+            if (_idToBreakpoint.ContainsKey(breakpoint.Id))
             {
                 breakpoint.SetEnabled(false);
                 OnBreakpointUpdated(new BreakpointUpdatedEventArgs(breakpoint, BreakpointUpdateType.Disabled, _idToBreakpoint.Count));
@@ -3836,7 +3835,7 @@ namespace System.Management.Automation
             PSMonitorRunspaceInfo runspaceInfo = null;
             lock (_syncObject)
             {
-                _runningRunspaces.TryGetValue(runspace.InstanceId, out runspaceInfo);
+                runspaceInfo = _runningRunspaces.GetValueOrDefault(runspace.InstanceId);
             }
 
             // Create nested debugger wrapper if it is not already created and if

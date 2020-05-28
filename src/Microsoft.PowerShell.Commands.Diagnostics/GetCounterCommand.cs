@@ -421,8 +421,7 @@ namespace Microsoft.PowerShell.Commands
             // 5. Skip the first reading
 
             CultureInfo culture = GetCurrentCulture();
-            List<Tuple<char, char>> characterReplacementList;
-            characterReplacementList = _defaultCounters ? null : _cultureAndSpecialCharacterMap.GetValueOrDefault(culture.Name);
+            List<Tuple<char, char>> characterReplacementList = _defaultCounters ? null : _cultureAndSpecialCharacterMap.GetValueOrDefault(culture.Name);
 
             List<string> paths = CombineMachinesAndCounterPaths();
 

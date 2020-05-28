@@ -392,7 +392,7 @@ namespace Microsoft.WSMan.Management
             lock (WSManHelper.AutoSession)
             {
                 // Gets the session object from the cache.
-                object sessionobj = SessionObjCache.GetValueOrDefault(host); 
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 /*
                 WsMan Config Can be divided in to Four Fixed Regions to Check Whether it has Child Items.

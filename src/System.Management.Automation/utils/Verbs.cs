@@ -1321,9 +1321,7 @@ namespace System.Management.Automation
 
         internal static string[] SuggestedAlternates(string verb)
         {
-            string[] result = null;
-            s_recommendedAlternateVerbs.TryGetValue(verb, out result);
-            return result;
+            return s_recommendedAlternateVerbs.GetValueOrDefault(verb);
         }
     }
     #endregion VERBS

@@ -950,7 +950,7 @@ namespace Microsoft.PowerShell.Commands
 
                 if (_quoteFields != null)
                 {
-                    if (_quoteFields.TryGetValue(propertyName, out _))
+                    if (_quoteFields.Contains(propertyName))
                     {
                         AppendStringWithEscapeAlways(_outputString, propertyName);
                     }
@@ -1021,7 +1021,7 @@ namespace Microsoft.PowerShell.Commands
 
                     if (_quoteFields != null)
                     {
-                        if (_quoteFields.TryGetValue(propertyName, out _))
+                        if (_quoteFields.Contains(propertyName))
                         {
                             AppendStringWithEscapeAlways(_outputString, value);
                         }
