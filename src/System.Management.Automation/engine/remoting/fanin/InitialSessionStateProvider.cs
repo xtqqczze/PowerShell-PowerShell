@@ -2767,12 +2767,19 @@ namespace System.Management.Automation.Remoting
         /// <returns></returns>
         internal static string GetValueOrEmpty(Hashtable table, string key)
         {
-            if (table.ContainsKey(key))
-            {
-                return table[key].ToString();
-            }
+            return TryGetValue(table, key, out string value) ? value : string.Empty;
+        }
 
-            return string.Empty;
+        internal static bool TryGetValue(Hashtable table, string key, out string value)
+        {
+            object obj = table[key];
+            if (obj == null)
+            {
+                value = null;
+                return false;
+            }
+            value = obj.ToString();
+            return true;
         }
 
         /// <summary>
