@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -130,6 +131,26 @@ namespace System.Management.Automation
             var t = weakReference.Target;
             target = t as T;
             return (target != null);
+        }
+    }
+
+    internal static class HashtableExtensions
+    {
+        internal static string GetValueOrEmpty(this Hashtable table, string key)
+        {
+            return table.TryGetValue(key, out string value) ? value : string.Empty;
+        }
+
+        internal static bool TryGetValue(this Hashtable table, string key, out string value)
+        {
+            object obj = table[key];
+            if (obj == null)
+            {
+                value = null;
+                return false;
+            }
+            value = obj.ToString();
+            return true;
         }
     }
 }
