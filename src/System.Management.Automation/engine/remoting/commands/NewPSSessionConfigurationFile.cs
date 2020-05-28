@@ -944,7 +944,7 @@ namespace Microsoft.PowerShell.Commands
                 }
                 else
                 {
-                    Hashtable[] funcHash = DISCPowerShellConfiguration.TryGetHashtableArray(_functionDefinitions);
+                    Hashtable[] funcHash = DISCPowerShellConfiguration.GetHashtableArrayOrNull(_functionDefinitions);
 
                     if (funcHash != null)
                     {
@@ -1015,7 +1015,7 @@ namespace Microsoft.PowerShell.Commands
                     }
                     else
                     {
-                        Hashtable[] varHash = DISCPowerShellConfiguration.TryGetHashtableArray(_variableDefinitions);
+                        Hashtable[] varHash = DISCPowerShellConfiguration.GetHashtableArrayOrNull(_variableDefinitions);
 
                         if (varHash != null)
                         {
@@ -1691,7 +1691,7 @@ namespace Microsoft.PowerShell.Commands
                 }
                 else
                 {
-                    Hashtable[] funcHash = DISCPowerShellConfiguration.TryGetHashtableArray(_functionDefinitions);
+                    Hashtable[] funcHash = DISCPowerShellConfiguration.GetHashtableArrayOrNull(_functionDefinitions);
 
                     if (funcHash != null)
                     {
@@ -1759,7 +1759,7 @@ namespace Microsoft.PowerShell.Commands
                     }
                     else
                     {
-                        Hashtable[] varHash = DISCPowerShellConfiguration.TryGetHashtableArray(_variableDefinitions);
+                        Hashtable[] varHash = DISCPowerShellConfiguration.GetHashtableArrayOrNull(_variableDefinitions);
 
                         if (varHash != null)
                         {
@@ -1964,7 +1964,7 @@ namespace Microsoft.PowerShell.Commands
                     continue;
                 }
 
-                IDictionary[] tableValues = DISCPowerShellConfiguration.TryGetHashtableArray(table[key]);
+                IDictionary[] tableValues = DISCPowerShellConfiguration.GetHashtableArrayOrNull(table[key]);
                 if (tableValues != null)
                 {
                     sb.Append(CombineHashtableArray(tableValues, writer, indent + 1));
