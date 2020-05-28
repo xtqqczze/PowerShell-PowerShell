@@ -1655,9 +1655,7 @@ namespace System.Management.Automation
             {
                 if (ecFromTLS.AssemblyCache != null)
                 {
-                    Assembly assembly;
-                    ecFromTLS.AssemblyCache.TryGetValue(args.Name, out assembly);
-                    return assembly;
+                    return ecFromTLS.AssemblyCache.GetValueOrDefault(args.Name);
                 }
             }
 

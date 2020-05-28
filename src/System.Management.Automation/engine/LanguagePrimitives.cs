@@ -4414,9 +4414,7 @@ namespace System.Management.Automation
         {
             lock (s_converterCache)
             {
-                IConversionData result = null;
-                s_converterCache.TryGetValue(new ConversionTypePair(fromType, toType), out result);
-                return result;
+                return s_converterCache.GetValueOrDefault(new ConversionTypePair(fromType, toType));
             }
         }
 

@@ -251,7 +251,7 @@ namespace System.Management.Automation
 
             lock (_lockObject)
             {
-                _moduleInfoCache.TryGetValue(modulePath, out moduleInfo);
+                moduleInfo = _moduleInfoCache.GetValueOrDefault(modulePath);
             }
 
             if (moduleInfo != null)

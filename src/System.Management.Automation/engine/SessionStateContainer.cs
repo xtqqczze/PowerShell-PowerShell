@@ -1868,14 +1868,7 @@ namespace System.Management.Automation
                             excludeMatcher,
                             false))
                         {
-                            bool emitItem = true;
-                            if (filteredChildNameDictionary != null)
-                            {
-                                bool isChildNameInDictionary = false;
-                                emitItem = filteredChildNameDictionary.TryGetValue(childName, out isChildNameInDictionary);
-                            }
-
-                            if (emitItem)
+                            if (filteredChildNameDictionary?.ContainsKey(childName) != false)
                             {
                                 if (processMode == ProcessMode.Delete)
                                 {

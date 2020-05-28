@@ -5126,9 +5126,7 @@ namespace System.Management.Automation
         /// <returns>TypeSerializationInfo entry, null if no entry exist for the tag.</returns>
         internal static TypeSerializationInfo GetTypeSerializationInfoFromItemTag(string itemTag)
         {
-            TypeSerializationInfo temp;
-            s_knownTableKeyItemTag.TryGetValue(itemTag, out temp);
-            return temp;
+            return s_knownTableKeyItemTag.GetValueOrDefault(itemTag);
         }
 
         #region private_fields
