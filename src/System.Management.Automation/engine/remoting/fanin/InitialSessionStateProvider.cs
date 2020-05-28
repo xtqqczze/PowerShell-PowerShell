@@ -1949,7 +1949,7 @@ namespace System.Management.Automation.Remoting
             InitialSessionState iss = null;
 
             // Create the initial session state
-            string initialSessionState = TryGetValue(_configHash, ConfigFileConstants.SessionType);
+            string initialSessionState = GetValueOrEmpty(_configHash, ConfigFileConstants.SessionType);
             SessionType sessionType = SessionType.Default;
             bool cmdletVisibilityApplied = IsNonDefaultVisibilitySpecified(ConfigFileConstants.VisibleCmdlets);
             bool functionVisibilityApplied = IsNonDefaultVisibilitySpecified(ConfigFileConstants.VisibleFunctions);
@@ -2622,25 +2622,25 @@ namespace System.Management.Automation.Remoting
         /// </summary>
         private static SessionStateAliasEntry CreateSessionStateAliasEntry(Hashtable alias, bool isAliasVisibilityDefined)
         {
-            string name = TryGetValue(alias, ConfigFileConstants.AliasNameToken);
+            string name = GetValueOrEmpty(alias, ConfigFileConstants.AliasNameToken);
 
             if (string.IsNullOrEmpty(name))
             {
                 return null;
             }
 
-            string value = TryGetValue(alias, ConfigFileConstants.AliasValueToken);
+            string value = GetValueOrEmpty(alias, ConfigFileConstants.AliasValueToken);
 
             if (string.IsNullOrEmpty(value))
             {
                 return null;
             }
 
-            string description = TryGetValue(alias, ConfigFileConstants.AliasDescriptionToken);
+            string description = GetValueOrEmpty(alias, ConfigFileConstants.AliasDescriptionToken);
 
             ScopedItemOptions options = ScopedItemOptions.None;
 
-            string optionsString = TryGetValue(alias, ConfigFileConstants.AliasOptionsToken);
+            string optionsString = GetValueOrEmpty(alias, ConfigFileConstants.AliasOptionsToken);
 
             if (!string.IsNullOrEmpty(optionsString))
             {
@@ -2662,14 +2662,14 @@ namespace System.Management.Automation.Remoting
         /// <returns></returns>
         private static SessionStateFunctionEntry CreateSessionStateFunctionEntry(Hashtable function, bool isFunctionVisibilityDefined)
         {
-            string name = TryGetValue(function, ConfigFileConstants.FunctionNameToken);
+            string name = GetValueOrEmpty(function, ConfigFileConstants.FunctionNameToken);
 
             if (string.IsNullOrEmpty(name))
             {
                 return null;
             }
 
-            string value = TryGetValue(function, ConfigFileConstants.FunctionValueToken);
+            string value = GetValueOrEmpty(function, ConfigFileConstants.FunctionValueToken);
 
             if (string.IsNullOrEmpty(value))
             {
@@ -2678,7 +2678,7 @@ namespace System.Management.Automation.Remoting
 
             ScopedItemOptions options = ScopedItemOptions.None;
 
-            string optionsString = TryGetValue(function, ConfigFileConstants.FunctionOptionsToken);
+            string optionsString = GetValueOrEmpty(function, ConfigFileConstants.FunctionOptionsToken);
 
             if (!string.IsNullOrEmpty(optionsString))
             {
@@ -2702,25 +2702,25 @@ namespace System.Management.Automation.Remoting
         /// </summary>
         private static SessionStateVariableEntry CreateSessionStateVariableEntry(Hashtable variable, PSLanguageMode languageMode)
         {
-            string name = TryGetValue(variable, ConfigFileConstants.VariableNameToken);
+            string name = GetValueOrEmpty(variable, ConfigFileConstants.VariableNameToken);
 
             if (string.IsNullOrEmpty(name))
             {
                 return null;
             }
 
-            string value = TryGetValue(variable, ConfigFileConstants.VariableValueToken);
+            string value = GetValueOrEmpty(variable, ConfigFileConstants.VariableValueToken);
 
             if (string.IsNullOrEmpty(value))
             {
                 return null;
             }
 
-            string description = TryGetValue(variable, ConfigFileConstants.AliasDescriptionToken);
+            string description = GetValueOrEmpty(variable, ConfigFileConstants.AliasDescriptionToken);
 
             ScopedItemOptions options = ScopedItemOptions.None;
 
-            string optionsString = TryGetValue(variable, ConfigFileConstants.AliasOptionsToken);
+            string optionsString = GetValueOrEmpty(variable, ConfigFileConstants.AliasOptionsToken);
 
             if (!string.IsNullOrEmpty(optionsString))
             {
@@ -2765,7 +2765,7 @@ namespace System.Management.Automation.Remoting
         /// <param name="table"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        internal static string TryGetValue(Hashtable table, string key)
+        internal static string GetValueOrEmpty(Hashtable table, string key)
         {
             if (table.ContainsKey(key))
             {
