@@ -403,15 +403,13 @@ namespace System.Management.Automation
         /// </summary>
         internal static bool IsMarkedAsUntrusted(object value)
         {
-            bool result = false;
             var baseValue = PSObject.Base(value);
             if (baseValue != null && baseValue != NullString.Value)
             {
-                object unused;
-                result = UntrustedObjects.TryGetValue(baseValue, out unused);
+                return UntrustedObjects.TryGetValue(baseValue, out _);
             }
 
-            return result;
+            return false;
         }
 
         /// <summary>
