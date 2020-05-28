@@ -703,9 +703,7 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
         /// <returns>Session wrapper.</returns>
         internal CimSessionWrapper QuerySession(CimSession cimsession)
         {
-            CimSessionWrapper wrapper;
-            this.curCimSessionWrapper.TryGetValue(cimsession, out wrapper);
-            return wrapper;
+            return this.curCimSessionWrapper.GetValueOrDefault(cimsession);
         }
 
         /// <summary>
@@ -810,9 +808,7 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
 
         public static CimSessionState GetCimSessionState()
         {
-            CimSessionState state = null;
-            cimSessions.TryGetValue(CurrentRunspaceId, out state);
-            return state;
+            return cimSessions.GetValueOrDefault(CurrentRunspaceId);
         }
 
         /// <summary>

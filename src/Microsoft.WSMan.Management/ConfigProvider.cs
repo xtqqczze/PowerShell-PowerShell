@@ -392,8 +392,7 @@ namespace Microsoft.WSMan.Management
             lock (WSManHelper.AutoSession)
             {
                 // Gets the session object from the cache.
-                object sessionobj;
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host); 
 
                 /*
                 WsMan Config Can be divided in to Four Fixed Regions to Check Whether it has Child Items.
@@ -613,8 +612,7 @@ namespace Microsoft.WSMan.Management
             lock (WSManHelper.AutoSession)
             {
                 // Gets the session object from the cache.
-                object sessionobj;
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 XmlDocument xmlResource = FindResourceValue(sessionobj, uri, null);
                 if (xmlResource == null) { return; }
@@ -952,9 +950,8 @@ namespace Microsoft.WSMan.Management
             lock (WSManHelper.AutoSession)
             {
                 // Gets the session object from the cache.
-                object sessionobj;
                 Dictionary<string, object> SessionObjCache = WSManHelper.GetSessionObjCache();
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 List<string> warningMessage = new List<string>();
 
@@ -1225,7 +1222,7 @@ namespace Microsoft.WSMan.Management
                             }
                         }
 
-                        SessionObjCache.TryGetValue(host, out sessionobj);
+                        sessionobj = SessionObjCache.GetValueOrDefault(host);
                         string resourceUri = string.Format(
                             CultureInfo.InvariantCulture,
                             "{0}?Name={1}",
@@ -1456,8 +1453,7 @@ namespace Microsoft.WSMan.Management
             lock (WSManHelper.AutoSession)
             {
                 // Gets the session object from the cache.
-                object sessionobj;
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 /*
                 WsMan Config Can be divided in to Four Fixed Regions to Check Whether Item is Container
@@ -1671,9 +1667,8 @@ namespace Microsoft.WSMan.Management
             lock (WSManHelper.AutoSession)
             {
                 // Gets the session object from the cache.
-                object sessionobj;
                 Dictionary<string, object> SessionObjCache = WSManHelper.GetSessionObjCache();
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 // if endswith '\', removes it.
                 if (path.EndsWith(WSManStringLiterals.DefaultPathSeparator.ToString(), StringComparison.OrdinalIgnoreCase))
@@ -1841,7 +1836,7 @@ namespace Microsoft.WSMan.Management
             lock (WSManHelper.AutoSession)
             {
                 Dictionary<string, object> SessionObjCache = WSManHelper.GetSessionObjCache();
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 string strPathChk = host + WSManStringLiterals.DefaultPathSeparator;
                 if (path.Contains(strPathChk + WSManStringLiterals.containerPlugin))//(path.Contains(@"\plugin"))
@@ -1880,7 +1875,7 @@ namespace Microsoft.WSMan.Management
                 else if (path.EndsWith(strPathChk + WSManStringLiterals.containerClientCertificate, StringComparison.OrdinalIgnoreCase))
                 {
                     WSManProviderClientCertificateParameters dynParams = DynamicParameters as WSManProviderClientCertificateParameters;
-                    SessionObjCache.TryGetValue(host, out sessionobj);
+                    sessionobj = SessionObjCache.GetValueOrDefault(host);
                     Hashtable Certparams = new Hashtable();
                     Certparams.Add("Issuer", dynParams.Issuer);
                     Certparams.Add("Subject", dynParams.Subject);
@@ -3439,10 +3434,9 @@ namespace Microsoft.WSMan.Management
 
             lock (WSManHelper.AutoSession)
             {
-                object sessionobj;
                 // gets the sessionobject
                 Dictionary<string, object> SessionObjCache = WSManHelper.GetSessionObjCache();
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 // Normalize to the required uri
                 string uri = NormalizePath(path, host);
@@ -3627,8 +3621,7 @@ namespace Microsoft.WSMan.Management
 
                                 lock (WSManHelper.AutoSession)
                                 {
-                                    object sessionobj;
-                                    SessionObjCache.TryGetValue(hostname, out sessionobj);
+                                    object sessionobj = SessionObjCache.GetValueOrDefault(hostname);
                                     XmlDocument outxml = FindResourceValue(sessionobj, uri, null);
                                     if (outxml != null)
                                     {
@@ -3902,9 +3895,8 @@ namespace Microsoft.WSMan.Management
 
             lock (WSManHelper.AutoSession)
             {
-                object sessionobj = null;
                 Dictionary<string, object> SessionObjCache = WSManHelper.GetSessionObjCache();
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 strpathChk = host + WSManStringLiterals.DefaultPathSeparator;
                 // Check for host path
@@ -4205,9 +4197,8 @@ namespace Microsoft.WSMan.Management
 
             lock (WSManHelper.AutoSession)
             {
-                object sessionobj;
                 // gets the sessionobject
-                SessionObjCache.TryGetValue(host, out sessionobj);
+                object sessionobj = SessionObjCache.GetValueOrDefault(host);
 
                 // Normalize to the required uri
                 string uri = NormalizePath(path, host);

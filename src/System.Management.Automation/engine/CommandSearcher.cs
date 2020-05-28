@@ -886,7 +886,7 @@ namespace System.Management.Automation
                 {
                     PSModuleInfo? module = GetImportedModuleByName(qualifiedName.PSSnapInName);
 
-                    module?.ExportedAliases.TryGetValue(qualifiedName.ShortName, out result);
+                    result = module?.ExportedAliases.GetValueOrDefault(qualifiedName.ShortName);
                 }
             }
 
@@ -905,7 +905,7 @@ namespace System.Management.Automation
                 {
                     PSModuleInfo? module = GetImportedModuleByName(qualifiedName.PSSnapInName);
 
-                    module?.ExportedFunctions.TryGetValue(qualifiedName.ShortName, out result);
+                    result = module?.ExportedFunctions.GetValueOrDefault(qualifiedName.ShortName);
                 }
             }
 

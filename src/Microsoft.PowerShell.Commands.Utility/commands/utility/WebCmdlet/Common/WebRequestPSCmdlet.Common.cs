@@ -1179,8 +1179,7 @@ namespace Microsoft.PowerShell.Commands
             else if (Method == WebRequestMethod.Post || (IsCustomMethodSet() && CustomMethod.ToUpperInvariant() == "POST"))
             {
                 // Win8:545310 Invoke-WebRequest does not properly set MIME type for POST
-                string contentType = null;
-                WebSession.ContentHeaders.TryGetValue(HttpKnownHeaderNames.ContentType, out contentType);
+                string contentType = WebSession.ContentHeaders.GetValueOrDefault(HttpKnownHeaderNames.ContentType);
                 if (string.IsNullOrEmpty(contentType))
                 {
                     WebSession.ContentHeaders[HttpKnownHeaderNames.ContentType] = "application/x-www-form-urlencoded";

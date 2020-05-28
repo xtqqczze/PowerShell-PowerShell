@@ -114,14 +114,15 @@ namespace Microsoft.WSMan.Management
                 object sessionobj;
                 foreach (string key in Sessions.SessionObjCache.Keys)
                 {
-                    Sessions.SessionObjCache.TryGetValue(key, out sessionobj);
-                    try
-                    {
-                        Marshal.ReleaseComObject(sessionobj);
-                    }
-                    catch (ArgumentException)
-                    {
-                        // Somehow the object was a null reference. Ignore the error
+                    if (Sessions.SessionObjCache.TryGetValue(key, out sessionobj)) {
+                        try
+                        {
+                            Marshal.ReleaseComObject(sessionobj);
+                        }
+                        catch (ArgumentException)
+                        {
+                            // Somehow the object was a null reference. Ignore the error
+                        }
                     }
 
                     sessionobj = null;
@@ -216,15 +217,15 @@ namespace Microsoft.WSMan.Management
                 }
                 else
                 {
-                    object objsession = null;
-                    Sessions.SessionObjCache.TryGetValue(key, out objsession);
-                    try
-                    {
-                        Marshal.ReleaseComObject(objsession);
-                    }
-                    catch (ArgumentException)
-                    {
-                        // Somehow the object was a null reference. Ignore the error
+                    if (Sessions.SessionObjCache.TryGetValue(key, out object objsession)) {
+                        try
+                        {
+                            Marshal.ReleaseComObject(objsession);
+                        }
+                        catch (ArgumentException)
+                        {
+                            // Somehow the object was a null reference. Ignore the error
+                        }
                     }
 
                     Sessions.SessionObjCache.Remove(key);
@@ -239,9 +240,7 @@ namespace Microsoft.WSMan.Management
             computer = computer.ToLowerInvariant();
             lock (Sessions.SessionObjCache)
             {
-                if (Sessions.SessionObjCache.ContainsKey(computer))
-                {
-                    Sessions.SessionObjCache.TryGetValue(computer, out objsession);
+                if (Sessions.SessionObjCache.TryGetValue(computer, out objsession)) {
                     try
                     {
                         Marshal.ReleaseComObject(objsession);
@@ -1124,13 +1123,7 @@ namespace Microsoft.WSMan.Management
                 LoadResourceData();
             }
 
-            string value = string.Empty;
-            if (ResourceValueCache.ContainsKey(Key.Trim()))
-            {
-                ResourceValueCache.TryGetValue(Key.Trim(), out value);
-            }
-
-            return value.Trim();
+            return ResourceValueCache.GetValueOrDefault(Key.Trim(), string.Empty).Trim();
         }
 
         /// <summary>

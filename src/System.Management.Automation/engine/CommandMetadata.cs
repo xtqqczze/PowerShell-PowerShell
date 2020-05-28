@@ -323,7 +323,7 @@ namespace System.Management.Automation
             if ((context != null) && (cmdletType != null))
             {
                 string cmdletTypeName = cmdletType.AssemblyQualifiedName;
-                s_commandMetadataCache.TryGetValue(cmdletTypeName, out result);
+                result = s_commandMetadataCache.GetValueOrDefault(cmdletTypeName);
             }
 
             if (result == null)

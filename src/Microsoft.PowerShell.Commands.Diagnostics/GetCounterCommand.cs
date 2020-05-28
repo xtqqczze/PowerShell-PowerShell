@@ -317,10 +317,8 @@ namespace Microsoft.PowerShell.Commands
             }
 
             CultureInfo culture = GetCurrentCulture();
-            List<Tuple<char, char>> characterReplacementList = null;
+            List<Tuple<char, char>> characterReplacementList = _cultureAndSpecialCharacterMap.GetValueOrDefault(culture.Name);
             StringCollection validPaths = new();
-
-            _cultureAndSpecialCharacterMap.TryGetValue(culture.Name, out characterReplacementList);
 
             foreach (string pattern in _listSet)
             {
@@ -423,7 +421,9 @@ namespace Microsoft.PowerShell.Commands
             // 5. Skip the first reading
 
             CultureInfo culture = GetCurrentCulture();
-            List<Tuple<char, char>> characterReplacementList = null;
+            List<Tuple<char, char>> characterReplacementList;
+            characterReplacementList = _defaultCounters ? null : _cultureAndSpecialCharacterMap.GetValueOrDefault(culture.Name);
+
             List<string> paths = CombineMachinesAndCounterPaths();
 
             if (!_defaultCounters)

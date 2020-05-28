@@ -185,8 +185,7 @@ namespace Microsoft.PowerShell.Commands
                 if (s_uriCache.ContainsKey(_uri))
                 {
                     // if uri is present in the cache
-                    string ns;
-                    s_uriCache.TryGetValue(_uri, out ns);
+                    string ns = s_uriCache.GetValueOrDefault(_uri);
                     string[] data = ns.Split('|');
                     if (string.IsNullOrEmpty(_namespace))
                     {
@@ -399,8 +398,7 @@ namespace Microsoft.PowerShell.Commands
             // return the instance of th eproxy in the cache
             if (s_srccodeCache.ContainsKey(_sourceHash))
             {
-                object obj;
-                s_srccodeCache.TryGetValue(_sourceHash, out obj);
+                object obj = s_srccodeCache.GetValueOrDefault(_sourceHash);
                 WriteObject(obj, true);
                 return null;
             }

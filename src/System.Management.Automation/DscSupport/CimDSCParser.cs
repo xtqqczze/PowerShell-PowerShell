@@ -1186,9 +1186,7 @@ namespace Microsoft.PowerShell.DesiredStateConfiguration.Internal
                 throw PSTraceSource.NewArgumentNullException(nameof(fileName));
             }
 
-            List<CimClass> listCimClass;
-            ByFileClassCache.TryGetValue(fileName, out listCimClass);
-            return listCimClass;
+            return ByFileClassCache.GetValueOrDefault(fileName);
         }
 
         /// <summary>

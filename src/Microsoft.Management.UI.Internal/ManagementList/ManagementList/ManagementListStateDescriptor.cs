@@ -577,10 +577,8 @@ namespace Microsoft.Management.UI.Internal
                     return 1;
                 }
 
-                ColumnStateDescriptor csdX;
-                ColumnStateDescriptor csdY;
-                this.columns.TryGetValue(x.DataDescription.PropertyName, out csdX);
-                this.columns.TryGetValue(y.DataDescription.PropertyName, out csdY);
+                ColumnStateDescriptor csdX = this.columns.GetValueOrDefault(x.DataDescription.PropertyName);
+                ColumnStateDescriptor csdY = this.columns.GetValueOrDefault(y.DataDescription.PropertyName);
 
                 if (csdX == null || csdY == null || (csdX.IsInUse && csdX.IsInUse) == false)
                 {
