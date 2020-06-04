@@ -2,7 +2,7 @@
 <RuleSet Name="Microsoft.Analyzers.ManagedCodeAnalysis" Description="Microsoft.Analyzers.ManagedCodeAnalysis" ToolsVersion="15.0">
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1000" Action="Warning" />          <!-- Do not declare static members on generic types -->
-    <Rule Id="CA1001" Action="Info" />             <!-- Types that own disposable fields should be disposable -->
+    <Rule Id="CA1001" Action="Warning" />             <!-- Types that own disposable fields should be disposable -->
     <Rule Id="CA1003" Action="None" />             <!-- Use generic event handler instances -->
     <Rule Id="CA1008" Action="None" />             <!-- Enums should have zero value -->
     <Rule Id="CA1010" Action="Info" />             <!-- Generic interface should also be implemented -->
