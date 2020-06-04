@@ -19,8 +19,10 @@ if(Test-Path $dotNetPath)
 Import-Module (Join-Path $repoRoot 'build.psm1') -Scope Global
 Import-Module (Join-Path $repoRoot 'tools\packaging') -Scope Global
 
+$environment = Get-EnvironmentInformation
+
 # import the windows specific functcion only in Windows PowerShell or on Windows
-if($PSVersionTable.PSEdition -eq 'Desktop' -or $IsWindows)
+if($PSVersionTable.PSEdition -eq 'Desktop' -or $environment.IsWindows)
 {
     Import-Module (Join-Path $PSScriptRoot 'WindowsCI.psm1') -Scope Global
 }
@@ -182,7 +184,7 @@ function Invoke-CIxUnit
     )
     $env:CoreOutput = Split-Path -Parent (Get-PSOutput -Options (Get-PSOptions))
     $path = "$env:CoreOutput\pwsh.exe"
-    if($IsMacOS -or $IsLinux)
+    if($environment.IsMacOS -or $environment.IsLinux)
     {
         $path = "$env:CoreOutput\pwsh"
     }
@@ -232,7 +234,7 @@ function Invoke-CITest
         }
     }
 
-    if($IsLinux -or $IsMacOS)
+    if($enviroment.IsLinux -or $enviroment.IsMacOS)
     {
         return Invoke-LinuxTestsCore -Purpose $Purpose -ExcludeTag $ExcludeTag -TagSet $TagSet
     }
@@ -441,7 +443,7 @@ function Invoke-CIFinish
         [string] $NuGetKey
     )
 
-    if($PSEdition -eq 'Core' -and ($IsLinux -or $IsMacOS))
+    if($PSEdition -eq 'Core' -and ($enviroment.IsLinux -or $enviroment.IsMacOS))
     {
         return New-LinuxPackage -NugetKey $NugetKey
     }
