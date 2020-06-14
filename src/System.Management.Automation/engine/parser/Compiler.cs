@@ -1826,11 +1826,12 @@ namespace System.Management.Automation.Language
                 return null;
             }
 
-            attributes.Reverse();
             if (!hasParameterAttribute)
             {
-                attributes.Insert(0, new ParameterAttribute());
+                attributes.Add(new ParameterAttribute());
             }
+
+            attributes.Reverse();
 
             var result = new RuntimeDefinedParameter(parameterAst.Name.VariablePath.UserPath, parameterAst.StaticType,
                                                      new Collection<Attribute>(attributes));
