@@ -2631,9 +2631,8 @@ namespace System.Management.Automation
             Error.Clear();
             int currentErrorIndex = 0;
             var errors = (ArrayList)actionState.PSVariable.Get("error").Value;
-            errors.Reverse();
 
-            for (int i = 0; i < errors.Count; i++)
+            for (int i = errors.Count - 1; i >= 0; i--)
             {
                 var error = (ErrorRecord)errors[i];
                 if (currentErrorIndex == _highestErrorIndex)
