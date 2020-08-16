@@ -490,11 +490,8 @@ namespace System.Management.Automation
                 throw PSTraceSource.NewArgumentNullException(nameof(input));
             }
 
-            string base64 = Convert.ToBase64String
-                            (
-                                Encoding.Unicode.GetBytes(input.ToCharArray())
-                            );
-            return base64;
+            return Convert.ToBase64String(
+                Encoding.Unicode.GetBytes(input));
         }
 
         /// <summary>

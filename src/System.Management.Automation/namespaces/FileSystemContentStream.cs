@@ -1254,10 +1254,7 @@ namespace Microsoft.PowerShell.Commands
         /// <param name="delimiter"></param>
         /// <returns></returns>
         internal int GetByteCount(string delimiter)
-        {
-            char[] chars = delimiter.ToCharArray();
-            return _currentEncoding.GetByteCount(chars, 0, chars.Length);
-        }
+            => _currentEncoding.GetByteCount(delimiter);
 
         /// <summary>
         /// Peek the next character.

@@ -2171,11 +2171,8 @@ namespace Microsoft.PowerShell.Commands
                     int pos = 0;
                     foreach (string dependedOn in DependsOn)
                     {
-                        Array.Copy(
-                            dependedOn.ToCharArray(), 0,
-                            doubleNullArray, pos,
-                            dependedOn.Length
-                            );
+                        dependedOn.AsSpan().CopyTo(
+                            doubleNullArray.AsSpan().Slice(pos, dependedOn.Length));
                         pos += dependedOn.Length;
                         doubleNullArray[pos++] = (char)0; // null terminator
                     }

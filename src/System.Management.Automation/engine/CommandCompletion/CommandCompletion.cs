@@ -708,7 +708,7 @@ namespace System.Management.Automation
         private static class PSv2CompletionCompleter
         {
             private static readonly Regex s_cmdletTabRegex = new Regex(@"^[\w\*\?]+-[\w\*\?]*");
-            private static readonly char[] s_charsRequiringQuotedString = "`&@'#{}()$,;|<> \t".ToCharArray();
+            private static readonly char[] s_charsRequiringQuotedString = { '`', '&', '@', '\'', '#', '{', '}', '(', ')', '$', ',', ';', '|', '<', '>', '\t' };
 
             #region "Handle Command"
 
