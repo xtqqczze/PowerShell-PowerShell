@@ -1230,7 +1230,7 @@ namespace Microsoft.PowerShell
         {
             if (s == null)
             {
-                throw PSTraceSource.NewArgumentNullException("str");
+                throw PSTraceSource.NewArgumentNullException(nameof(s));
             }
 
             return ConsoleControl.LengthInBufferCells(s, offset, parent.SupportsVirtualTerminal);
@@ -1622,7 +1622,7 @@ namespace Microsoft.PowerShell
             // if there are no contents, there is nothing to set the buffer to
             if (contents == null)
             {
-                PSTraceSource.NewArgumentNullException("contents");
+                PSTraceSource.NewArgumentNullException(nameof(contents));
             }
             // if the cursor is on the last line, we need to make more space to print the specified buffer
             if (origin.Y == BufferSize.Height - 1 && origin.X >= BufferSize.Width)
@@ -1704,7 +1704,7 @@ namespace Microsoft.PowerShell
         {
             if (s == null)
             {
-                throw PSTraceSource.NewArgumentNullException("str");
+                throw PSTraceSource.NewArgumentNullException(nameof(s));
             }
 
             return ConsoleControl.LengthInBufferCells(s, offset, _parent.SupportsVirtualTerminal);
