@@ -1896,12 +1896,8 @@ namespace Microsoft.PowerShell
             string completionInput = null;
 #endif
 
-            while (true)
+            while (!TryInvokeUserDefinedReadLine(out input))
             {
-                if (TryInvokeUserDefinedReadLine(out input))
-                {
-                    break;
-                }
 
                 input = ReadLine(true, lastInput, out rlResult, false, false);
 

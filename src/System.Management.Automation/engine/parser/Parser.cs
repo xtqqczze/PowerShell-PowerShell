@@ -1671,7 +1671,7 @@ namespace System.Management.Automation.Language
             IScriptExtent statementListExtent = paramBlockAst != null ? paramBlockAst.Extent : null;
             IScriptExtent scriptBlockExtent;
 
-            while (true)
+            do
             {
                 IScriptExtent extent = StatementListRule(statements, traps);
                 if (statementListExtent == null)
@@ -1682,12 +1682,8 @@ namespace System.Management.Automation.Language
                 {
                     statementListExtent = ExtentOf(statementListExtent, extent);
                 }
-
-                if (CompleteScriptBlockBody(lCurly, ref statementListExtent, out scriptBlockExtent))
-                {
-                    break;
-                }
             }
+            while (!CompleteScriptBlockBody(lCurly, ref statementListExtent, out scriptBlockExtent));
 
             return new ScriptBlockAst(scriptBlockExtent, usingStatements, paramBlockAst,
                 new StatementBlockAst(statementListExtent ?? PositionUtilities.EmptyExtent, statements, traps), isFilter);

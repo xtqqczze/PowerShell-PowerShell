@@ -388,9 +388,7 @@ namespace System.Diagnostics.Eventing.Reader
                 int error = Marshal.GetLastWin32Error();
                 if (!status)
                 {
-                    if (error == UnsafeNativeMethods.ERROR_SUCCESS) { }
-                    else
-                        if (error != UnsafeNativeMethods.ERROR_INSUFFICIENT_BUFFER)
+                    if (error != UnsafeNativeMethods.ERROR_SUCCESS && error != UnsafeNativeMethods.ERROR_INSUFFICIENT_BUFFER)
                         ThrowEventLogException(error);
                 }
 

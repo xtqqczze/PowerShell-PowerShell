@@ -105,12 +105,8 @@ namespace Microsoft.PowerShell.Commands.Internal.Format
 
             int k = (head) ? offset : str.Length - 1;
             int kFinal = (head) ? str.Length - 1 : offset;
-            while (true)
+            while ((!head || (k <= kFinal)) && ((head) || (k >= kFinal)))
             {
-                if ((head && (k > kFinal)) || ((!head) && (k < kFinal)))
-                {
-                    break;
-                }
                 // compute the cell number for the current character
                 currCharDisplayLen = this.Length(str[k]);
 

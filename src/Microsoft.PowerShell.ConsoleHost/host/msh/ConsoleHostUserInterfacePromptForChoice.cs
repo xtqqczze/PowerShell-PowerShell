@@ -90,7 +90,7 @@ namespace Microsoft.PowerShell
                     defaultChoiceKeys.Add(defaultChoice, true);
                 }
 
-                while (true)
+                do
                 {
                     WriteChoicePrompt(hotkeysAndPlainLabels, defaultChoiceKeys, false);
 
@@ -132,13 +132,9 @@ namespace Microsoft.PowerShell
 
                     result = HostUIHelperMethods.DetermineChoicePicked(response.Trim(), choices, hotkeysAndPlainLabels);
 
-                    if (result >= 0)
-                    {
-                        break;
-                    }
-
                     // their input matched none of the choices, so prompt again
                 }
+                while (result < 0);
 
                 return result;
             }

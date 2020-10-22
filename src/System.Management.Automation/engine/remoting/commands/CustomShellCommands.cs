@@ -1700,7 +1700,7 @@ else
             prologue = sddl.Substring(0, index);
 
             int sddlLength = sddl.Length;
-            while (true)
+            do
             {
                 // Find ending of ACE
                 int endIndex = sddl.IndexOf(CloseParenChar, index);
@@ -1715,8 +1715,8 @@ else
 
                 // Next ACE is indicated by an immediate open parenthesis character.
                 index = endIndex + 1;
-                if ((index >= sddlLength) || (sddl[index] != OpenParenChar)) { break; }
             }
+            while ((index < sddlLength) && (sddl[index] == OpenParenChar));
 
             // SACLs will be at the end of the sddl string.
             epilogue = (index < sddlLength) ? sddl.Substring(index, (sddlLength - index)) : string.Empty;
