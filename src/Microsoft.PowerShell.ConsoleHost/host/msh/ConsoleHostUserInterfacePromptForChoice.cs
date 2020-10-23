@@ -131,9 +131,8 @@ namespace Microsoft.PowerShell
                     }
 
                     result = HostUIHelperMethods.DetermineChoicePicked(response.Trim(), choices, hotkeysAndPlainLabels);
-
-                    // their input matched none of the choices, so prompt again
                 }
+                // prompt again if the input matched none of the choices
                 while (result < 0);
 
                 return result;

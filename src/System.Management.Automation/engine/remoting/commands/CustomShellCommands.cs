@@ -1713,9 +1713,9 @@ else
                 string ace = sddl.Substring(index, (endIndex - index + 1));
                 sddlACEs.Add(ace);
 
-                // Next ACE is indicated by an immediate open parenthesis character.
                 index = endIndex + 1;
             }
+            // Next ACE is indicated by an immediate open parenthesis character.
             while ((index < sddlLength) && (sddl[index] == OpenParenChar));
 
             // SACLs will be at the end of the sddl string.
