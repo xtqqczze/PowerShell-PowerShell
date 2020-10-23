@@ -128,18 +128,18 @@ namespace Microsoft.PowerShell.Commands
             {
                 StringBuilder aceString = new StringBuilder();
                 string ntAccount = ConvertToNTAccount(ace.SecurityIdentifier);
-                aceString.Append($"{ntAccount}: {ace.AceQualifier}");
+                aceString.Append(ntAccount).Append(": ").Append(ace.AceQualifier);
 
                 if (ace.AceFlags != AceFlags.None)
                 {
-                    aceString.Append($" {ace.AceFlags}");
+                    aceString.Append(' ').Append(ace.AceFlags);
                 }
 
                 List<string> accessRightList = GetApplicableAccessRights(ace.AccessMask, typeName);
                 if (accessRightList.Count > 0)
                 {
                     string accessRights = string.Join(", ", accessRightList);
-                    aceString.Append($" ({accessRights})");
+                    aceString.Append(" (").Append(accessRights).Append(')');
                 }
 
                 aceStringList.Add(aceString.ToString());

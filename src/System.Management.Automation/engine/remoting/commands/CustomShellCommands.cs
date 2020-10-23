@@ -988,86 +988,86 @@ else
 
                 File.Copy(srcConfigFilePath, destConfigFilePath, true);
 
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.CONFIGFILEPATH_CamelCase,
                     destPath,
-                    Environment.NewLine));
+                    Environment.NewLine);
             }
 
             if (!assemblyAndTypeTokensSet)
             {
                 if (!string.IsNullOrEmpty(configurationTypeName))
                 {
-                    initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                    initParameters.AppendFormat(CultureInfo.InvariantCulture,
                         initParamFormat,
                         ConfigurationDataFromXML.SHELLCONFIGTYPETOKEN,
                         configurationTypeName,
-                        Environment.NewLine));
+                        Environment.NewLine);
                 }
 
                 if (!string.IsNullOrEmpty(assemblyName))
                 {
-                    initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                    initParameters.AppendFormat(CultureInfo.InvariantCulture,
                         initParamFormat,
                         ConfigurationDataFromXML.ASSEMBLYTOKEN,
                         assemblyName,
-                        Environment.NewLine));
+                        Environment.NewLine);
                 }
             }
 
             if (!string.IsNullOrEmpty(applicationBase))
             {
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.APPBASETOKEN,
                     applicationBase,
-                    Environment.NewLine));
+                    Environment.NewLine);
             }
 
             if (!string.IsNullOrEmpty(configurationScript))
             {
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.STARTUPSCRIPTTOKEN,
                     configurationScript,
-                    Environment.NewLine));
+                    Environment.NewLine);
             }
 
             if (maxCommandSizeMB.HasValue)
             {
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.MAXRCVDCMDSIZETOKEN,
                     maxCommandSizeMB.Value,
-                    Environment.NewLine));
+                    Environment.NewLine);
             }
 
             if (maxObjectSizeMB.HasValue)
             {
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.MAXRCVDOBJSIZETOKEN,
                     maxObjectSizeMB.Value,
-                    Environment.NewLine));
+                    Environment.NewLine);
             }
 
             if (threadAptState.HasValue)
             {
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.THREADAPTSTATETOKEN,
                     threadAptState.Value,
-                    Environment.NewLine));
+                    Environment.NewLine);
             }
 
             if (threadOptions.HasValue)
             {
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.THREADOPTIONSTOKEN,
                     threadOptions.Value,
-                    Environment.NewLine));
+                    Environment.NewLine);
             }
 
             // Default value for PSVersion
@@ -1078,22 +1078,22 @@ else
 
             if (psVersion != null)
             {
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                     initParamFormat,
                     ConfigurationDataFromXML.PSVERSIONTOKEN,
                     PSSessionConfigurationCommandUtilities.ConstructVersionFormatForConfigXml(psVersion),
-                    Environment.NewLine));
+                    Environment.NewLine);
 
                 // Calculate MaxPSVersion from PSVersion
                 MaxPSVersion = PSSessionConfigurationCommandUtilities.CalculateMaxPSVersion(psVersion);
 
                 if (MaxPSVersion != null)
                 {
-                    initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                    initParameters.AppendFormat(CultureInfo.InvariantCulture,
                         initParamFormat,
                         ConfigurationDataFromXML.MAXPSVERSIONTOKEN,
                         PSSessionConfigurationCommandUtilities.ConstructVersionFormatForConfigXml(MaxPSVersion),
-                        Environment.NewLine));
+                        Environment.NewLine);
                 }
             }
 
@@ -1167,11 +1167,11 @@ else
 
             if (modulesToImport != null && modulesToImport.Length > 0)
             {
-                sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture,
+                sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture,
                                                 initParamFormat,
                                                 PSSessionConfigurationData.ModulesToImportToken,
                                                 PSSessionConfigurationCommandUtilities.GetModulePathAsString(modulesToImport),
-                                                string.Empty));
+                                                string.Empty);
             }
 
             if (sessionTypeOption != null)
@@ -1180,7 +1180,7 @@ else
                 string privateData = this.sessionTypeOption.ConstructPrivateData();
                 if (!string.IsNullOrEmpty(privateData))
                 {
-                    sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture, privateDataFormat, privateData));
+                    sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture, privateDataFormat, privateData);
                 }
             }
 
@@ -1190,11 +1190,11 @@ else
                                                          SessionConfigDataFormat,
                                                          sessionConfigurationData);
                 string encodedSessionConfigData = SecurityElement.Escape(sessionConfigData);
-                initParameters.Append(string.Format(CultureInfo.InvariantCulture,
+                initParameters.AppendFormat(CultureInfo.InvariantCulture,
                                                     initParamFormat,
                                                     ConfigurationDataFromXML.SESSIONCONFIGTOKEN,
                                                     encodedSessionConfigData,
-                                                    string.Empty));
+                                                    string.Empty);
             }
 
             if (transportOption == null)
@@ -1644,10 +1644,10 @@ else
 
                 // Prepend the 'X' character
                 var accessType = ConditionalACEPrefix + components[0];
-                sb.Append(accessType + ACESeparator);
+                sb.Append(accessType).Append(ACESeparator);
                 for (int i = 1; i < 6; i++)
                 {
-                    sb.Append(components[i] + ACESeparator);
+                    sb.Append(components[i]).Append(ACESeparator);
                 }
 
                 sb.Append(conditionalGroupACE);
@@ -3674,9 +3674,9 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                     //       and it will be the original module path. It's null or empty when the original module path is null or empty.
                     if (unsetModulePath || string.IsNullOrEmpty(modulePathParameter))
                     {
-                        sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture,
+                        sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture,
                                 initParamFormat,
-                                PSSessionConfigurationData.ModulesToImportToken, string.Empty));
+                                PSSessionConfigurationData.ModulesToImportToken, string.Empty);
                     }
                     // unsetModulePath is false AND modulePathParameter is not empty.
                     // 1. modulePathSpecified is false. In this case, modulePathParameter will be the original module path.
@@ -3685,16 +3685,16 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                     //    b. the user specified module path is empty after trim(), and modulePathParameter will be the original module path.
                     else
                     {
-                        sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture,
+                        sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture,
                                 initParamFormat,
                                 PSSessionConfigurationData.ModulesToImportToken,
-                                modulePathParameter));
+                                modulePathParameter);
                     }
 
                     string privateData = original.ConstructPrivateData();
                     if (!string.IsNullOrEmpty(privateData))
                     {
-                        sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture, privateDataFormat, privateData));
+                        sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture, privateDataFormat, privateData);
                     }
 
                     if (sessionConfigurationData.Length > 0)
@@ -3841,10 +3841,10 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                             // if unsetModulePath is false, we set the new sessionConfigurationData to contain the specified module path
                             if (!unsetModulePath)
                             {
-                                sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture,
+                                sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture,
                                     initParamFormat,
                                     PSSessionConfigurationData.ModulesToImportToken,
-                                    modulePathParameter));
+                                    modulePathParameter);
                             }
                             // if unsetModulePath is true, we don't need to do anything because ModulesToImport doesn't exist
                             // in the original configuration. If it's a workflow config, it's not a valid one.
@@ -3862,12 +3862,12 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                                 // ModulesToImport exist in the pssessionConfigurationData
                                 if (scd.ModulesToImportInternal != null && scd.ModulesToImportInternal.Count != 0)
                                 {
-                                    sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture,
+                                    sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture,
                                         initParamFormat,
-                                        PSSessionConfigurationData.ModulesToImportToken, string.Empty));
+                                        PSSessionConfigurationData.ModulesToImportToken, string.Empty);
                                     if (!string.IsNullOrEmpty(privateData))
                                     {
-                                        sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture, privateDataFormat, privateData));
+                                        sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture, privateDataFormat, privateData);
                                     }
                                 }
                                 // if ModulesToImport doesn't exist in the pssessionConfigurationData, we don't need to do anything.
@@ -3876,13 +3876,13 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                             else
                             {
                                 // Replace the old module path
-                                sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture,
+                                sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture,
                                     initParamFormat,
                                     PSSessionConfigurationData.ModulesToImportToken,
-                                    modulePathParameter));
+                                    modulePathParameter);
                                 if (!string.IsNullOrEmpty(privateData))
                                 {
-                                    sessionConfigurationData.Append(string.Format(CultureInfo.InvariantCulture, privateDataFormat, privateData));
+                                    sessionConfigurationData.AppendFormat(CultureInfo.InvariantCulture, privateDataFormat, privateData);
                                 }
                             }
                         }

@@ -169,12 +169,11 @@ namespace System.Management.Automation
 
                 foreach (CommandParameterSetInfo parameterSet in ParameterSets)
                 {
-                    synopsis.AppendLine(
-                        string.Format(
+                    synopsis.AppendFormat(
                             Globalization.CultureInfo.CurrentCulture,
                             "{0} {1}",
                             Name,
-                            parameterSet));
+                            parameterSet).AppendLine();
                 }
 
                 return synopsis.ToString();

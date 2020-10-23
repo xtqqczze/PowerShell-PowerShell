@@ -859,7 +859,7 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
                         parameters.Append(",");
                     }
 
-                    parameters.Append(string.Format(CultureInfo.CurrentUICulture, @"'{0}' = {1}", key, parameterList[key]));
+                    parameters.AppendFormat(CultureInfo.CurrentUICulture, @"'{0}' = {1}", key, parameterList[key]);
                 }
             }
 

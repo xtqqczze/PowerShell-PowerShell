@@ -6634,7 +6634,7 @@ namespace System.Management.Automation
                         var newTooltip = new StringBuilder();
                         foreach (var overload in overloads)
                         {
-                            newTooltip.Append(overload.Trim() + ")\r\n");
+                            newTooltip.Append(overload.Trim()).Append(")\r\n");
                         }
 
                         newTooltip.Remove(newTooltip.Length - 3, 3);

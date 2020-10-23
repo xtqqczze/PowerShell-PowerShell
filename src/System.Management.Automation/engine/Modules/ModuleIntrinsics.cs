@@ -1149,7 +1149,7 @@ namespace System.Management.Automation
                             if (endsWithPathSeparator)
                                 result.Append(subPathToAdd);
                             else
-                                result.Append(Path.PathSeparator + subPathToAdd);
+                                result.Append(Path.PathSeparator).Append(subPathToAdd);
                         }
                         else if (insertPosition > result.Length)
                         {

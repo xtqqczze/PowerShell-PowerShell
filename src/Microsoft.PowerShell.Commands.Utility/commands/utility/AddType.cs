@@ -527,7 +527,7 @@ namespace Microsoft.PowerShell.Commands
                 case Language.CSharp:
                     foreach (string namespaceValue in UsingNamespace)
                     {
-                        usingNamespaceSet.Append("using " + namespaceValue + ";\n");
+                        usingNamespaceSet.Append("using ").Append(namespaceValue).Append(";\n");
                     }
 
                     break;

@@ -348,44 +348,44 @@ namespace Microsoft.PowerShell.Commands
 
             if (_idleTimeoutSec.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribIdleTimeout, 1000 * _idleTimeoutSec));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribIdleTimeout, 1000 * _idleTimeoutSec);
             }
 
             if (_maxConcurrentUsers.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribMaxConcurrentUsers, _maxConcurrentUsers));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribMaxConcurrentUsers, _maxConcurrentUsers);
             }
 
             if (_maxProcessesPerSession.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribMaxProcessesPerSession, _maxProcessesPerSession));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribMaxProcessesPerSession, _maxProcessesPerSession);
             }
 
             if (_maxMemoryPerSessionMB.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribMaxMemoryPerSessionMB, _maxMemoryPerSessionMB));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribMaxMemoryPerSessionMB, _maxMemoryPerSessionMB);
             }
 
             if (_maxSessionsPerUser.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribMaxSessionsPerUser, _maxSessionsPerUser));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribMaxSessionsPerUser, _maxSessionsPerUser);
             }
 
             if (_maxConcurrentCommandsPerSession.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribMaxConcurrentCommandsPerSession, _maxConcurrentCommandsPerSession));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribMaxConcurrentCommandsPerSession, _maxConcurrentCommandsPerSession);
             }
 
             if (_maxSessions.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribMaxSessions, _maxSessions));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribMaxSessions, _maxSessions);
             }
 
             if (_maxIdleTimeoutSec.HasValue)
             {
                 // Special case max int value for unbounded default.
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribMaxIdleTimeout,
-                    (_maxIdleTimeoutSec == int.MaxValue) ? _maxIdleTimeoutSec : (1000 * _maxIdleTimeoutSec)));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribMaxIdleTimeout,
+                    (_maxIdleTimeoutSec == int.MaxValue) ? _maxIdleTimeoutSec : (1000 * _maxIdleTimeoutSec));
             }
 
             return sb.Length > 0
@@ -402,12 +402,12 @@ namespace Microsoft.PowerShell.Commands
             StringBuilder sb = new StringBuilder();
             if (_outputBufferingMode.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribOutputBufferingMode, _outputBufferingMode.ToString()));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribOutputBufferingMode, _outputBufferingMode.ToString());
             }
 
             if (_processIdleTimeoutSec.HasValue)
             {
-                sb.Append(string.Format(CultureInfo.InvariantCulture, Token, AttribProcessIdleTimeout, _processIdleTimeoutSec));
+                sb.AppendFormat(CultureInfo.InvariantCulture, Token, AttribProcessIdleTimeout, _processIdleTimeoutSec);
             }
 
             return sb.ToString();

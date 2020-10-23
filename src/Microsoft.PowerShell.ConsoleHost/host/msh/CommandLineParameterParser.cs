@@ -1266,7 +1266,7 @@ namespace Microsoft.PowerShell
 
                 while (i < args.Length)
                 {
-                    cmdLineCmdSB.Append(args[i] + " ");
+                    cmdLineCmdSB.Append(args[i]).Append(' ');
                     ++i;
                 }
 

@@ -205,8 +205,7 @@ namespace Microsoft.PowerShell
 
                         while (true)
                         {
-                            fieldPromptList.Append(
-                                string.Format(CultureInfo.InvariantCulture, "{0}]: ", inputList.Count));
+                            fieldPromptList.AppendFormat(CultureInfo.InvariantCulture, "{0}]: ", inputList.Count);
                             bool inputListEnd = false;
                             object convertedObj = null;
                             string inputString = PromptForSingleItem(elementType, fieldPromptList.ToString(), fieldPrompt, caption, message,

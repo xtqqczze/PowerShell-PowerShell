@@ -240,7 +240,7 @@ function __cmdletization_BindCommonParameters
             StringBuilder attributes = new StringBuilder(150);
             if (cmdletMetadata.Aliases != null)
             {
-                attributes.Append("[Alias('" + string.Join("','", cmdletMetadata.Aliases.Select(alias => CodeGeneration.EscapeSingleQuotedStringContent(alias))) + "')]");
+                attributes.Append("[Alias('").Append(string.Join("','", cmdletMetadata.Aliases.Select(alias => CodeGeneration.EscapeSingleQuotedStringContent(alias)))).Append("')]");
             }
 
             if (cmdletMetadata.Obsolete != null)

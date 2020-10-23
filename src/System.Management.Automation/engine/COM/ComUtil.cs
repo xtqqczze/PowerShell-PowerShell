@@ -45,7 +45,7 @@ namespace System.Management.Automation
             {
                 // First get the string for return type.
                 string retstring = GetStringFromTypeDesc(typeinfo, funcdesc.elemdescFunc.tdesc);
-                builder.Append(retstring + " ");
+                builder.Append(retstring).Append(' ');
             }
 
             // Append the function name
@@ -88,7 +88,7 @@ namespace System.Management.Automation
                 else
                 {
                     builder.Append(paramstring);
-                    builder.Append(" " + names[i + 1]);
+                    builder.Append(' ').Append(names[i + 1]);
 
                     if (i < funcdesc.cParams - 1)
                     {

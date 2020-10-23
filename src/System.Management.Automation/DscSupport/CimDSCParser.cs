@@ -3678,14 +3678,14 @@ namespace Microsoft.PowerShell.DesiredStateConfiguration.Internal
                 }
                 else
                 {
-                    formattedTypeString.Append("[" + cimTypeName + "]");
+                    formattedTypeString.Append('[').Append(cimTypeName).Append(']');
                 }
             }
 
             // Do the property values map
             if (prop.ValueMap != null && prop.ValueMap.Count > 0)
             {
-                formattedTypeString.Append(" { " + string.Join(" | ", prop.ValueMap.Keys.OrderBy(x => x)) + " }");
+                formattedTypeString.Append(" { ").Append(string.Join(" | ", prop.ValueMap.Keys.OrderBy(x => x))).Append(" }");
             }
 
             // We prepend optional property with "[" so close out it here. This way it is shown with [ ] to indication optional

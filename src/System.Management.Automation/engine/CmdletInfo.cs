@@ -295,26 +295,24 @@ namespace System.Management.Automation
                     foreach (CommandParameterSetInfo parameterSet in ParameterSets)
                     {
                         synopsis.AppendLine();
-                        synopsis.AppendLine(
-                            string.Format(
+                        synopsis.AppendFormat(
                                 System.Globalization.CultureInfo.CurrentCulture,
                                 "{0}{1}{2} {3}",
                                 _verb,
                                 StringLiterals.CommandVerbNounSeparator,
                                 _noun,
-                                parameterSet.ToString()));
+                                parameterSet.ToString()).AppendLine();
                     }
                 }
                 else
                 {
                     // Skip the synopsis documentation if the cmdlet hasn't been loaded yet.
-                    synopsis.AppendLine(
-                        string.Format(
+                    synopsis.AppendFormat(
                             System.Globalization.CultureInfo.CurrentCulture,
                             "{0}{1}{2}",
                             _verb,
                             StringLiterals.CommandVerbNounSeparator,
-                            _noun));
+                            _noun).AppendLine();
                 }
 
                 return synopsis.ToString();

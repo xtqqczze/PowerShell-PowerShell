@@ -452,12 +452,11 @@ namespace System.Management.Automation
                 foreach (CommandParameterSetInfo parameterSet in ParameterSets)
                 {
                     synopsis.AppendLine();
-                    synopsis.AppendLine(
-                        string.Format(
+                    synopsis.AppendFormat(
                             Globalization.CultureInfo.CurrentCulture,
                             "{0} {1}",
                             Name,
-                            parameterSet.ToString()));
+                            parameterSet.ToString()).AppendLine();
                 }
 
                 return synopsis.ToString();

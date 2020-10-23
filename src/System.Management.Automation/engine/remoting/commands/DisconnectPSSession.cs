@@ -373,7 +373,7 @@ namespace Microsoft.PowerShell.Commands
 
                 if ((wsManConnectionInfo != null) && (wsManConnectionInfo.IsLocalhostAndNetworkAccess))
                 {
-                    sb.Append(psSession.Name + ", ");
+                    sb.Append(psSession.Name).Append(", ");
                 }
             }
 

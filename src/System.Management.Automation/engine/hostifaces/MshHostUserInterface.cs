@@ -490,7 +490,7 @@ namespace System.Management.Automation.Host
                     {
                         var arrayValue = value as object[];
                         string valueString = arrayValue != null ? string.Join(", ", arrayValue) : value.ToString();
-                        versionInfoFooter.AppendLine(versionKey + ": " + valueString);
+                        versionInfoFooter.Append(versionKey).Append(": ").AppendLine(valueString);
                     }
                 }
 

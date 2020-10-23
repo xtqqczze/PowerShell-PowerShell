@@ -348,8 +348,8 @@ namespace Microsoft.PowerShell
                         defaultStr = hotkeysAndPlainLabels[1, defaultChoice];
                     }
 
-                    defaultChoicesBuilder.Append(string.Format(CultureInfo.InvariantCulture,
-                        "{0}{1}", prepend, defaultStr));
+                    defaultChoicesBuilder.AppendFormat(CultureInfo.InvariantCulture,
+                        "{0}{1}", prepend, defaultStr);
                     prepend = ",";
                 }
 

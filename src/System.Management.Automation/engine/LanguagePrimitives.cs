@@ -4752,7 +4752,7 @@ namespace System.Management.Automation
                         availableProperties.Append(" , ");
                     }
 
-                    availableProperties.Append("[" + p.Name + " <" + p.TypeNameOfValue + ">]");
+                    availableProperties.Append('[').Append(p.Name).Append(" <").Append(p.TypeNameOfValue).Append(">]");
                     if (first)
                     {
                         first = false;

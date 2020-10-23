@@ -4470,7 +4470,7 @@ namespace System.Management.Automation
             // For remote runspaces display computer name in prompt.
             if (!string.IsNullOrEmpty(computerName))
             {
-                nestedPromptString.Append("[" + computerName + "]:");
+                nestedPromptString.Append('[').Append(computerName).Append("]:");
             }
 
             nestedPromptString.Append(promptString);

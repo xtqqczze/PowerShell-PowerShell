@@ -924,7 +924,7 @@ namespace Microsoft.PowerShell
                     int w = maxWidthInBufferCells - cellCounter;
                     Dbg.Assert(w < e.Current.CellCount, "width remaining should be less than size of word");
 
-                    line.Append(e.Current.Text.Substring(0, w));
+                    line.Append(e.Current.Text, 0, w);
 
                     l = line.ToString();
                     Dbg.Assert(RawUI.LengthInBufferCells(l) == maxWidthInBufferCells, "line should exactly fit");

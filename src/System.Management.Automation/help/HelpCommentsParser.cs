@@ -628,7 +628,7 @@ namespace System.Management.Automation
                     start++;
                 }
 
-                sb.Append(line.Substring(start));
+                sb.Append(line, start, line.Length - start);
                 sb.Append('\n');
             }
 

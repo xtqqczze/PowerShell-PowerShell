@@ -5226,7 +5226,7 @@ namespace Microsoft.WSMan.Management
                     {
                         if (prop.Name.Equals("Resource") || prop.Name.Equals("ResourceUri"))
                         {
-                            sbvalues.Append("ResourceUri" + WSManStringLiterals.Equalto + WSManStringLiterals.EnclosingDoubleQuotes + prop.Value.ToString() + WSManStringLiterals.EnclosingDoubleQuotes);
+                            sbvalues.Append("ResourceUri").Append(WSManStringLiterals.Equalto).Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Value.ToString()).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                         }
                         else if (prop.Name.Equals("Capability"))
                         {
@@ -5236,7 +5236,7 @@ namespace Microsoft.WSMan.Management
                         {
                             sbvalues.Append(prop.Name);
                             sbvalues.Append(WSManStringLiterals.Equalto);
-                            sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes + prop.Value.ToString() + WSManStringLiterals.EnclosingDoubleQuotes);
+                            sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Value.ToString()).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                         }
                     }
                 }
@@ -5259,7 +5259,7 @@ namespace Microsoft.WSMan.Management
                         {
                             if (prop.Name.Equals("Resource") || prop.Name.Equals("ResourceUri"))
                             {
-                                sbvalues.Append("ResourceUri" + WSManStringLiterals.Equalto + WSManStringLiterals.EnclosingDoubleQuotes + prop.Value.ToString() + WSManStringLiterals.EnclosingDoubleQuotes);
+                                sbvalues.Append("ResourceUri").Append(WSManStringLiterals.Equalto).Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Value.ToString()).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                             }
                             else if (prop.Name.Equals("Capability"))
                             {
@@ -5276,7 +5276,7 @@ namespace Microsoft.WSMan.Management
                             {
                                 sbvalues.Append(prop.Name);
                                 sbvalues.Append(WSManStringLiterals.Equalto);
-                                sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes + prop.Value.ToString() + WSManStringLiterals.EnclosingDoubleQuotes);
+                                sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Value.ToString()).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                             }
                         }
                     }
@@ -5337,7 +5337,7 @@ namespace Microsoft.WSMan.Management
 
                     sbValues.Append(prop.Name);
                     sbValues.Append(WSManStringLiterals.Equalto);
-                    sbValues.Append(WSManStringLiterals.EnclosingDoubleQuotes + propValueStr + WSManStringLiterals.EnclosingDoubleQuotes);
+                    sbValues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(propValueStr).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                 }
             }
 
@@ -5365,11 +5365,11 @@ namespace Microsoft.WSMan.Management
                     sbvalues.Append(WSManStringLiterals.SingleWhiteSpace);
                     sbvalues.Append("Name");
                     sbvalues.Append(WSManStringLiterals.Equalto);
-                    sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes + prop.Name + WSManStringLiterals.EnclosingDoubleQuotes);
+                    sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Name).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                     sbvalues.Append(WSManStringLiterals.SingleWhiteSpace);
                     sbvalues.Append("Value");
                     sbvalues.Append(WSManStringLiterals.Equalto);
-                    sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes + prop.Value.ToString() + WSManStringLiterals.EnclosingDoubleQuotes);
+                    sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Value.ToString()).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                     sbvalues.Append(WSManStringLiterals.XmlClosingTag);
                 }
             }
@@ -5383,11 +5383,11 @@ namespace Microsoft.WSMan.Management
                         sbvalues.Append(WSManStringLiterals.SingleWhiteSpace);
                         sbvalues.Append("Name");
                         sbvalues.Append(WSManStringLiterals.Equalto);
-                        sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes + prop.Name + WSManStringLiterals.EnclosingDoubleQuotes);
+                        sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Name).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                         sbvalues.Append(WSManStringLiterals.SingleWhiteSpace);
                         sbvalues.Append("Value");
                         sbvalues.Append(WSManStringLiterals.Equalto);
-                        sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes + prop.Value.ToString() + WSManStringLiterals.EnclosingDoubleQuotes);
+                        sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(prop.Value.ToString()).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                         sbvalues.Append(WSManStringLiterals.XmlClosingTag);
                     }
                 }
@@ -5404,8 +5404,8 @@ namespace Microsoft.WSMan.Management
             {
                 sbvalues.Append("<Capability");
                 sbvalues.Append(WSManStringLiterals.SingleWhiteSpace);
-                sbvalues.Append("Type" + WSManStringLiterals.Equalto);
-                sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes + cap.ToString() + WSManStringLiterals.EnclosingDoubleQuotes);
+                sbvalues.Append("Type").Append(WSManStringLiterals.Equalto);
+                sbvalues.Append(WSManStringLiterals.EnclosingDoubleQuotes).Append(cap.ToString()).Append(WSManStringLiterals.EnclosingDoubleQuotes);
                 sbvalues.Append(WSManStringLiterals.GreaterThan);
                 sbvalues.Append("</Capability>");
             }

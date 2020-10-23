@@ -762,7 +762,7 @@ namespace System.Management.Automation
                     if (DefaultParameterValues.Contains(badFormatKey))
                         DefaultParameterValues.Remove(badFormatKey);
 
-                    keysInError.Append(badFormatKey.ToString() + ", ");
+                    keysInError.Append(badFormatKey.ToString()).Append(", ");
                 }
 
                 keysInError.Remove(keysInError.Length - 2, 2);
@@ -4356,7 +4356,7 @@ namespace System.Management.Automation
             var keysInError = new StringBuilder();
             foreach (object badFormatKey in keysInBadFormat)
             {
-                keysInError.Append(badFormatKey.ToString() + ", ");
+                keysInError.Append(badFormatKey.ToString()).Append(", ");
             }
 
             if (keysInError.Length > 0)
