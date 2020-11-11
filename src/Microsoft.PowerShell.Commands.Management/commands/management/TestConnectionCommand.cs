@@ -435,7 +435,7 @@ namespace Microsoft.PowerShell.Commands
                             TestConnectionResources.NoPingResult,
                             resolvedTargetName,
                             ex.Message);
-                        Exception pingException = new PingException(message, ex.InnerException);
+                        PingException pingException = new(message, ex.InnerException);
                         ErrorRecord errorRecord = new(
                             pingException,
                             TestConnectionExceptionId,
@@ -534,7 +534,7 @@ namespace Microsoft.PowerShell.Commands
                                 TestConnectionResources.NoPingResult,
                                 targetAddress,
                                 reply.Status.ToString());
-                            Exception pingException = new PingException(message);
+                            PingException pingException = new(message);
                             ErrorRecord errorRecord = new(
                                 pingException,
                                 TestConnectionExceptionId,
@@ -559,7 +559,7 @@ namespace Microsoft.PowerShell.Commands
             catch (PingException ex)
             {
                 string message = StringUtil.Format(TestConnectionResources.NoPingResult, targetAddress, ex.Message);
-                Exception pingException = new PingException(message, ex.InnerException);
+                PingException pingException = new(message, ex.InnerException);
                 ErrorRecord errorRecord = new(
                     pingException,
                     TestConnectionExceptionId,
@@ -616,7 +616,7 @@ namespace Microsoft.PowerShell.Commands
                 catch (PingException ex)
                 {
                     string message = StringUtil.Format(TestConnectionResources.NoPingResult, resolvedTargetName, ex.Message);
-                    Exception pingException = new PingException(message, ex.InnerException);
+                    PingException pingException = new(message, ex.InnerException);
                     ErrorRecord errorRecord = new(
                         pingException,
                         TestConnectionExceptionId,
@@ -677,7 +677,7 @@ namespace Microsoft.PowerShell.Commands
                         TestConnectionResources.NoPingResult,
                         resolvedTargetName,
                         TestConnectionResources.TargetAddressAbsent);
-                    Exception pingException = new PingException(message, null);
+                    PingException pingException = new(message, null);
                     ErrorRecord errorRecord = new(
                         pingException,
                         TestConnectionExceptionId,
@@ -721,7 +721,7 @@ namespace Microsoft.PowerShell.Commands
                             TestConnectionResources.NoPingResult,
                             resolvedTargetName,
                             TestConnectionResources.CannotResolveTargetName);
-                        Exception pingException = new PingException(message, ex);
+                        PingException pingException = new(message, ex);
                         ErrorRecord errorRecord = new(
                             pingException,
                             TestConnectionExceptionId,
@@ -743,7 +743,7 @@ namespace Microsoft.PowerShell.Commands
                             TestConnectionResources.NoPingResult,
                             resolvedTargetName,
                             TestConnectionResources.TargetAddressAbsent);
-                        Exception pingException = new PingException(message, null);
+                        PingException pingException = new(message, null);
                         ErrorRecord errorRecord = new(
                             pingException,
                             TestConnectionExceptionId,

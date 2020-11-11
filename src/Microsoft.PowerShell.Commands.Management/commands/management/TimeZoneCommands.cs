@@ -97,7 +97,7 @@ namespace Microsoft.PowerShell.Commands
                             string message = string.Format(CultureInfo.InvariantCulture,
                                 TimeZoneResources.TimeZoneNameNotFound, tzname);
 
-                            Exception e = new TimeZoneNotFoundException(message);
+                            TimeZoneNotFoundException e = new(message);
                             WriteError(new ErrorRecord(e, TimeZoneHelper.TimeZoneNotFoundError,
                                 ErrorCategory.InvalidArgument, "Name"));
                         }
@@ -192,7 +192,7 @@ namespace Microsoft.PowerShell.Commands
                 {
                     string message = string.Format(CultureInfo.InvariantCulture,
                         TimeZoneResources.TimeZoneNameNotFound, Name);
-                    Exception e = new TimeZoneNotFoundException(message);
+                    TimeZoneNotFoundException e = new(message);
                     ThrowTerminatingError(new ErrorRecord(e,
                         TimeZoneHelper.TimeZoneNotFoundError,
                         ErrorCategory.InvalidArgument,

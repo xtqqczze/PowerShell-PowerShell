@@ -281,7 +281,7 @@ namespace Microsoft.PowerShell.Cmdletization.Cim
                                 CmdletizationResources.CimCmdletAdapter_RemoteDcomDoesntSupportExtendedSemantics,
                                 cimSession.ComputerName,
                                 nameOfUnsupportedSwitch);
-                            Exception exception = new NotSupportedException(errorMessage);
+                            NotSupportedException exception = new(errorMessage);
                             ErrorRecord errorRecord = new(
                                 exception,
                                 "NoExtendedSemanticsSupportInRemoteDcomProtocol",

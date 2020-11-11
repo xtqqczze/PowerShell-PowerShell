@@ -75,7 +75,7 @@ namespace Microsoft.PowerShell.Cmdletization.Cim
             bool actionPreferenceComesFromCommandLineParameter = cmdlet.MyInvocation.BoundParameters.ContainsKey(nameOfCommandLineParameter);
             if (actionPreferenceComesFromCommandLineParameter)
             {
-                Exception exception = new ArgumentException(message);
+                ArgumentException exception = new(message);
                 ErrorRecord errorRecord = new(exception, "ActionPreferenceNotSupportedByCimCmdletAdapter", ErrorCategory.NotImplemented, null);
                 cmdlet.ThrowTerminatingError(errorRecord);
             }

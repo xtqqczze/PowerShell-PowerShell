@@ -153,7 +153,7 @@ namespace Microsoft.PowerShell.Commands
 
                 if (!foundRecord && !_inputContainsWildcard)
                 {
-                    Exception ex = new ArgumentException(StringUtil.Format(HotFixResources.NoEntriesFound, computer));
+                    ArgumentException ex = new(StringUtil.Format(HotFixResources.NoEntriesFound, computer));
                     WriteError(new ErrorRecord(ex, "GetHotFixNoEntriesFound", ErrorCategory.ObjectNotFound, null));
                 }
 
