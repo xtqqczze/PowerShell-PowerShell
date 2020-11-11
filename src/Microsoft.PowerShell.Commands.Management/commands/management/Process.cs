@@ -357,8 +357,7 @@ namespace Microsoft.PowerShell.Commands
                 processName,
                 processId,
                 (innerException == null) ? string.Empty : innerException.Message);
-            ProcessCommandException exception =
-                new(message, innerException);
+            ProcessCommandException exception = new(message, innerException);
             exception.ProcessName = processName;
 
             WriteError(new ErrorRecord(

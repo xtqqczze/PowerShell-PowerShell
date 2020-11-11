@@ -142,13 +142,12 @@ namespace Microsoft.PowerShell.Commands
                         }
                         catch (Exception e) // Catch-all OK. 3rd party callout
                         {
-                            ProviderInvocationException providerException =
-                               new(
-                                   "ProviderContentWriteError",
-                                   SessionStateStrings.ProviderContentWriteError,
-                                   holder.PathInfo.Provider,
-                                   holder.PathInfo.Path,
-                                   e);
+                            ProviderInvocationException providerException = new(
+                                "ProviderContentWriteError",
+                                SessionStateStrings.ProviderContentWriteError,
+                                holder.PathInfo.Provider,
+                                holder.PathInfo.Path,
+                                e);
 
                             // Log a provider health event
 
@@ -310,8 +309,7 @@ namespace Microsoft.PowerShell.Commands
                 {
                     if (writers.Count == 1 && writers[0] != null)
                     {
-                        ContentHolder holder =
-                            new(pathInfo, null, writers[0]);
+                        ContentHolder holder = new(pathInfo, null, writers[0]);
 
                         results.Add(holder);
                     }

@@ -164,8 +164,7 @@ namespace Microsoft.PowerShell.Commands
             }
         }
 
-        internal Collection<CmdletProviderContext> stopContextCollection =
-            new();
+        internal Collection<CmdletProviderContext> stopContextCollection = new();
 
         /// <summary>
         /// Gets or sets the filter property.
@@ -446,34 +445,31 @@ namespace Microsoft.PowerShell.Commands
                             }
                             catch (DriveNotFoundException e)
                             {
-                                ErrorRecord errorRecord =
-                                    new(
-                                        e,
-                                        "GetLocationNoMatchingDrive",
-                                        ErrorCategory.ObjectNotFound,
-                                        drive);
+                                ErrorRecord errorRecord = new(
+                                    e,
+                                    "GetLocationNoMatchingDrive",
+                                    ErrorCategory.ObjectNotFound,
+                                    drive);
                                 WriteError(errorRecord);
                                 continue;
                             }
                             catch (ProviderNotFoundException e)
                             {
-                                ErrorRecord errorRecord =
-                                    new(
-                                        e,
-                                        "GetLocationNoMatchingProvider",
-                                        ErrorCategory.ObjectNotFound,
-                                        PSProvider);
+                                ErrorRecord errorRecord = new(
+                                    e,
+                                    "GetLocationNoMatchingProvider",
+                                    ErrorCategory.ObjectNotFound,
+                                    PSProvider);
                                 WriteError(errorRecord);
                                 continue;
                             }
                             catch (ArgumentException argException)
                             {
-                                ErrorRecord errorRecord =
-                                    new(
-                                        argException,
-                                        "GetLocationNoMatchingDrive",
-                                        ErrorCategory.ObjectNotFound,
-                                        drive);
+                                ErrorRecord errorRecord = new(
+                                    argException,
+                                    "GetLocationNoMatchingDrive",
+                                    ErrorCategory.ObjectNotFound,
+                                    drive);
                                 WriteError(errorRecord);
                                 continue;
                             }
@@ -522,12 +518,11 @@ namespace Microsoft.PowerShell.Commands
                                 }
                                 catch (ProviderNotFoundException e)
                                 {
-                                    ErrorRecord errorRecord =
-                                        new(
-                                            e,
-                                            "GetLocationNoMatchingProvider",
-                                            ErrorCategory.ObjectNotFound,
-                                            providerName);
+                                    ErrorRecord errorRecord = new(
+                                        e,
+                                        "GetLocationNoMatchingProvider",
+                                        ErrorCategory.ObjectNotFound,
+                                        providerName);
                                     WriteError(errorRecord);
                                     continue;
                                 }
@@ -1237,7 +1232,11 @@ namespace Microsoft.PowerShell.Commands
                     // -Persist switch parameter is supported only for FileSystem provider.
                     if (Persist && !provider.Name.Equals(FileSystemProvider.ProviderName, StringComparison.OrdinalIgnoreCase))
                     {
-                        ErrorRecord er = new(new NotSupportedException(FileSystemProviderStrings.PersistNotSupported), "DriveRootNotNetworkPath", ErrorCategory.InvalidArgument, this);
+                        ErrorRecord er = new(
+                            new NotSupportedException(FileSystemProviderStrings.PersistNotSupported),
+                            "DriveRootNotNetworkPath",
+                            ErrorCategory.InvalidArgument,
+                            this);
                         ThrowTerminatingError(er);
                     }
 
@@ -1248,14 +1247,13 @@ namespace Microsoft.PowerShell.Commands
                     }
 
                     // Create the new drive
-                    PSDriveInfo newDrive =
-                        new(
-                            Name,
-                            provider,
-                            Root,
-                            Description,
-                            Credential,
-                            Persist);
+                    PSDriveInfo newDrive = new(
+                        Name,
+                        provider,
+                        Root,
+                        Description,
+                        Credential,
+                        Persist);
 #else
                     // Create the new drive
                     PSDriveInfo newDrive =
@@ -1775,15 +1773,17 @@ namespace Microsoft.PowerShell.Commands
 
                         if (!WildcardPattern.ContainsWildcardCharacters(driveName))
                         {
-                            DriveNotFoundException driveNotFound =
-                                new(
-                                    driveName,
-                                    "DriveNotFound",
-                                    SessionStateStrings.DriveNotFound);
+                            DriveNotFoundException driveNotFound = new(
+                                driveName,
+                                "DriveNotFound",
+                                SessionStateStrings.DriveNotFound);
 
                             WriteError(
                                 new ErrorRecord(
-                                    driveNotFound,
+                                    new DriveNotFoundException(
+                                        driveName,
+                                        "DriveNotFound",
+                                        SessionStateStrings.DriveNotFound),
                                     "GetDriveNoMatchingDrive",
                                     ErrorCategory.ObjectNotFound,
                                     driveName));

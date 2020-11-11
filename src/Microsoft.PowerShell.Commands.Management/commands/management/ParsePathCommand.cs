@@ -304,9 +304,8 @@ namespace Microsoft.PowerShell.Commands
 
                         if (separatorIndex < 0)
                         {
-                            FormatException e =
-                                new(
-                                    StringUtil.Format(NavigationResources.ParsePathFormatError, pathsToParse[index]));
+                            FormatException e = new(
+                                StringUtil.Format(NavigationResources.ParsePathFormatError, pathsToParse[index]));
                             WriteError(
                                 new ErrorRecord(
                                     e,
