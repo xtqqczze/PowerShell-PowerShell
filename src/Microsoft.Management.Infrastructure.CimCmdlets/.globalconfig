@@ -1,0 +1,4 @@
+is_global = true
+
+# IDE0005: RemoveUnnecessaryImports
+dotnet_diagnostic.IDE0005.severity = error
