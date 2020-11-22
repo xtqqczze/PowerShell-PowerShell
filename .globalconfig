@@ -1372,7 +1372,7 @@ dotnet_diagnostic.SA1504.severity = none
 dotnet_diagnostic.SA1505.severity = none
 
 # SA1506: Element documentation headers should not be followed by blank line
-dotnet_diagnostic.SA1506.severity = none
+dotnet_diagnostic.SA1506.severity = warning
 
 # SA1507: Code should not contain multiple blank lines in a row
 dotnet_diagnostic.SA1507.severity = warning
