@@ -231,7 +231,8 @@ namespace Microsoft.PowerShell
                 {
                     oldDescription = StringUtil.Format(" {0}{1}", indent, oldDescription.Substring(newDescription.Length));
                 }
-            } while (isFullPlus);
+            }
+            while (isFullPlus);
         }
 
         /// <summary>

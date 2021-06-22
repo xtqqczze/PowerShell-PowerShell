@@ -4634,7 +4634,8 @@ end {
                 const ScopedItemOptions ReadOnly_AllScope = ScopedItemOptions.ReadOnly | ScopedItemOptions.AllScope;
                 const ScopedItemOptions ReadOnly = ScopedItemOptions.ReadOnly;
 
-                return new SessionStateAliasEntry[] {
+                return new SessionStateAliasEntry[]
+                {
                     new SessionStateAliasEntry("foreach", "ForEach-Object", string.Empty, ReadOnly_AllScope),
                     new SessionStateAliasEntry("%", "ForEach-Object", string.Empty, ReadOnly_AllScope),
                     new SessionStateAliasEntry("where", "Where-Object", string.Empty, ReadOnly_AllScope),

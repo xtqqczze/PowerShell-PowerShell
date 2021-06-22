@@ -424,7 +424,8 @@ namespace System.Management.Automation
                             null,
                             "tmp_{0}",
                             Path.GetRandomFileName())));
-            } while (moduleDirectory.Exists);
+            }
+            while (moduleDirectory.Exists);
 
             Directory.CreateDirectory(moduleDirectory.FullName);
             return new DirectoryInfo(moduleDirectory.FullName);

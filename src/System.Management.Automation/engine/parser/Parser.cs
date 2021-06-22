@@ -1532,7 +1532,8 @@ namespace System.Management.Automation.Language
                             lastComma = token;
                             dim += 1;
                             token = NextToken();
-                        } while (token.Kind == TokenKind.Comma);
+                        }
+                        while (token.Kind == TokenKind.Comma);
 
                         if (token.Kind != TokenKind.RBracket)
                         {
@@ -6937,9 +6938,11 @@ namespace System.Management.Automation.Language
                 paramToken.Text);
             SkipToken();
             return new ErrorExpressionAst(ExtentOf(expr, paramToken),
-                new Ast[] {
+                new Ast[]
+                {
                     expr,
-                    new CommandParameterAst(paramToken.Extent, paramToken.ParameterName, null, paramToken.Extent)});
+                    new CommandParameterAst(paramToken.Extent, paramToken.ParameterName, null, paramToken.Extent)
+                });
         }
 
         /// <summary>Parse an array literal expression.</summary>

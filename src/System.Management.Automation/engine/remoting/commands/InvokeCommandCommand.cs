@@ -1712,9 +1712,11 @@ namespace Microsoft.PowerShell.Commands
                         {
                             // An auto-disconnect can occur and we need to detect
                             // this condition along with a job results signal.
-                            WaitHandle.WaitAny(new WaitHandle[] {
+                            WaitHandle.WaitAny(new WaitHandle[]
+                            {
                                                     _disconnectComplete,
-                                                    _job.Results.WaitHandle });
+                                                    _job.Results.WaitHandle
+                            });
                         }
                         else
                         {
@@ -1735,7 +1737,8 @@ namespace Microsoft.PowerShell.Commands
                     {
                         break;
                     }
-                } while (!_job.IsTerminalState());
+                }
+                while (!_job.IsTerminalState());
 
                 try
                 {

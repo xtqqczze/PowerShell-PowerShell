@@ -752,96 +752,113 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
         private static readonly Dictionary<string, HashSet<ParameterDefinitionEntry>> parameters = new()
         {
             {
-                nameNoEncryption, new HashSet<ParameterDefinitionEntry> {
+                nameNoEncryption, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
 
             {
-                nameSkipCACheck, new HashSet<ParameterDefinitionEntry> {
+                nameSkipCACheck, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
 
             {
-                nameSkipCNCheck, new HashSet<ParameterDefinitionEntry> {
+                nameSkipCNCheck, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
             {
-                nameSkipRevocationCheck, new HashSet<ParameterDefinitionEntry> {
-                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
-                                 }
-            },
-
-            {
-                nameEncodePortInServicePrincipalName, new HashSet<ParameterDefinitionEntry> {
-                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
-                                 }
-            },
-            {
-                nameEncoding, new HashSet<ParameterDefinitionEntry> {
+                nameSkipRevocationCheck, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
 
             {
-                nameHttpPrefix, new HashSet<ParameterDefinitionEntry> {
+                nameEncodePortInServicePrincipalName, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
             {
-                nameMaxEnvelopeSizeKB, new HashSet<ParameterDefinitionEntry> {
-                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
-                                 }
-            },
-
-            {
-                nameProxyAuthentication, new HashSet<ParameterDefinitionEntry> {
-                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
-                                 }
-            },
-            {
-                nameProxyCertificateThumbprint, new HashSet<ParameterDefinitionEntry> {
+                nameEncoding, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
 
             {
-                nameProxyCredential, new HashSet<ParameterDefinitionEntry> {
+                nameHttpPrefix, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
             {
-                nameProxyType, new HashSet<ParameterDefinitionEntry> {
+                nameMaxEnvelopeSizeKB, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
 
             {
-                nameUseSsl, new HashSet<ParameterDefinitionEntry> {
+                nameProxyAuthentication, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
                                  }
             },
             {
-                nameImpersonation, new HashSet<ParameterDefinitionEntry> {
+                nameProxyCertificateThumbprint, new HashSet<ParameterDefinitionEntry>
+                {
+                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
+                                 }
+            },
+
+            {
+                nameProxyCredential, new HashSet<ParameterDefinitionEntry>
+                {
+                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
+                                 }
+            },
+            {
+                nameProxyType, new HashSet<ParameterDefinitionEntry>
+                {
+                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
+                                 }
+            },
+
+            {
+                nameUseSsl, new HashSet<ParameterDefinitionEntry>
+                {
+                                    new ParameterDefinitionEntry(CimBaseCommand.WSManParameterSet, false),
+                                 }
+            },
+            {
+                nameImpersonation, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.DcomParameterSet, false),
                                  }
             },
 
             {
-                namePacketIntegrity, new HashSet<ParameterDefinitionEntry> {
+                namePacketIntegrity, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.DcomParameterSet, false),
                                  }
             },
             {
-                namePacketPrivacy, new HashSet<ParameterDefinitionEntry> {
+                namePacketPrivacy, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.DcomParameterSet, false),
                                  }
             },
 
             {
-                nameProtocol, new HashSet<ParameterDefinitionEntry> {
+                nameProtocol, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.ProtocolNameParameterSet, true),
                                  }
             },

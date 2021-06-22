@@ -1596,7 +1596,8 @@ namespace System.Management.Automation
                             "ParameterizedPropertyAssignmentFailed", ParserStrings.ParameterizedPropertyAssignmentFailed, typeFullName, methodName);
                     }
                 }
-            } while (false);
+            }
+            while (false);
 
             try
             {

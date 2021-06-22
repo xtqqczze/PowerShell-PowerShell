@@ -540,7 +540,8 @@ namespace System.Management.Automation.Remoting
 
                     // Report plugin context to WSMan
                     mgdCmdSession.ReportContext();
-                } while (false);
+                }
+                while (false);
             }
             catch (System.Exception e)
             {

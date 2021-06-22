@@ -1575,7 +1575,8 @@ namespace System.Management.Automation
         // CIM name string to .NET namestring mapping table
         // (Considered using the MI routines but they didn't do quite the right thing.
         //
-        private static readonly Dictionary<string, string> s_nameMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
+        private static readonly Dictionary<string, string> s_nameMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
             { "SInt8",          "SByte" },
             { "UInt8",          "Byte" },
             { "SInt16",         "Int16" },
@@ -2035,7 +2036,8 @@ namespace System.Management.Automation
                         else
                             isDefined = false;
                     }
-                } while (false);
+                }
+                while (false);
 
                 return isDefined;
             }
@@ -4427,7 +4429,8 @@ namespace System.Management.Automation
             return FigureConversion(fromType, toType).Rank;
         }
 
-        private static readonly Type[] s_numericTypes = new Type[] {
+        private static readonly Type[] s_numericTypes = new Type[]
+        {
             typeof(Int16), typeof(Int32), typeof(Int64),
             typeof(UInt16), typeof(UInt32), typeof(UInt64),
             typeof(sbyte), typeof(byte),
@@ -4435,7 +4438,8 @@ namespace System.Management.Automation
             typeof(BigInteger)
         };
 
-        private static readonly Type[] s_integerTypes = new Type[] {
+        private static readonly Type[] s_integerTypes = new Type[]
+        {
             typeof(Int16), typeof(Int32), typeof(Int64),
             typeof(UInt16), typeof(UInt32), typeof(UInt64),
             typeof(sbyte), typeof(byte)

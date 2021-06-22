@@ -685,7 +685,8 @@ namespace System.Management.Automation
                         counter1 = _saveCacheToDiskQueued;
                         await Task.Delay(3000).ConfigureAwait(false);
                         counter2 = _saveCacheToDiskQueued;
-                    } while (counter1 != counter2);
+                    }
+                    while (counter1 != counter2);
                     Serialize(s_cacheStoreLocation);
                 });
             }
@@ -1060,7 +1061,8 @@ namespace System.Management.Automation
 
                 retryCount -= 1;
                 Thread.Sleep(25); // Sleep a bit to give time for another process to finish writing the cache
-            } while (retryCount > 0);
+            }
+            while (retryCount > 0);
 
             return new AnalysisCacheData
             {

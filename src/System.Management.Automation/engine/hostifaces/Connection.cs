@@ -691,7 +691,8 @@ namespace System.Management.Automation.Runspaces
             // We need to set this when reconstructing a remote runspace to connect
             // to an existing remote runspace.
             internal set;
-        } = Guid.NewGuid();
+        }
+        = Guid.NewGuid();
 
         /// <summary>
         /// Gets execution context.

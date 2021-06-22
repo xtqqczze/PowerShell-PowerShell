@@ -954,9 +954,11 @@ namespace System.Management.Automation
             // System.Management.Automation formats & types files
             Collection<string> types = new Collection<string>(new string[] { "types.ps1xml", "typesv3.ps1xml" });
             Collection<string> formats = new Collection<string>(new string[]
-                        {"Certificate.format.ps1xml", "DotNetTypes.format.ps1xml", "FileSystem.format.ps1xml",
+                        {
+                            "Certificate.format.ps1xml", "DotNetTypes.format.ps1xml", "FileSystem.format.ps1xml",
                          "Help.format.ps1xml", "HelpV3.format.ps1xml", "PowerShellCore.format.ps1xml", "PowerShellTrace.format.ps1xml",
-                         "Registry.format.ps1xml"});
+                         "Registry.format.ps1xml"
+                        });
 
             string strongName = string.Format(CultureInfo.InvariantCulture, "{0}, Version={1}, Culture={2}, PublicKeyToken={3}, ProcessorArchitecture={4}",
                 s_coreSnapin.AssemblyName, assemblyVersion, culture, publicKeyToken, architecture);
@@ -1007,9 +1009,11 @@ namespace System.Management.Automation
 
             // System.Management.Automation formats & types files
             Collection<string> smaFormats = new Collection<string>(new string[]
-                        {"Certificate.format.ps1xml", "DotNetTypes.format.ps1xml", "FileSystem.format.ps1xml",
+                        {
+                            "Certificate.format.ps1xml", "DotNetTypes.format.ps1xml", "FileSystem.format.ps1xml",
                          "Help.format.ps1xml", "HelpV3.format.ps1xml", "PowerShellCore.format.ps1xml", "PowerShellTrace.format.ps1xml",
-                         "Registry.format.ps1xml"});
+                         "Registry.format.ps1xml"
+                        });
             Collection<string> smaTypes = new Collection<string>(new string[] { "types.ps1xml", "typesv3.ps1xml" });
 
             // create default mshsnapininfo objects..

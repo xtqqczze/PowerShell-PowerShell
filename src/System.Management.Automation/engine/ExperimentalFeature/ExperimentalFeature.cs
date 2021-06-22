@@ -99,7 +99,8 @@ namespace System.Management.Automation
         static ExperimentalFeature()
         {
             // Initialize the readonly collection 'EngineExperimentalFeatures'.
-            var engineFeatures = new ExperimentalFeature[] {
+            var engineFeatures = new ExperimentalFeature[]
+            {
                 /* Register engine experimental features here. Follow the same pattern as the example:
                 new ExperimentalFeature(
                     name: "PSFileSystemProviderV2",

@@ -823,7 +823,8 @@ namespace System.Management.Automation
                     {
                         result = InvokeCommandNotFoundHandler(commandName, context, originalCommandName, commandOrigin);
                     }
-                } while (false);
+                }
+                while (false);
             }
             else
             {

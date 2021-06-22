@@ -2072,7 +2072,8 @@ namespace System.Management.Automation
                 mi = providerType.GetMethod("GetChildItemsDynamicParameters",
                  BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
                 providerType = providerType.BaseType;
-            } while (
+            }
+            while (
                 (mi == null) &&
                 (providerType != null) &&
                 (providerType != typeof(ContainerCmdletProvider))

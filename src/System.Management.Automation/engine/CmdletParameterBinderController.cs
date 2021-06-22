@@ -1168,7 +1168,8 @@ namespace System.Management.Automation
                         break;
                     }
                 }
-            } while (false);
+            }
+            while (false);
 
             s_tracer.WriteLine("IsParameterScriptBlockBindable: result = {0}", result);
             return result;

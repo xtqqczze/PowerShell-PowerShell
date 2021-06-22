@@ -971,7 +971,8 @@ namespace Microsoft.PowerShell
                     line = new StringBuilder(remaining);
                     cellCounter = RawUI.LengthInBufferCells(remaining);
                 }
-            } while (valid);
+            }
+            while (valid);
 
             return result;
         }

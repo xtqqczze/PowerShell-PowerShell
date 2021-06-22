@@ -268,7 +268,8 @@ namespace System.Management.Automation
                         string filePath = ProcessFilePathAttributeInCatalog(catalogAttr);
                         _cmdlet.WriteVerbose(StringUtil.Format(CatalogStrings.AddFileToCatalog, filePath, filePath));
                     }
-                } while (catalogAttr != IntPtr.Zero);
+                }
+                while (catalogAttr != IntPtr.Zero);
 
                 // navigate all the files hash entries in the .cdf file
                 IntPtr memberInfo = IntPtr.Zero;
@@ -303,9 +304,11 @@ namespace System.Management.Automation
                                         break;
                                     }
                                 }
-                            } while (memberAttr != IntPtr.Zero);
+                            }
+                            while (memberAttr != IntPtr.Zero);
                         }
-                    } while (fileName != null);
+                    }
+                    while (fileName != null);
                 }
                 finally
                 {
@@ -503,7 +506,8 @@ namespace System.Management.Automation
                                 ProcessCatalogFile(relativePath, string.Empty, excludedPatterns, ref catalogHashes);
                             }
                         }
-                    } while (catAttrInfo != IntPtr.Zero);
+                    }
+                    while (catAttrInfo != IntPtr.Zero);
 
                     catalogVersion = GetCatalogVersion(resultCatalog);
 
@@ -550,7 +554,8 @@ namespace System.Management.Automation
                                 ProcessCatalogFile(relativePath, currentMember.pwszReferenceTag, excludedPatterns, ref catalogHashes);
                             }
                         }
-                    } while (memberInfo != IntPtr.Zero);
+                    }
+                    while (memberInfo != IntPtr.Zero);
                 }
                 finally
                 {

@@ -2080,7 +2080,8 @@ namespace System.Management.Automation
                                     Metadata.ValidateNotNullOrEmptyCollectionFailure);
                             }
                         }
-                    } while (enumerator.MoveNext());
+                    }
+                    while (enumerator.MoveNext());
                 }
 
                 if (isEmpty)

@@ -256,7 +256,8 @@ namespace Microsoft.PowerShell.Commands
                                     WriteContentObject(results, countRead, holder.PathInfo, currentContext);
                                 }
                             }
-                        } while (results != null && results.Count > 0 && ((TotalCount < 0) || countRead < TotalCount));
+                        }
+                        while (results != null && results.Count > 0 && ((TotalCount < 0) || countRead < TotalCount));
                     }
                 }
             }
@@ -331,7 +332,8 @@ namespace Microsoft.PowerShell.Commands
                         tailResultQueue.Enqueue(entry);
                     }
                 }
-            } while (results != null && results.Count > 0);
+            }
+            while (results != null && results.Count > 0);
 
             if (tailResultQueue.Count > 0)
             {

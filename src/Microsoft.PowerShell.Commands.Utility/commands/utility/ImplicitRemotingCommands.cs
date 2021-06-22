@@ -1720,8 +1720,10 @@ namespace Microsoft.PowerShell.Commands
             using (PowerShell powerShell = this.BuildPowerShellForGetCommand())
             {
                 powerShell.AddCommand("Select-Object");
-                powerShell.AddParameter("Property", new string[] {
-                    "Name", "CommandType", "ResolvedCommandName", "DefaultParameterSet", "CmdletBinding", "Parameters"});
+                powerShell.AddParameter("Property", new string[]
+                {
+                    "Name", "CommandType", "ResolvedCommandName", "DefaultParameterSet", "CmdletBinding", "Parameters"
+                });
                 powerShell.IsGetCommandMetadataSpecialPipeline = !isReleaseCandidateBackcompatibilityMode;
 
                 IAsyncResult asyncResult = null;

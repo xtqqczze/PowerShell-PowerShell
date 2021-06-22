@@ -207,7 +207,8 @@ namespace Microsoft.PowerShell.Commands
                 {
                     result = false;
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }
@@ -2648,7 +2649,8 @@ namespace Microsoft.PowerShell.Commands
                             break;
 
                         parentPath = base.GetParentPath(parentPath, root);
-                    } while (!string.IsNullOrEmpty(parentPath));
+                    }
+                    while (!string.IsNullOrEmpty(parentPath));
                 }
             }
 
@@ -3609,7 +3611,8 @@ namespace Microsoft.PowerShell.Commands
 
                     return currentKey;
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }
@@ -3617,7 +3620,8 @@ namespace Microsoft.PowerShell.Commands
         // NB: The HKEY_DYN_DATA hive is left out of the following lists because
         // it is only available on Win98/ME and we do not support that platform.
 
-        private static readonly string[] s_hiveNames = new string[] {
+        private static readonly string[] s_hiveNames = new string[]
+        {
             "HKEY_LOCAL_MACHINE",
             "HKEY_CURRENT_USER",
             "HKEY_CLASSES_ROOT",
@@ -3626,7 +3630,8 @@ namespace Microsoft.PowerShell.Commands
             "HKEY_PERFORMANCE_DATA"
         };
 
-        private static readonly string[] s_hiveShortNames = new string[] {
+        private static readonly string[] s_hiveShortNames = new string[]
+        {
             "HKLM",
             "HKCU",
             "HKCR",
@@ -3635,7 +3640,8 @@ namespace Microsoft.PowerShell.Commands
             "HKPD"
         };
 
-        private static readonly RegistryKey[] s_wellKnownHives = new RegistryKey[] {
+        private static readonly RegistryKey[] s_wellKnownHives = new RegistryKey[]
+        {
             Registry.LocalMachine,
             Registry.CurrentUser,
             Registry.ClassesRoot,
@@ -3644,7 +3650,8 @@ namespace Microsoft.PowerShell.Commands
             Registry.PerformanceData
         };
 
-        private static readonly TransactedRegistryKey[] s_wellKnownHivesTx = new TransactedRegistryKey[] {
+        private static readonly TransactedRegistryKey[] s_wellKnownHivesTx = new TransactedRegistryKey[]
+        {
             TransactedRegistry.LocalMachine,
             TransactedRegistry.CurrentUser,
             TransactedRegistry.ClassesRoot,

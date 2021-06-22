@@ -523,7 +523,8 @@ namespace System.Management.Automation
                         progress.PercentComplete += (100 / this.HelpProviders.Count);
                         OnProgress(this, progress);
                     }
-                } while (!shouldBreak);
+                }
+                while (!shouldBreak);
             }
             finally
             {

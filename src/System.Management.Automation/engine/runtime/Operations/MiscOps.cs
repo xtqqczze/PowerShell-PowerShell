@@ -1531,7 +1531,8 @@ namespace System.Management.Automation
                         }
                     }
                 }
-            } while (continueToSearch);
+            }
+            while (continueToSearch);
 
             if (current.Handler != -1)
             {

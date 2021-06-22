@@ -240,7 +240,8 @@ namespace System.Management.Automation.Remoting
                 }
 
                 RaiseEventPrivate(eventArgs);
-            } while (_eventsInProcess);
+            }
+            while (_eventsInProcess);
         }
 
         /// <summary>

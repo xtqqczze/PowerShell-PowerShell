@@ -870,9 +870,11 @@ namespace Microsoft.PowerShell.Commands
                     {
                         // Retrieve and display results from child job as they become
                         // available.
-                        int index = WaitHandle.WaitAny(new WaitHandle[] {
+                        int index = WaitHandle.WaitAny(new WaitHandle[]
+                        {
                             _stopPipelineReceive,
-                            childJob.Results.WaitHandle });
+                            childJob.Results.WaitHandle
+                        });
 
                         foreach (var result in childJob.ReadAll())
                         {
@@ -947,9 +949,11 @@ namespace Microsoft.PowerShell.Commands
                             break;
                         }
 
-                        int index = WaitHandle.WaitAny(new WaitHandle[] {
+                        int index = WaitHandle.WaitAny(new WaitHandle[]
+                        {
                             _stopPipelineReceive,
-                            _remotePipeline.Output.WaitHandle });
+                            _remotePipeline.Output.WaitHandle
+                        });
 
                         if (index == 0)
                         {
@@ -995,9 +999,11 @@ namespace Microsoft.PowerShell.Commands
                     }
 
                     // Wait for pipeline to finish.
-                    int wIndex = WaitHandle.WaitAny(new WaitHandle[] {
+                    int wIndex = WaitHandle.WaitAny(new WaitHandle[]
+                    {
                             _stopPipelineReceive,
-                            _remotePipeline.PipelineFinishedEvent });
+                            _remotePipeline.PipelineFinishedEvent
+                    });
 
                     if (wIndex == 0)
                     {

@@ -2880,7 +2880,8 @@ namespace Microsoft.PowerShell.Commands
                     }
 
                     previousParent = parentPath;
-                } while (!string.IsNullOrEmpty(previousParent));
+                }
+                while (!string.IsNullOrEmpty(previousParent));
 
                 // Now create the missing directories
                 foreach (string directoryPath in missingDirectories)
@@ -4728,7 +4729,8 @@ namespace Microsoft.PowerShell.Commands
                         progress.PercentComplete = percentage;
                         WriteProgress(progress);
                     }
-                } while (remainingFileSize > 0);
+                }
+                while (remainingFileSize > 0);
                 progress.PercentComplete = 100;
                 progress.RecordType = ProgressRecordType.Completed;
                 WriteProgress(progress);
@@ -5006,7 +5008,8 @@ namespace Microsoft.PowerShell.Commands
                         }
 
                         ++separatorsFound;
-                    } while (lastIndex > 3);
+                    }
+                    while (lastIndex > 3);
 
                     if (separatorsFound == 1)
                     {
@@ -5217,7 +5220,8 @@ namespace Microsoft.PowerShell.Commands
                     WriteError(new ErrorRecord(accessException, "NormalizeRelativePathUnauthorizedAccessError", ErrorCategory.PermissionDenied, path));
                     break;
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }
@@ -5400,7 +5404,8 @@ namespace Microsoft.PowerShell.Commands
                     // Now that the path has been normalized, create the relative path
                     result = CreateNormalizedRelativePathFromStack(normalizedPathStack);
                 }
-            } while (false);
+            }
+            while (false);
 
 #if !UNIX
             if (!string.IsNullOrEmpty(alternateDataStream))
@@ -9308,7 +9313,8 @@ namespace System.Management.Automation.Internal
         }
         ";
 
-        private static readonly Hashtable s_PSCopyToSessionHelperFunction = new Hashtable() {
+        private static readonly Hashtable s_PSCopyToSessionHelperFunction = new Hashtable()
+        {
             {nameToken, PSCopyToSessionHelperName},
             {definitionToken, s_PSCopyToSessionHelperDefinitionRestricted}
         };
@@ -9799,7 +9805,8 @@ namespace System.Management.Automation.Internal
         }
         ";
 
-        private static readonly Hashtable s_PSCopyFromSessionHelperFunction = new Hashtable() {
+        private static readonly Hashtable s_PSCopyFromSessionHelperFunction = new Hashtable()
+        {
             {nameToken, PSCopyFromSessionHelperName},
             {definitionToken, s_PSCopyFromSessionHelperDefinitionRestricted}
         };
@@ -9973,7 +9980,8 @@ namespace System.Management.Automation.Internal
         }
         ";
 
-        internal static readonly Hashtable PSCopyRemoteUtilsFunction = new Hashtable() {
+        internal static readonly Hashtable PSCopyRemoteUtilsFunction = new Hashtable()
+        {
             {nameToken, PSCopyRemoteUtilsName},
             {definitionToken, s_PSCopyRemoteUtilsDefinitionRestricted}
         };

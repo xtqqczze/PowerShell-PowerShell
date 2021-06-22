@@ -468,7 +468,8 @@ namespace System.Management.Automation
                     }
 
                     result = string.Equals(qualifiedProviderName.ShortName, this.Name, StringComparison.OrdinalIgnoreCase);
-                } while (false);
+                }
+                while (false);
             }
             else
             {

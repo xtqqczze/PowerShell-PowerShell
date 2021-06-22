@@ -752,7 +752,8 @@ namespace Microsoft.PowerShell.Commands
                 }
 
                 result = true;
-            } while (false);
+            }
+            while (false);
 
             return result;
         }
@@ -1135,7 +1136,8 @@ namespace Microsoft.PowerShell.Commands
                     key = externalScriptInfo.Path;
                     break;
                 }
-            } while (false);
+            }
+            while (false);
 
             if (key != null)
             {

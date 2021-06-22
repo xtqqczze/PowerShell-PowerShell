@@ -16,13 +16,16 @@ namespace Microsoft.PowerShell.Commands
     /// MSH paths that match the glob strings.
     /// </summary>
     [Cmdlet(VerbsCommon.Split, "Path", DefaultParameterSetName = "ParentSet", SupportsTransactions = true, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=2097149")]
-    [OutputType(typeof(string), ParameterSetName = new[] { leafSet,
+    [OutputType(typeof(string), ParameterSetName = new[]
+    {
+        leafSet,
                                                            leafBaseSet,
                                                            extensionSet,
                                                            noQualifierSet,
                                                            parentSet,
                                                            qualifierSet,
-                                                           literalPathSet})]
+                                                           literalPathSet
+    })]
     [OutputType(typeof(bool), ParameterSetName = new[] { isAbsoluteSet })]
     public class SplitPathCommand : CoreCommandWithCredentialsBase
     {

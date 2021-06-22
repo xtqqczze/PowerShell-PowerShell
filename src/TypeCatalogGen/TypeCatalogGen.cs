@@ -433,7 +433,8 @@ namespace System.Management.Automation
     {{
         private static Dictionary<string, string> InitializeTypeCatalog()
         {{
-            return new Dictionary<string, string>({0}, StringComparer.OrdinalIgnoreCase) {{";
+            return new Dictionary<string, string>({0}, StringComparer.OrdinalIgnoreCase)
+            {{";
             const string SourceEnd = @"
             };
         }

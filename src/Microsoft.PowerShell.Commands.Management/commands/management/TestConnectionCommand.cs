@@ -452,7 +452,8 @@ namespace Microsoft.PowerShell.Commands
                 }
 
                 currentHop++;
-            } while (currentHop <= MaxHops
+            }
+            while (currentHop <= MaxHops
                 && (discoveryReply.Status == IPStatus.TtlExpired
                     || discoveryReply.Status == IPStatus.TimedOut));
 

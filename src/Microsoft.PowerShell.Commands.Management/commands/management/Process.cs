@@ -783,7 +783,8 @@ namespace Microsoft.PowerShell.Commands
                     }
 
                     userName = string.Concat(domainNameStr.Slice(0, domainNameLength), "\\", userNameStr.Slice(0, userNameLength));
-                } while (false);
+                }
+                while (false);
             }
             catch (NotSupportedException)
             {

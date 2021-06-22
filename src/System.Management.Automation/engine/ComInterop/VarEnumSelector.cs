@@ -177,7 +177,8 @@ namespace System.Management.Automation.ComInterop
         /// </summary>
         private static IList<IList<VarEnum>> CreateComPrimitiveTypeFamilies()
         {
-            VarEnum[][] typeFamilies = new VarEnum[][] {
+            VarEnum[][] typeFamilies = new VarEnum[][]
+            {
                 new VarEnum[] { VarEnum.VT_I8, VarEnum.VT_I4, VarEnum.VT_I2, VarEnum.VT_I1 },
                 new VarEnum[] { VarEnum.VT_UI8, VarEnum.VT_UI4, VarEnum.VT_UI2, VarEnum.VT_UI1 },
                 new VarEnum[] { VarEnum.VT_INT },

@@ -1020,8 +1020,10 @@ namespace System.Management.Automation
 
             mainPipeline
                 .AddCommand("Select-Object")
-                .AddParameter("Property", new string[] {
-                    "Name", "Namespace", "HelpUri", "CommandType", "ResolvedCommandName", "OutputType", "Parameters" });
+                .AddParameter("Property", new string[]
+                {
+                    "Name", "Namespace", "HelpUri", "CommandType", "ResolvedCommandName", "OutputType", "Parameters"
+                });
 
             HostInfo useRunspaceHost = new HostInfo(null);
             useRunspaceHost.UseRunspaceHost = true;

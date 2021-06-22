@@ -1356,7 +1356,7 @@ dotnet_diagnostic.SA1413.severity = none
 dotnet_diagnostic.SA1414.severity = none
 
 # SA1500: Braces for multi-line statements should not share line
-dotnet_diagnostic.SA1500.severity = none
+dotnet_diagnostic.SA1500.severity = warning
 
 # SA1501: Statement should not be on a single line
 dotnet_diagnostic.SA1501.severity = none

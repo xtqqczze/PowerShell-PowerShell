@@ -115,7 +115,8 @@ namespace Microsoft.PowerShell.Commands
         {
             get;
             set;
-        } = -1;
+        }
+        = -1;
     }
 
     /// <summary>

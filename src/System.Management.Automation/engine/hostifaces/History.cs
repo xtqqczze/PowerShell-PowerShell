@@ -1468,7 +1468,8 @@ namespace Microsoft.PowerShell.Commands
                     startExecutionTime,
                     endExecutionTime
                 );
-            } while (false);
+            }
+            while (false);
 
             // If we are here, an error has occured.
             Exception ex =

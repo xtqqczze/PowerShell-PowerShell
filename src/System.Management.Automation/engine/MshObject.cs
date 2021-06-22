@@ -820,7 +820,8 @@ namespace System.Management.Automation
                 {
                     returnValue = mshObj._immediateBaseObject;
                     mshObj = returnValue as PSObject;
-                } while (mshObj != null);
+                }
+                while (mshObj != null);
 
                 return returnValue;
             }
@@ -1009,7 +1010,8 @@ namespace System.Management.Automation
             {
                 returnValue = mshObj._immediateBaseObject;
                 mshObj = returnValue as PSObject;
-            } while ((mshObj != null) && (!mshObj.ImmediateBaseObjectIsEmpty));
+            }
+            while ((mshObj != null) && (!mshObj.ImmediateBaseObjectIsEmpty));
 
             return returnValue;
         }

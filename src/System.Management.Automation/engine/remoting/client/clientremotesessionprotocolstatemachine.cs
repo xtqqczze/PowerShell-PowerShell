@@ -121,7 +121,8 @@ namespace System.Management.Automation.Remoting
                 {
                     HandleFatalError(ex);
                 }
-            } while (_eventsInProcess);
+            }
+            while (_eventsInProcess);
         }
 
         private void HandleFatalError(Exception ex)

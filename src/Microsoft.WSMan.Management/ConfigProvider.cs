@@ -104,7 +104,8 @@ namespace Microsoft.WSMan.Management
                 }
 
                 culture = culture.Parent;
-            } while (culture != culture.Parent);
+            }
+            while (culture != culture.Parent);
 
             if (helpFile == null)
             {
@@ -5446,7 +5447,8 @@ namespace Microsoft.WSMan.Management
         #region def
         private static readonly string[] WinrmRootName = new string[] { "winrm/Config" };
 
-        private static readonly string[] WinRmRootConfigs = new string[] {
+        private static readonly string[] WinRmRootConfigs = new string[]
+        {
             "Client",
             "Service",
             "Shell",
@@ -5489,9 +5491,11 @@ namespace Microsoft.WSMan.Management
         /// Display warning for these URIs.
         /// </summary>
         private static readonly List<string> globalWarningUris =
-            new List<string> {
+            new List<string>
+            {
                 WinrmRootName[0] + WSManStringLiterals.WinrmPathSeparator + WSManStringLiterals.containerWinrs,
-                WinrmRootName[0] + WSManStringLiterals.WinrmPathSeparator + WSManStringLiterals.containerService};
+                WinrmRootName[0] + WSManStringLiterals.WinrmPathSeparator + WSManStringLiterals.containerService
+            };
 
         #endregion def
 
@@ -6345,7 +6349,8 @@ namespace Microsoft.WSMan.Management
         /// Possible Values in Plugin Top Level XML.
         /// </summary>
         internal static readonly string[] NewItemPluginConfigParams =
-            new string[] {
+            new string[]
+            {
                 "Name",
                 "Filename",
                 "SDKVersion",

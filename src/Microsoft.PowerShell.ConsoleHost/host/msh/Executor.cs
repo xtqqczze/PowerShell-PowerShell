@@ -455,7 +455,8 @@ namespace Microsoft.PowerShell
                 {
                     break;
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }

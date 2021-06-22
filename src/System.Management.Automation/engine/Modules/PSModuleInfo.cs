@@ -189,7 +189,8 @@ namespace System.Management.Automation
         {
             get;
             set;
-        } = PSLanguageMode.FullLanguage;
+        }
+        = PSLanguageMode.FullLanguage;
 
         /// <summary>
         /// Set to true when script module automatically exports all functions by default.
@@ -1092,8 +1093,11 @@ namespace System.Management.Automation
             moduleList.Add(module);
         }
 
-        internal static readonly string[] _builtinVariables = new string[] { "_", "this", "input", "args", "true", "false", "null",
-            "PSDefaultParameterValues", "Error", "PSScriptRoot", "PSCommandPath", "MyInvocation", "ExecutionContext", "StackTrace" };
+        internal static readonly string[] _builtinVariables = new string[]
+        {
+            "_", "this", "input", "args", "true", "false", "null",
+            "PSDefaultParameterValues", "Error", "PSScriptRoot", "PSCommandPath", "MyInvocation", "ExecutionContext", "StackTrace"
+        };
 
         /// <summary>
         /// Lists the variables exported by this module.

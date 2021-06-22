@@ -622,7 +622,8 @@ namespace System.Management.Automation.Language
 
         #region Tables for initialization
 
-        private static readonly string[] s_keywordText = new string[] {
+        private static readonly string[] s_keywordText = new string[]
+        {
         /*1*/    "elseif",                  "if",               "else",             "switch",                     /*1*/
         /*2*/    "foreach",                 "from",             "in",               "for",                        /*2*/
         /*3*/    "while",                   "until",            "do",               "try",                        /*3*/
@@ -638,7 +639,8 @@ namespace System.Management.Automation.Language
         /*D*/    "base",                    "default",                                                            /*D*/
         };
 
-        private static readonly TokenKind[] s_keywordTokenKind = new TokenKind[] {
+        private static readonly TokenKind[] s_keywordTokenKind = new TokenKind[]
+        {
         /*1*/    TokenKind.ElseIf,          TokenKind.If,       TokenKind.Else,      TokenKind.Switch,            /*1*/
         /*2*/    TokenKind.Foreach,         TokenKind.From,     TokenKind.In,        TokenKind.For,               /*2*/
         /*3*/    TokenKind.While,           TokenKind.Until,    TokenKind.Do,        TokenKind.Try,               /*3*/
@@ -654,7 +656,8 @@ namespace System.Management.Automation.Language
         /*D*/    TokenKind.Base,            TokenKind.Default,                                                    /*D*/
         };
 
-        internal static readonly string[] _operatorText = new string[] {
+        internal static readonly string[] _operatorText = new string[]
+        {
         /*1*/   "bnot",                 "not",                  "eq",                   "ieq",                    /*1*/
         /*2*/   "ceq",                  "ne",                   "ine",                  "cne",                    /*2*/
         /*3*/   "ge",                   "ige",                  "cge",                  "gt",                     /*3*/
@@ -673,7 +676,8 @@ namespace System.Management.Automation.Language
         /*16*/  "join",                 "shl",                  "shr",                                            /*16*/
         };
 
-        private static readonly TokenKind[] s_operatorTokenKind = new TokenKind[] {
+        private static readonly TokenKind[] s_operatorTokenKind = new TokenKind[]
+        {
         /*1*/   TokenKind.Bnot,         TokenKind.Not,          TokenKind.Ieq,          TokenKind.Ieq,            /*1*/
         /*2*/   TokenKind.Ceq,          TokenKind.Ine,          TokenKind.Ine,          TokenKind.Cne,            /*2*/
         /*3*/   TokenKind.Ige,          TokenKind.Ige,          TokenKind.Cge,          TokenKind.Igt,            /*3*/
@@ -2600,7 +2604,8 @@ namespace System.Management.Automation.Language
             do
             {
                 c = GetChar();
-            } while (c.IsWhitespace());
+            }
+            while (c.IsWhitespace());
 
             if (c == '\r')
             {

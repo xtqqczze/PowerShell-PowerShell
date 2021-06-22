@@ -1491,7 +1491,8 @@ namespace System.Management.Automation
 
                     isEnum = mshSource.ImmediateBaseObject is Enum;
                     isPSObject = mshSource.ImmediateBaseObject is PSObject;
-                } while (false);
+                }
+                while (false);
             }
 
             bool writeToString = true;
@@ -5948,7 +5949,8 @@ namespace System.Management.Automation
             }
         }
 
-        private static readonly Type[] s_handshakeFriendlyTypes = new Type[] {
+        private static readonly Type[] s_handshakeFriendlyTypes = new Type[]
+        {
                 typeof(bool),
                 typeof(byte),
                 typeof(char),

@@ -1299,7 +1299,8 @@ namespace System.Management.Automation.Language
                             context.CurrentCommandProcessor = oldCurrentCommandProcessor;
                             commandProcessor.RestorePreviousScope();
                         }
-                    } while (retryWithNoArgs && !alreadyRetried);
+                    }
+                    while (retryWithNoArgs && !alreadyRetried);
                 }
                 // Get all bindable parameters and initialize the _unboundParameters
                 _commandInfo = commandProcessor.CommandInfo;

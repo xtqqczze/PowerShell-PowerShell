@@ -1241,9 +1241,11 @@ end
             // 2) artificially increase serialization depth of selected properties (especially "Parameters" property)
 
             // only called with a fixed set of values
-            string[] validPropertyValues = new string[] {
+            string[] validPropertyValues = new string[]
+            {
                 "ModuleName", "Namespace", "OutputType", "Count", "HelpUri",
-                "Name", "CommandType", "ResolvedCommandName", "DefaultParameterSet", "CmdletBinding", "Parameters" };
+                "Name", "CommandType", "ResolvedCommandName", "DefaultParameterSet", "CmdletBinding", "Parameters"
+            };
             ParameterMetadata propertyParameter = new ParameterMetadata("Property", typeof(string[]));
             propertyParameter.Attributes.Add(new ValidateSetAttribute(validPropertyValues));
             propertyParameter.Attributes.Add(new ValidateCountAttribute(1, validPropertyValues.Length));

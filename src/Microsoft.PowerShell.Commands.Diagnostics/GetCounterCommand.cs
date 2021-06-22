@@ -67,12 +67,15 @@ namespace Microsoft.PowerShell.Commands
             }
         }
 
-        private string[] _counter = {@"\network interface(*)\bytes total/sec",
+        private string[] _counter =
+        {
+            @"\network interface(*)\bytes total/sec",
                                  @"\processor(_total)\% processor time",
                                  @"\memory\% committed bytes in use",
                                  @"\memory\cache faults/sec",
                                  @"\physicaldisk(_total)\% disk time",
-                                 @"\physicaldisk(_total)\current disk queue length"};
+                                 @"\physicaldisk(_total)\current disk queue length"
+        };
 
         private bool _defaultCounters = true;
 

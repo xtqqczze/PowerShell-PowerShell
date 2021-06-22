@@ -894,7 +894,8 @@ namespace System.Management.Automation
         }
 
         // The extensions of all of the files that can be processed with Import-Module, put the ni.dll in front of .dll to have higher priority to be loaded.
-        internal static readonly string[] PSModuleProcessableExtensions = new string[] {
+        internal static readonly string[] PSModuleProcessableExtensions = new string[]
+        {
                             StringLiterals.PowerShellDataFileExtension,
                             StringLiterals.PowerShellScriptFileExtension,
                             StringLiterals.PowerShellModuleFileExtension,
@@ -905,7 +906,8 @@ namespace System.Management.Automation
                         };
 
         // A list of the extensions to check for implicit module loading and discovery, put the ni.dll in front of .dll to have higher priority to be loaded.
-        internal static readonly string[] PSModuleExtensions = new string[] {
+        internal static readonly string[] PSModuleExtensions = new string[]
+        {
                             StringLiterals.PowerShellDataFileExtension,
                             StringLiterals.PowerShellModuleFileExtension,
                             StringLiterals.PowerShellCmdletizationFileExtension,
@@ -1249,7 +1251,8 @@ namespace System.Management.Automation
             }
 
             // PowerShell specific paths including if set in powershell.config.json file we want to exclude
-            var excludeModulePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
+            var excludeModulePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
                 GetPersonalModulePath(),
                 GetSharedModulePath(),
                 GetPSHomeModulePath(),

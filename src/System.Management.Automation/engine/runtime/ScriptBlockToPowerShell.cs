@@ -666,7 +666,8 @@ namespace System.Management.Automation
                     // The current UsingExpression is in a different scope from the previous UsingExpression we analyzed.
                     return true;
                 }
-            } while (current != topLevelParent);
+            }
+            while (current != topLevelParent);
 
             Diagnostics.Assert(false, "Unreachable Code. Top level parent is eitehr ScriptBlockAst or FunctionDefinitionAst, so it should return within the loop for sure.");
             // I don't think it's reachable, but if it happens, just assume there are UsingExpressions in different scopes.

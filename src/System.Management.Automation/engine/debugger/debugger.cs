@@ -3969,7 +3969,8 @@ namespace System.Management.Automation
             {
                 System.Threading.Thread.Sleep(250);
                 debugReady = IsDebuggerReady();
-            } while (!debugReady && (count++ < 40));
+            }
+            while (!debugReady && (count++ < 40));
 
             if (!debugReady) { throw new PSInvalidOperationException(); }
         }

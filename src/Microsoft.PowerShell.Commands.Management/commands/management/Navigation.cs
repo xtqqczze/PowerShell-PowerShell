@@ -189,7 +189,8 @@ namespace Microsoft.PowerShell.Commands
         {
             get;
             set;
-        } = Array.Empty<string>();
+        }
+        = Array.Empty<string>();
 
         /// <summary>
         /// Gets or sets the exclude property.
@@ -203,7 +204,8 @@ namespace Microsoft.PowerShell.Commands
         {
             get;
             set;
-        } = Array.Empty<string>();
+        }
+        = Array.Empty<string>();
 
         /// <summary>
         /// Gets or sets the force property.

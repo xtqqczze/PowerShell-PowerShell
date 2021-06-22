@@ -1023,7 +1023,8 @@ $result
 
                                 psTestList = TestPowerShell(psTestList, allDoneList, _powershell, this.Credential);
                             }
-                        } while (false);
+                        }
+                        while (false);
 
                         // if time is up or Ctrl+c is typed, break out
                         if (_exit) { break; }
@@ -1083,7 +1084,8 @@ $result
 
                             if (psTestList.Count > 0) { WriteOutTimeoutError(psTestList); }
                             // Wait for PowerShell. All computers that finished restarting are put in "allDoneList"
-                        } while (false);
+                        }
+                        while (false);
                     }
                 }
             }

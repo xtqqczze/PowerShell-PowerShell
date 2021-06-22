@@ -714,7 +714,8 @@ namespace Microsoft.PowerShell.Commands
         /// </summary>
         private static HashSet<string> InitRefAssemblyNamesToIgnore()
         {
-            return new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
+            return new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
                 PathType.GetFileName(typeof(object).Assembly.Location),
                 PathType.GetFileName(typeof(Uri).Assembly.Location),
                 PathType.GetFileName(GetReferenceAssemblyPathBasedOnType(typeof(object))),
@@ -727,7 +728,8 @@ namespace Microsoft.PowerShell.Commands
         /// </summary>
         private static PortableExecutableReference[] InitAutoIncludedRefAssemblies()
         {
-            return new PortableExecutableReference[] {
+            return new PortableExecutableReference[]
+            {
                 MetadataReference.CreateFromFile(GetReferenceAssemblyPathBasedOnType(typeof(object))),
                 MetadataReference.CreateFromFile(GetReferenceAssemblyPathBasedOnType(typeof(SecureString)))
             };

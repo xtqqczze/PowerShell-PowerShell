@@ -20,7 +20,8 @@ namespace System.Management.Automation.Runspaces
                     .EndEntry()
                 .EndControl();
 
-            var sharedControls = new CustomControl[] {
+            var sharedControls = new CustomControl[]
+            {
                 FileSystemTypes_GroupingFormat
             };
 

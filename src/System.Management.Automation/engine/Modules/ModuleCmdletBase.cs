@@ -237,10 +237,13 @@ namespace Microsoft.PowerShell.Commands
         private List<WildcardPattern> _matchAll;
 
         // The list of commands permitted in a module manifest
-        internal static readonly string[] PermittedCmdlets = new string[] {
-            "Import-LocalizedData", "ConvertFrom-StringData", "Write-Host", "Out-Host", "Join-Path" };
+        internal static readonly string[] PermittedCmdlets = new string[]
+        {
+            "Import-LocalizedData", "ConvertFrom-StringData", "Write-Host", "Out-Host", "Join-Path"
+        };
 
-        internal static readonly string[] ModuleManifestMembers = new string[] {
+        internal static readonly string[] ModuleManifestMembers = new string[]
+        {
             "ModuleToProcess",
             "NestedModules",
             "GUID",
@@ -274,7 +277,8 @@ namespace Microsoft.PowerShell.Commands
             "DefaultCommandPrefix"
         };
 
-        private static readonly string[] s_moduleVersionMembers = new string[] {
+        private static readonly string[] s_moduleVersionMembers = new string[]
+        {
             "ModuleName",
             "GUID",
             "ModuleVersion"

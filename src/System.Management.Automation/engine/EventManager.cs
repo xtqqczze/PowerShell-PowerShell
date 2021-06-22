@@ -1220,7 +1220,8 @@ namespace System.Management.Automation
                                 _actionQueue.Enqueue(pendingAction);
                             }
                         }
-                    } while (needToScanAgain);
+                    }
+                    while (needToScanAgain);
                 }
             }
         }

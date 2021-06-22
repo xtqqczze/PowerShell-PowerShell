@@ -123,7 +123,8 @@ namespace System.Management.Automation.Internal
         {
             get
             {
-                return new ExecutionPolicyScope[] {
+                return new ExecutionPolicyScope[]
+                {
                         ExecutionPolicyScope.MachinePolicy,
                         ExecutionPolicyScope.UserPolicy,
                         ExecutionPolicyScope.Process,
@@ -773,7 +774,8 @@ namespace System.Management.Automation.Internal
         {
             get;
             set;
-        } = CertificatePurpose.NotSpecified;
+        }
+        = CertificatePurpose.NotSpecified;
 
         /// <summary>
         /// Gets or sets SSL Server Authentication.
@@ -810,7 +812,8 @@ namespace System.Management.Automation.Internal
         {
             get;
             set;
-        } = DateTime.MinValue;
+        }
+        = DateTime.MinValue;
 
         internal const string CodeSigningOid = "1.3.6.1.5.5.7.3.3";
         internal const string OID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1";

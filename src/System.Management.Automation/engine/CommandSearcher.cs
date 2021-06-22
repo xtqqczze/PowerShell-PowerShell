@@ -509,7 +509,8 @@ namespace System.Management.Automation
 
                     result = GetInfoFromPath(path);
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }
@@ -668,7 +669,8 @@ namespace System.Management.Automation
                     result = new ApplicationInfo(appName, path, _context);
                     break;
                 }
-            } while (false);
+            }
+            while (false);
 
             // Verify that this script is not untrusted, if we aren't constrained.
             if (ShouldSkipCommandResolutionForConstrainedLanguage(result, _context))
@@ -1468,7 +1470,8 @@ namespace System.Management.Automation
                     result = CanDoPathLookupResult.IllegalCharacters;
                     break;
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }

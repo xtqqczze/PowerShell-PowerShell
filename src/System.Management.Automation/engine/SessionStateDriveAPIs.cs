@@ -246,7 +246,8 @@ namespace System.Management.Automation
                     result = false;
                     break;
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }

@@ -1290,8 +1290,10 @@ namespace System.Management.Automation.Language
                 yield break;
             }
 
-            var propertyInfo = new PropertyInfo[] {
-                typeof(DynamicClassImplementationAssemblyAttribute).GetProperty(nameof(DynamicClassImplementationAssemblyAttribute.ScriptFile)) };
+            var propertyInfo = new PropertyInfo[]
+            {
+                typeof(DynamicClassImplementationAssemblyAttribute).GetProperty(nameof(DynamicClassImplementationAssemblyAttribute.ScriptFile))
+            };
             var propertyArgs = new object[] { scriptFile };
 
             yield return new CustomAttributeBuilder(ctor, emptyArgs,

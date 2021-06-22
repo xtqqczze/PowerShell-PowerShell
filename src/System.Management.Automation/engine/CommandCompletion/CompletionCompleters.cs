@@ -1138,7 +1138,8 @@ namespace System.Management.Automation
                         }
                     }
                 }
-            } while (false);
+            }
+            while (false);
 
             // Indicate if the current argument completion falls into those pre-defined cases and
             // has been processed already.
@@ -3144,7 +3145,8 @@ namespace System.Management.Automation
                 if (isImportModule)
                 {
                     var moduleExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-                            {   StringLiterals.PowerShellScriptFileExtension,
+                            {
+                                StringLiterals.PowerShellScriptFileExtension,
                                 StringLiterals.PowerShellModuleFileExtension,
                                 StringLiterals.PowerShellDataFileExtension,
                                 StringLiterals.PowerShellNgenAssemblyExtension,
@@ -4580,7 +4582,8 @@ namespace System.Management.Automation
 
         private static readonly string[] s_variableScopes = new string[] { "Global:", "Local:", "Script:", "Private:" };
 
-        private static readonly char[] s_charactersRequiringQuotes = new char[] {
+        private static readonly char[] s_charactersRequiringQuotes = new char[]
+        {
             '-', '`', '&', '@', '\'', '"', '#', '{', '}', '(', ')', '$', ',', ';', '|', '<', '>', ' ', '.', '\\', '/', '\t', '^',
         };
 

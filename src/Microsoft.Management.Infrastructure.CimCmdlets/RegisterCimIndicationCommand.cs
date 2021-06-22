@@ -324,31 +324,36 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
         private static readonly Dictionary<string, HashSet<ParameterDefinitionEntry>> parameters = new()
         {
             {
-                nameClassName, new HashSet<ParameterDefinitionEntry> {
+                nameClassName, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.ClassNameSessionSet, true),
                                     new ParameterDefinitionEntry(CimBaseCommand.ClassNameComputerSet, true),
                                  }
             },
             {
-                nameQuery, new HashSet<ParameterDefinitionEntry> {
+                nameQuery, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.QueryExpressionSessionSet, true),
                                     new ParameterDefinitionEntry(CimBaseCommand.QueryExpressionComputerSet, true),
                                  }
             },
             {
-                nameQueryDialect, new HashSet<ParameterDefinitionEntry> {
+                nameQueryDialect, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.QueryExpressionSessionSet, false),
                                     new ParameterDefinitionEntry(CimBaseCommand.QueryExpressionComputerSet, false),
                                  }
             },
             {
-                nameCimSession, new HashSet<ParameterDefinitionEntry> {
+                nameCimSession, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.QueryExpressionSessionSet, true),
                                     new ParameterDefinitionEntry(CimBaseCommand.ClassNameSessionSet, true),
                                  }
             },
             {
-                nameComputerName, new HashSet<ParameterDefinitionEntry> {
+                nameComputerName, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.QueryExpressionComputerSet, false),
                                     new ParameterDefinitionEntry(CimBaseCommand.ClassNameComputerSet, false),
                                  }

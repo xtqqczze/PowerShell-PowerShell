@@ -385,7 +385,8 @@ if (($_.relatedLinks -ne $()) -and ($_.relatedLinks.navigationLink -ne $()) -and
                     .EndEntry()
                 .EndControl();
 
-            var sharedControls = new CustomControl[] {
+            var sharedControls = new CustomControl[]
+            {
                 TextPropertyControl,
                 MamlShortDescriptionControl,
                 MamlDetailsControl,

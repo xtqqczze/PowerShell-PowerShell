@@ -2216,7 +2216,8 @@ namespace System.Management.Automation
             return method.Invoke(target, arguments);
         }
 
-        private static readonly OpCode[] s_ldc = new OpCode[] {
+        private static readonly OpCode[] s_ldc = new OpCode[]
+        {
             OpCodes.Ldc_I4_0, OpCodes.Ldc_I4_1, OpCodes.Ldc_I4_2, OpCodes.Ldc_I4_3, OpCodes.Ldc_I4_4,
             OpCodes.Ldc_I4_5, OpCodes.Ldc_I4_6, OpCodes.Ldc_I4_7, OpCodes.Ldc_I4_8
         };

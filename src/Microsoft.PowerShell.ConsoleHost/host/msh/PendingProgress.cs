@@ -137,7 +137,8 @@ namespace Microsoft.PowerShell
                 }
 
                 AddNode(_topLevelNodes, newNode);
-            } while (false);
+            }
+            while (false);
 
             // At this point the tree is up-to-date.  Make a pass to age all of the nodes
 

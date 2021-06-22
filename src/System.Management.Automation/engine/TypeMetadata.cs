@@ -1425,7 +1425,8 @@ namespace System.Management.Automation
                 }
 
                 error = true;
-            } while (false);
+            }
+            while (false);
 
             if (error)
             {

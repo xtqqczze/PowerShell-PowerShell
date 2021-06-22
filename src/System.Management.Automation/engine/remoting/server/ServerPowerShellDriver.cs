@@ -743,7 +743,8 @@ namespace System.Management.Automation
                         LocalPowerShell.Stop();
                     }
                 }
-            } while (false);
+            }
+            while (false);
 
             if (_extraPowerShell != null)
             {
@@ -760,7 +761,8 @@ namespace System.Management.Automation
                     {
                         _extraPowerShell.Stop();
                     }
-                } while (false);
+                }
+                while (false);
             }
         }
 

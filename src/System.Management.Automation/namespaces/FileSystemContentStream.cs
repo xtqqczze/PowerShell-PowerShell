@@ -1467,7 +1467,8 @@ namespace Microsoft.PowerShell.Commands
                         _byteCount = 1;
                         break;
                     }
-                } while (lengthLeft > _stream.Position);
+                }
+                while (lengthLeft > _stream.Position);
 
                 if (lengthLeft == _stream.Position)
                 {

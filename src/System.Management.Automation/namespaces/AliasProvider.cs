@@ -244,7 +244,8 @@ namespace Microsoft.PowerShell.Commands
                     }
 
                     throw PSTraceSource.NewArgumentException(nameof(value));
-                } while (false);
+                }
+                while (false);
             }
 
             if (writeItem && item != null)

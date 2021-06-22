@@ -2688,7 +2688,8 @@ namespace System.Management.Automation.Remoting.Client
 
                 // input / output streams common to all connections
                 _inputStreamSet = new WSManNativeApi.WSManStreamIDSet_ManToUn(
-                    new string[] {
+                    new string[]
+                    {
                         WSManNativeApi.WSMAN_STREAM_ID_STDIN,
                         WSManNativeApi.WSMAN_STREAM_ID_PROMPTRESPONSE
                     });

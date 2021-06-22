@@ -297,7 +297,8 @@ namespace System.Management.Automation
 
         #endregion AllScope variables created in every session
 
-        internal static readonly string[] AutomaticVariables = {
+        internal static readonly string[] AutomaticVariables =
+        {
                                                                    SpecialVariables.Underbar,
                                                                    SpecialVariables.Args,
                                                                    SpecialVariables.This,
@@ -309,7 +310,8 @@ namespace System.Management.Automation
                                                                    SpecialVariables.PSCommandPath,
                                                                };
 
-        internal static readonly Type[] AutomaticVariableTypes = {
+        internal static readonly Type[] AutomaticVariableTypes =
+        {
                                                                    /* Underbar */          typeof(object),
                                                                    /* Args */              typeof(object[]),
                                                                    /* This */              typeof(object),
@@ -321,7 +323,8 @@ namespace System.Management.Automation
                                                                    /* PSCommandPath */     typeof(string),
                                                                  };
 
-        internal static readonly string[] PreferenceVariables = {
+        internal static readonly string[] PreferenceVariables =
+        {
                                                                     SpecialVariables.DebugPreference,
                                                                     SpecialVariables.VerbosePreference,
                                                                     SpecialVariables.ErrorActionPreference,
@@ -331,7 +334,8 @@ namespace System.Management.Automation
                                                                     SpecialVariables.ConfirmPreference,
                                                                 };
 
-        internal static readonly Type[] PreferenceVariableTypes = {
+        internal static readonly Type[] PreferenceVariableTypes =
+        {
                                                                     /* DebugPreference */       typeof(ActionPreference),
                                                                     /* VerbosePreference */     typeof(ActionPreference),
                                                                     /* ErrorPreference */       typeof(ActionPreference),
@@ -345,7 +349,8 @@ namespace System.Management.Automation
         // see an assignment to any of these variables so that they get handled properly (either throwing an exception
         // because they are constant/readonly, or having the value persist in parent scopes where the allscope variable
         // also exists.
-        internal static readonly string[] AllScopeVariables = {
+        internal static readonly string[] AllScopeVariables =
+        {
                                                                   SpecialVariables.Question,
                                                                   SpecialVariables.ExecutionContext,
                                                                   SpecialVariables.False,

@@ -171,7 +171,8 @@ namespace Microsoft.PowerShell
 
         internal bool? InputRedirectedTestHook;
 
-        private static readonly string[] s_validParameters = {
+        private static readonly string[] s_validParameters =
+        {
             "sta",
             "mta",
             "command",

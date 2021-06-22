@@ -447,7 +447,8 @@ namespace System.Management.Automation
                                 yield break;
                             }
                         }
-                    } while (gotResults);
+                    }
+                    while (gotResults);
                 }
         }
 
@@ -833,7 +834,8 @@ namespace System.Management.Automation
             return RewriteManifest(originalManifest, null, null, null);
         }
 
-        private static readonly string[] s_manifestEntriesToKeepAsString = new[] {
+        private static readonly string[] s_manifestEntriesToKeepAsString = new[]
+        {
             "GUID",
             "Author",
             "CompanyName",
@@ -843,7 +845,8 @@ namespace System.Management.Automation
             "HelpInfoURI",
         };
 
-        private static readonly string[] s_manifestEntriesToKeepAsStringArray = new[] {
+        private static readonly string[] s_manifestEntriesToKeepAsStringArray = new[]
+        {
             "FunctionsToExport",
             "VariablesToExport",
             "AliasesToExport",

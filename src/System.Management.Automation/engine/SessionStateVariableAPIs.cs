@@ -500,7 +500,8 @@ namespace System.Management.Automation
 
 #endif
                 break;
-            } while (false);
+            }
+            while (false);
 
             return result;
         }

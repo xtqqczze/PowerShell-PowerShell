@@ -538,7 +538,8 @@ namespace System.Management.Automation
                         readyToRunChildJob = _readyToRunRegularJobs.Dequeue();
                         break;
                     }
-                } while (false);
+                }
+                while (false);
             }
 
             if (readyToRunChildJob != null)

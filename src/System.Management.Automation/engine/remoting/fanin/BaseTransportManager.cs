@@ -1328,7 +1328,8 @@ namespace System.Management.Automation.Remoting.Server
                         {
                             dataToBeSent = null;
                         }
-                    } while (dataToBeSent != null);
+                    }
+                    while (dataToBeSent != null);
                 }
                 finally
                 {

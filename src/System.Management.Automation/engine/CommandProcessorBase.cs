@@ -816,7 +816,8 @@ namespace System.Management.Automation
                         e = new CmdletInvocationException(
                                     e,
                                     Command.MyInvocation);
-                    } while (false);
+                    }
+                    while (false);
 
                     // commandRuntime.ManageException will always throw PipelineStoppedException
                     // Otherwise, just return this exception...

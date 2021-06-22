@@ -255,13 +255,15 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
         private static readonly Dictionary<string, HashSet<ParameterDefinitionEntry>> parameters = new()
         {
             {
-                nameCimSession, new HashSet<ParameterDefinitionEntry> {
+                nameCimSession, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.SessionSetName, true),
                                  }
             },
 
             {
-                nameComputerName, new HashSet<ParameterDefinitionEntry> {
+                nameComputerName, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.ComputerSetName, false),
                                  }
             },

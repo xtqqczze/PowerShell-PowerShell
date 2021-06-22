@@ -175,7 +175,8 @@ namespace System.Management.Automation.Interpreter
             {
                 yield return new InterpretedFrameInfo(frame.Name, frame.GetDebugInfo(frame.InstructionIndex));
                 frame = frame.Parent;
-            } while (frame != null);
+            }
+            while (frame != null);
         }
 
         internal void SaveTraceToException(Exception exception)
@@ -202,7 +203,8 @@ namespace System.Management.Automation.Interpreter
                 {
                     trace.Add(frame.Name);
                     frame = frame.Parent;
-                } while (frame != null);
+                }
+                while (frame != null);
                 return trace.ToArray();
             }
         }

@@ -646,7 +646,8 @@ namespace System.Management.Automation.Provider
                     // Now that the path has been normalized, create the relative path
                     result = CreateNormalizedRelativePathFromStack(normalizedPathStack);
                 }
-            } while (false);
+            }
+            while (false);
 
             if (originalPathHadTrailingSlash)
             {

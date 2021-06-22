@@ -383,7 +383,8 @@ namespace Microsoft.PowerShell.Commands
 
                 // Get the last 'bitsToRepresentDiff' number of random bits
                 randomUint64 &= mask;
-            } while (uint64Diff <= randomUint64);
+            }
+            while (uint64Diff <= randomUint64);
 
             double randomNumber = minValue * 1.0 + randomUint64 * 1.0;
             return (Int64)randomNumber;
@@ -724,7 +725,8 @@ namespace Microsoft.PowerShell.Commands
             do
             {
                 randomNumber = InternalSample();
-            } while (randomNumber == Int32.MaxValue);
+            }
+            while (randomNumber == Int32.MaxValue);
 
             randomNumber += Int32.MaxValue;
             return randomNumber;

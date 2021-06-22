@@ -1237,7 +1237,8 @@ namespace System.Management.Automation.Remoting
 
                 _connecting = false;
                 return namedPipeClientStream;
-            } while (_connecting && (elapsedTime < timeout));
+            }
+            while (_connecting && (elapsedTime < timeout));
 
             _connecting = false;
 
@@ -1328,7 +1329,8 @@ namespace System.Management.Automation.Remoting
                 {
                     break;
                 }
-            } while (elapsedTime < timeout);
+            }
+            while (elapsedTime < timeout);
 
             try
             {

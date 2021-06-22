@@ -376,7 +376,8 @@ namespace Microsoft.PowerShell.Commands
                         break;
                     }
                 }
-            } while (bytesRead != 0);
+            }
+            while (bytesRead != 0);
 
             return result.ToString();
         }
@@ -446,7 +447,8 @@ namespace Microsoft.PowerShell.Commands
                             encoding = localEncoding;
                         }
                     }
-                } while (false);
+                }
+                while (false);
             }
 
             return content;

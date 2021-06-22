@@ -2336,7 +2336,8 @@ namespace System.Management.Automation.Language
                 newParamText.Append(paramText.AsSpan(startOffset, astStartOffset - startOffset));
                 newParamText.Append(newVarName);
                 startOffset = astEndOffset;
-            } while (orderedUsingVar.MoveNext());
+            }
+            while (orderedUsingVar.MoveNext());
 
             if (startOffset == 0)
             {

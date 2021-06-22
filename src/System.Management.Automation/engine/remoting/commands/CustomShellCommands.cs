@@ -579,7 +579,8 @@ else
                     dollarUnder: AutomationNull.Value,
                     input: Array.Empty<object>(),
                     scriptThis: AutomationNull.Value,
-                    args: new object[] {
+                    args: new object[]
+                    {
                                             file,
                                             shellName,
                                             ShowSecurityDescriptorUI.ToBool(),
@@ -2676,7 +2677,8 @@ else
                 dollarUnder: AutomationNull.Value,
                 input: Array.Empty<object>(),
                 scriptThis: AutomationNull.Value,
-                args: new object[] {
+                args: new object[]
+                {
                                            Name,
                                            whatIf,
                                            confirm,
@@ -2916,10 +2918,12 @@ $args[0] | ForEach-Object {{
                     dollarUnder: AutomationNull.Value,
                     input: Array.Empty<object>(),
                     scriptThis: AutomationNull.Value,
-                    args: new object[] {
+                    args: new object[]
+                    {
                                                    arguments,
                                                    csNotFoundMessageFormat,
-                                                   _force}
+                                                   _force
+                    }
                                             );
             }
             finally
@@ -3231,7 +3235,8 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
 
         private static readonly ScriptBlock s_setPluginSb;
         // property names used by the script to update InitParameters.
-        private static readonly string[] s_initParametersMap = new string[] {
+        private static readonly string[] s_initParametersMap = new string[]
+        {
             ConfigurationDataFromXML.APPBASETOKEN,
             ConfigurationDataFromXML.ASSEMBLYTOKEN,
             ConfigurationDataFromXML.SHELLCONFIGTYPETOKEN,
@@ -3481,7 +3486,8 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                 dollarUnder: AutomationNull.Value,
                 input: Array.Empty<object>(),
                 scriptThis: AutomationNull.Value,
-                args: new object[] {
+                args: new object[]
+                {
                                                propertiesToUpdate,
                                                s_initParametersMap,
                                                force,
@@ -3577,7 +3583,8 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                   dollarUnder: AutomationNull.Value,
                   input: Array.Empty<object>(),
                   scriptThis: AutomationNull.Value,
-                  args: new object[] {
+                  args: new object[]
+                    {
                             runAsCredential.UserName,
                             runAsCredential.Password,
                         });
@@ -3654,7 +3661,8 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                 dollarUnder: AutomationNull.Value,
                 input: Array.Empty<object>(),
                 scriptThis: AutomationNull.Value,
-                args: new object[] {
+                args: new object[]
+                {
                             optionsTable,
                         });
         }
@@ -3750,7 +3758,8 @@ Set-PSSessionConfiguration $args[0] $args[1] $args[2] $args[3] $args[4] $args[5]
                             dollarUnder: AutomationNull.Value,
                             input: Array.Empty<object>(),
                             scriptThis: AutomationNull.Value,
-                            args: new object[] {
+                            args: new object[]
+                            {
                                                 encodedSessionConfigData,
                                               });
                     }
@@ -4381,7 +4390,8 @@ $_ | Enable-PSSessionConfiguration -force $args[0] -sddl $args[1] -isSDDLSpecifi
                 dollarUnder: _shellsToEnable,
                 input: Array.Empty<object>(),
                 scriptThis: AutomationNull.Value,
-                args: new object[] {
+                args: new object[]
+                {
                                                _force,
                                                sddl,
                                                isSddlSpecified,
@@ -4395,7 +4405,8 @@ $_ | Enable-PSSessionConfiguration -force $args[0] -sddl $args[1] -isSDDLSpecifi
                                                setEnabledTarget,
                                                setEnabledAction,
                                                _skipNetworkProfileCheck,
-                                               _noRestart});
+                                               _noRestart
+                });
 
             System.Management.Automation.Tracing.Tracer tracer = new System.Management.Automation.Tracing.Tracer();
 
@@ -4616,14 +4627,16 @@ $_ | Disable-PSSessionConfiguration -force $args[0] -whatif:$args[1] -confirm:$a
                 dollarUnder: _shellsToDisable,
                 input: Array.Empty<object>(),
                 scriptThis: AutomationNull.Value,
-                args: new object[] {
+                args: new object[]
+                {
                                                _force,
                                                whatIf,
                                                confirm,
                                                restartWinRMMessage,
                                                setEnabledTarget,
                                                setEnabledAction,
-                                               _noRestart});
+                                               _noRestart
+                });
 
             System.Management.Automation.Tracing.Tracer tracer = new System.Management.Automation.Tracing.Tracer();
 
@@ -4995,7 +5008,8 @@ Enable-PSRemoting -force $args[0] -queryForRegisterDefault $args[1] -captionForR
                 dollarUnder: AutomationNull.Value,
                 input: Array.Empty<object>(),
                 scriptThis: AutomationNull.Value,
-                args: new object[] {
+                args: new object[]
+                {
                                                _force,
                                                queryMessage,
                                                captionMessage,
@@ -5004,7 +5018,8 @@ Enable-PSRemoting -force $args[0] -queryForRegisterDefault $args[1] -captionForR
                                                whatIf,
                                                confirm,
                                                _skipNetworkProfileCheck,
-                                               RemotingErrorIdStrings.UnableToInstallPlugin});
+                                               RemotingErrorIdStrings.UnableToInstallPlugin
+                });
         }
 
         #endregion
@@ -5201,13 +5216,15 @@ Disable-PSRemoting -force:$args[0] -queryForSet $args[1] -captionForSet $args[2]
                 dollarUnder: AutomationNull.Value,
                 input: Array.Empty<object>(),
                 scriptThis: AutomationNull.Value,
-                args: new object[] {
+                args: new object[]
+                {
                                                _force,
                                                queryMessage,
                                                captionMessage,
                                                restartWinRMMessage,
                                                whatIf,
-                                               confirm});
+                                               confirm
+                });
         }
 
         #endregion Cmdlet Override

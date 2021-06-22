@@ -188,22 +188,26 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
         private static readonly Dictionary<string, HashSet<ParameterDefinitionEntry>> parameters = new()
         {
             {
-                nameComputerName, new HashSet<ParameterDefinitionEntry> {
+                nameComputerName, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.ComputerNameSet, false),
                                  }
             },
             {
-                nameId, new HashSet<ParameterDefinitionEntry> {
+                nameId, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.SessionIdSet, true),
                                  }
             },
             {
-                nameInstanceId, new HashSet<ParameterDefinitionEntry> {
+                nameInstanceId, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.InstanceIdSet, true),
                                  }
             },
             {
-                nameName, new HashSet<ParameterDefinitionEntry> {
+                nameName, new HashSet<ParameterDefinitionEntry>
+                {
                                     new ParameterDefinitionEntry(CimBaseCommand.NameSet, true),
                                  }
             },

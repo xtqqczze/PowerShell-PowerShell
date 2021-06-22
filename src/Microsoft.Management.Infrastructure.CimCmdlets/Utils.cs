@@ -160,7 +160,8 @@ namespace Microsoft.Management.Infrastructure.CimCmdlets
         /// <summary>
         /// Indent space strings array.
         /// </summary>
-        internal static readonly string[] spaces = {
+        internal static readonly string[] spaces =
+        {
                                               string.Empty,
                                               space,
                                               space + space,

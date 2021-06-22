@@ -787,7 +787,8 @@ namespace System.Management.Automation
                         parameterMetadata.CollectionTypeInformation.ElementType,
                         element,
                         false);
-                } while (ParserOps.MoveNext(null, null, ienum));
+                }
+                while (ParserOps.MoveNext(null, null, ienum));
             }
 
             if (isEmpty && !parameterMetadata.AllowsEmptyCollectionArgument)
@@ -1273,7 +1274,8 @@ namespace System.Management.Automation
                         bindingTracer.WriteLine(
                             "CONVERT SUCCESSFUL using LanguagePrimitives.ConvertTo: [{0}]",
                             (result == null) ? "null" : result.ToString());
-                    } while (false);
+                    }
+                    while (false);
                 }
                 catch (NotSupportedException notSupported)
                 {
@@ -1894,7 +1896,8 @@ namespace System.Management.Automation
                     // Set the converted result object untrusted if necessary
                     ExecutionContext.PropagateInputSource(originalValue, result, Context.LanguageMode);
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }

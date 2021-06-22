@@ -1425,7 +1425,8 @@ namespace System.Management.Automation
 
                     s_tracer.WriteLine("providerId = {0}", providerId);
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }
@@ -1537,7 +1538,8 @@ namespace System.Management.Automation
                         result = true;
                     }
                 }
-            } while (false);
+            }
+            while (false);
 
             return result;
         }
@@ -1626,7 +1628,8 @@ namespace System.Management.Automation
 
                     result = true;
                 }
-            } while (false);
+            }
+            while (false);
 
 #if DEBUG
             if (result)
@@ -4397,7 +4400,8 @@ namespace System.Management.Automation
                 {
                     s_pathResolutionTracer.WriteLine("NOT path wildcard match: {0}", childName);
                 }
-            } while (false);
+            }
+            while (false);
 
             s_tracer.WriteLine("result = {0}; childName = {1}", result.ToString(), childName);
             return result;
