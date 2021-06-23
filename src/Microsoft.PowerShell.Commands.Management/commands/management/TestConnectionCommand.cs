@@ -480,7 +480,8 @@ namespace Microsoft.PowerShell.Commands
         #region MTUSizeTest
         private void ProcessMTUSize(string targetNameOrAddress)
         {
-            PingReply? reply, replyResult = null;
+            PingReply reply;
+            PingReply? replyResult = null;
             if (!TryResolveNameOrAddress(targetNameOrAddress, out string resolvedTargetName, out IPAddress? targetAddress))
             {
                 if (Quiet.IsPresent)
@@ -502,7 +503,7 @@ namespace Microsoft.PowerShell.Commands
                 PingOptions pingOptions = new(MaxHops, true);
                 int retry = 1;
 
-                while (LowMTUSize < (HighMTUSize - 1))
+                do
                 {
                     byte[] buffer = GetSendBuffer(CurrentMTUSize);
 
@@ -555,11 +556,28 @@ namespace Microsoft.PowerShell.Commands
                     // Prevent DoS attack.
                     Thread.Sleep(100);
                 }
+                while (LowMTUSize < (HighMTUSize - 1));
             }
             catch (PingException ex)
             {
                 string message = StringUtil.Format(TestConnectionResources.NoPingResult, targetAddress, ex.Message);
                 Exception pingException = new PingException(message, ex.InnerException);
+                ErrorRecord errorRecord = new(
+                    pingException,
+                    TestConnectionExceptionId,
+                    ErrorCategory.ResourceUnavailable,
+                    targetAddress);
+                WriteError(errorRecord);
+                return;
+            }
+
+            if (replyResult is null)
+            {
+                string message = StringUtil.Format(
+                    TestConnectionResources.NoPingResult,
+                    targetAddress,
+                    reply.Status.ToString());
+                Exception pingException = new PingException(message);
                 ErrorRecord errorRecord = new(
                     pingException,
                     TestConnectionExceptionId,
@@ -578,7 +596,7 @@ namespace Microsoft.PowerShell.Commands
                 WriteObject(new PingMtuStatus(
                     Source,
                     resolvedTargetName,
-                    replyResult ?? throw new ArgumentNullException(nameof(replyResult)),
+                    replyResult,
                     CurrentMTUSize));
             }
         }
