@@ -2204,10 +2204,14 @@ function New-ReferenceAssembly
 
             $sourceProjectRoot = Join-Path $PSScriptRoot "projects/reference/$assemblyName"
             $sourceProjectFile = Join-Path $sourceProjectRoot "$assemblyName.csproj"
-            Copy-Item -Path $sourceProjectFile -Destination "$projectFolder/$assemblyName.csproj" -Force
-            Copy-Item -Path (Join-Path -Path $PSScriptRoot -ChildPath "../../nuget.config") -Destination $projectFolder
 
-            Write-Host "##vso[artifact.upload containerfolder=artifact;artifactname=artifact]$projectFolder/$assemblyName.csproj"
+            $destProjectFile = Join-Path $projectFolder "$assemblyName.csproj"
+            $nugetConfigFile = Join-Path $PSScriptRoot "../../nuget.config"
+
+            Copy-Item -Path $sourceProjectFile -Destination $destProjectFile -Force -Verbose
+            Copy-Item -Path $nugetConfigFile -Destination $projectFolder -Verbose
+
+            Write-Host "##vso[artifact.upload containerfolder=artifact;artifactname=artifact]$destProjectFile"
             Write-Host "##vso[artifact.upload containerfolder=artifact;artifactname=artifact]$generatedSource"
 
             $arguments = GenerateBuildArguments -AssemblyName $assemblyName -RefAssemblyVersion $RefAssemblyVersion -SnkFilePath $SnkFilePath -SMAReferencePath $SMAReferenceAssembly
@@ -3278,7 +3282,8 @@ function Start-MsiBuild {
     Write-Log "running light..."
     # suppress ICE61, because we allow same version upgrades
     # suppress ICE57, this suppresses an error caused by our shortcut not being installed per user
-    Start-NativeExecution -VerboseOutputOnError {& $wixPaths.wixLightExePath -sice:ICE61 -sice:ICE57 -out $msiLocationPath -pdbout $msiPdbLocationPath $objectPaths $extensionArgs }
+    # suppress ICE40, REINSTALLMODE is defined in the Property table.
+    Start-NativeExecution -VerboseOutputOnError {& $wixPaths.wixLightExePath -sice:ICE61 -sice:ICE40 -sice:ICE57 -out $msiLocationPath -pdbout $msiPdbLocationPath $objectPaths $extensionArgs }
 
     foreach($file in $objectPaths)
     {
