@@ -1862,7 +1862,6 @@ namespace System.Management.Automation
                 if (RemotePowerShell != null)
                 {
                     RemotePowerShell.Clear();
-                    RemotePowerShell.Dispose();
                 }
 
                 RemotePowerShell = new ClientRemotePowerShell(this, remoteRunspace.RunspacePool.RemoteRunspacePoolInternal);
@@ -1924,7 +1923,6 @@ namespace System.Management.Automation
                             if (RemotePowerShell != null)
                             {
                                 RemotePowerShell.Clear();
-                                RemotePowerShell.Dispose();
                             }
 
                             RemotePowerShell = new
@@ -4171,11 +4169,6 @@ namespace System.Management.Automation
                 if (IsRunspaceOwner)
                 {
                     _runspace.Dispose();
-                }
-
-                if (RemotePowerShell != null)
-                {
-                    RemotePowerShell.Dispose();
                 }
 
                 _invokeAsyncResult = null;

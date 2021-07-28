@@ -15,7 +15,7 @@ namespace System.Management.Automation.Runspaces.Internal
     /// PowerShell client side proxy base which handles invocation
     /// of powershell on a remote machine.
     /// </summary>
-    internal sealed class ClientRemotePowerShell : IDisposable
+    internal sealed class ClientRemotePowerShell
     {
         #region Tracer
 
@@ -934,20 +934,6 @@ namespace System.Management.Automation.Runspaces.Internal
         private PSConnectionRetryStatus _connectionRetryStatus = PSConnectionRetryStatus.None;
 
         #endregion Private Fields
-
-        #region IDisposable
-
-        /// <summary>
-        /// Release all resources.
-        /// </summary>
-        public void Dispose()
-        {
-            // inputstream.Dispose();
-            // outputstream.Dispose();
-            // errorstream.Dispose();
-        }
-
-        #endregion IDisposable
     }
 
     #region PSConnectionRetryStatusEventArgs
