@@ -1859,10 +1859,7 @@ namespace System.Management.Automation
             {
                 _rsConnection = remoteRunspace.RunspacePool;
 
-                if (RemotePowerShell != null)
-                {
-                    RemotePowerShell.Clear();
-                }
+                RemotePowerShell?.Clear();
 
                 RemotePowerShell = new ClientRemotePowerShell(this, remoteRunspace.RunspacePool.RemoteRunspacePoolInternal);
             }
@@ -1920,10 +1917,7 @@ namespace System.Management.Automation
 
                         if (_runspacePool.IsRemote)
                         {
-                            if (RemotePowerShell != null)
-                            {
-                                RemotePowerShell.Clear();
-                            }
+                            RemotePowerShell?.Clear();
 
                             RemotePowerShell = new
                                 ClientRemotePowerShell(this, _runspacePool.RemoteRunspacePoolInternal);
