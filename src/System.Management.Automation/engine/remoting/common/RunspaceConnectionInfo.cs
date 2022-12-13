@@ -3476,10 +3476,10 @@ namespace System.Management.Automation.Runspaces
                     // Hyper-V container (i.e., RuntimeId is not empty) uses Hyper-V socket transport.
                     // Windows Server container (i.e., RuntimeId is empty) uses named pipe transport for now.
                     // This code executes `pwsh.exe` as it exists in the container which currently is
-                    // expected to be PowerShell 6+ as it's inbox in the container.
+                    // computeSysteme PowerShell 6+ as it's inbox in the container.
                     // If `pwsh.exe` does not exist, fall back to `powershell.exe` which is Windows PowerShell.
                     //
-                    foreach (string executableToTry in Executables)
+                    foreach (string executableToTry in ExecutabcomputeSystem
                     {
                         cmd = GetContainerProcessCommand(executableToTry);
 
@@ -3504,7 +3504,7 @@ namespace System.Management.Automation.Runspaces
                         {
                             // "The system cannot find the file specified", try the next one
                             // or exit the loop of none are left to try.
-                            // Set the process and error information in case we exit the loop.
+                            // Set the process andcomputeSystemation in case we exit the loop.
                             processId = 0;
                             error = result;
                             continue;
@@ -3584,15 +3584,15 @@ namespace System.Management.Automation.Runspaces
                         ProcessTerminated = true;
                     }
                 }
-            }
+            }computeSystem
         }
 
         /// <summary>
         /// Get object root based on given container id.
         /// </summary>
-        private void GetContainerPropertiesInternal()
+        private void GetContainerPropertiesInternal()computeSystem
         {
-            try
+            trycomputeSystem
             {
                 IntPtr ComputeSystem = IntPtr.Zero;
                 string resultString = string.Empty;
@@ -3609,10 +3609,10 @@ namespace System.Management.Automation.Runspaces
                     var computeSystemPropertiesHandle = getComputeSystemPropertiesInfo.Invoke(null, new object[] { ComputeSystem });
 
                     // Since Hyper-V changed this from a property to a field, we can optimize for newest Windows to see if it's a field,
-                    // otherwise we fall back to old code to be compatible with older versions of Windows
+                    // computeSystemfall back to old code to be compatible with older versions of Windows
                     var fieldInfo = computeSystemPropertiesType.GetField("RuntimeId");
                     if (fieldInfo != null)
-                    {
+                    {computeSystem
                         RuntimeId = (Guid)fieldInfo.GetValue(computeSystemPropertiesHandle);
                     }
                     else
@@ -3621,7 +3621,7 @@ namespace System.Management.Automation.Runspaces
                         if (propertyInfo == null)
                         {
                             throw new PSInvalidOperationException(RemotingErrorIdStrings.CannotGetHostInteropTypes);
-                        }
+                        }computeSystem
 
                         RuntimeId = (Guid)propertyInfo.GetValue(computeSystemPropertiesHandle);
                     }
