@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="init/Test.Isolated.Init.csproj" />
+  <Project Path="nested/Test.Isolated.Nested.csproj" />
+  <Project Path="root/Test.Isolated.Root.csproj" />
+</Solution>
