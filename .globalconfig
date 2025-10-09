@@ -514,9 +514,17 @@ dotnet_diagnostic.CA1847.severity = warning
 # https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1852
 dotnet_diagnostic.CA1852.severity = warning
 
+# CA1853: Unnecessary call to 'Dictionary.ContainsKey(key)'
+# https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1853
+dotnet_diagnostic.CA1853.severity = warning
+
 # CA1858: Use 'StartsWith' instead of 'IndexOf'
 # https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1858
 dotnet_diagnostic.CA1858.severity = warning
+
+# CA1860: Avoid using 'Enumerable.Any()' extension method
+# https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1860
+dotnet_diagnostic.CA1860.severity = warning
 
 # CA1868: Unnecessary call to 'Contains' for sets
 # https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1868
