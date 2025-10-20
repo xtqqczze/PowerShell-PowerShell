@@ -5,6 +5,8 @@
   <PropertyGroup>
     <Description>PowerShell's Microsoft.PowerShell.LocalAccounts project</Description>
     <AssemblyName>Microsoft.PowerShell.LocalAccounts</AssemblyName>
+    <NoWarn>$(NoWarn);SYSLIB0051</NoWarn>
+    <RunAnalyzers>false</RunAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
