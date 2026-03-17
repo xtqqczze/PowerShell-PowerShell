@@ -2111,20 +2111,8 @@ namespace System.Management.Automation.Runspaces
 
         /// <summary>
         /// </summary>
-        public virtual HashSet<string> StartupScripts
-        {
-            get
-            {
-                if (_startupScripts == null)
-                {
-                    Interlocked.CompareExchange(ref _startupScripts, new HashSet<string>(), null);
-                }
-
-                return _startupScripts;
-            }
-        }
-
-        private HashSet<string> _startupScripts;
+        public virtual HashSet<string> StartupScripts =>
+            field ?? Interlocked.CompareExchange(ref field, new(), null) ?? field;
 
         private readonly object _syncObject = new object();
 
